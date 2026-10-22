@@ -1,0 +1,159 @@
+{
+    "rows": [
+        {
+            "name": "ERP software",
+            "layer": "C",
+            "statement": 1,
+            "eurostat_indicator": "E_ERP1",
+            "ukraine_percent": 20.4,
+            "ukraine_year": "2025",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 45.06,
+            "eurostat_year": "2025",
+            "leader_country": "ES",
+            "leader_percent": 66.42,
+            "eu27_countries_without_value": [
+                "BE",
+                "DK",
+                "FI",
+                "LU",
+                "PT"
+            ],
+            "ukraine_score": 0.307,
+            "eu27_score": 0.678
+        },
+        {
+            "name": "IoT for production processes",
+            "layer": "C",
+            "statement": 2,
+            "eurostat_indicator": "E_IOTDPP",
+            "ukraine_percent": 2.2,
+            "ukraine_year": "2022",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 9.68,
+            "eurostat_year": "2021",
+            "leader_country": "IT",
+            "leader_percent": 21.2,
+            "eu27_countries_without_value": [
+                "BE",
+                "ES",
+                "FI",
+                "LU"
+            ],
+            "ukraine_score": 0.104,
+            "eu27_score": 0.457
+        },
+        {
+            "name": "Document(s) on ICT security",
+            "layer": "C",
+            "statement": 3,
+            "eurostat_indicator": "E_SECPOL2",
+            "ukraine_percent": 7.3,
+            "ukraine_year": "2023",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 26.68,
+            "eurostat_year": "2024",
+            "leader_country": "IE",
+            "leader_percent": 65.85,
+            "eu27_countries_without_value": [
+                "BE",
+                "FI",
+                "LU"
+            ],
+            "ukraine_score": 0.111,
+            "eu27_score": 0.405
+        },
+        {
+            "name": "Internet of Things",
+            "layer": "L2",
+            "statement": 8,
+            "eurostat_indicator": "E_IOT1",
+            "ukraine_percent": 9.4,
+            "ukraine_year": "2022",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 29.43,
+            "eurostat_year": "2021",
+            "leader_country": "SE",
+            "leader_percent": 49.89,
+            "eu27_countries_without_value": [
+                "AT",
+                "BE",
+                "ES",
+                "FI",
+                "LU"
+            ],
+            "ukraine_score": 0.188,
+            "eu27_score": 0.59
+        },
+        {
+            "name": "Paid cloud computing services",
+            "layer": "L3",
+            "statement": 10,
+            "eurostat_indicator": "E_CC",
+            "ukraine_percent": 16.9,
+            "ukraine_year": "2025",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 40.88,
+            "eurostat_year": "2025",
+            "leader_country": "IE",
+            "leader_percent": 71.23,
+            "eu27_countries_without_value": [
+                "BE",
+                "DK",
+                "FI",
+                "LU"
+            ],
+            "ukraine_score": 0.237,
+            "eu27_score": 0.574
+        },
+        {
+            "name": "CRM software",
+            "layer": "L4",
+            "statement": 13,
+            "eurostat_indicator": "E_CRM1",
+            "ukraine_percent": 6.9,
+            "ukraine_year": "2025",
+            "ukraine_data_updated": "16.09.2026",
+            "eu27_percent": 17.99,
+            "eurostat_year": "2025",
+            "leader_country": "NL",
+            "leader_percent": 31.25,
+            "eu27_countries_without_value": [
+                "BE",
+                "FI",
+                "LU"
+            ],
+            "ukraine_score": 0.221,
+            "eu27_score": 0.576
+        }
+    ],
+    "layer_profile": {
+        "C": {
+            "ukraine": 0.174,
+            "eu27": 0.513
+        },
+        "L2": {
+            "ukraine": 0.188,
+            "eu27": 0.59
+        },
+        "L3": {
+            "ukraine": 0.237,
+            "eu27": 0.574
+        },
+        "L4": {
+            "ukraine": 0.221,
+            "eu27": 0.576
+        }
+    },
+    "layers_not_measured": [
+        "L1"
+    ],
+    "ukraine_layers_below_delta": [
+        "C",
+        "L2",
+        "L3",
+        "L4"
+    ],
+    "eu27_layers_below_delta": [],
+    "note": "L1 has no common indicator in Derzhstat and Eurostat; agriculture (NACE A) is not covered by either survey."
+}
