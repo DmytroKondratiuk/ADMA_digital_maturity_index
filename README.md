@@ -2,7 +2,7 @@
 
 Replication package for the paper
 
-> Kondratiuk, D. (forthcoming), "Benchmarking agri-food digital maturity without masking the weak link", submitted to *Benchmarking: An International Journal*.
+> Kondratiuk, D. (forthcoming), "Benchmarking agri-food digital maturity without masking the weak link".
 
 The repository contains every statistical input of the paper in its original form, the scripts that compute all reported numbers, and the outputs they produce.
 
