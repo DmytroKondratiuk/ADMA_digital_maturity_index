@@ -1,0 +1,226 @@
+[
+ {
+  "file": "data/raw/eurostat/isoc_cicce_usen2.csv",
+  "bytes": 74895,
+  "sha256": "848a3668146d7499e89a79dac7b2f7c8640fb24d1e9ba4b3355fe2eeb567620b",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cicce_usen2/A.GE10.C10-C12+C10-S951_X_K.E_CC+E_CC1_S.PC_ENT.?format=SDMX-CSV",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/eurostat/isoc_cisce_ran2.csv",
+  "bytes": 33774,
+  "sha256": "7fce3b92d5ee900c9353c83e4904de45b21a4a0fb618c3a1b3837cda43856d00",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cisce_ran2/A.GE10.C10-C12+C10-S951_X_K.E_SECMGE1+E_SECPOL2.PC_ENT.?format=SDMX-CSV",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/eurostat/isoc_e_esms_metadata.htm",
+  "bytes": 230816,
+  "sha256": "5705acd8a20f5905e5c70d8afc54826813cf31f0743a12361727f1f82455a4e6",
+  "url": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/eurostat/isoc_eb_iipn2.csv",
+  "bytes": 78584,
+  "sha256": "db9686c65679428ec1510ff9adbe1e216b2bdba7a56a09749b11d34eebc71cfe",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12+C10-S951_X_K.E_ERP1+E_CRM1.PC_ENT.?format=SDMX-CSV",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/eurostat/isoc_eb_iotn2.csv",
+  "bytes": 13165,
+  "sha256": "f188194cc162b62115cb6e0d4c4e0085f2f007ba48cd787387b78cf387edb406",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iotn2/A.GE10.C10-C12+C10-S951_X_K.E_IOT1+E_IOTDPP.PC_ENT.?format=SDMX-CSV",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/archive_2017_2022.zip",
+  "bytes": 253164,
+  "sha256": "59f34e382f19b9636ede2f7f0c2fbf9fdab389ae1340b59a57f7647cc0159afe",
+  "url": "https://stat.gov.ua/uk/datasets/vykorystannya-informatsiyno-komunikatsiynykh-tekhnolohiy-na-pidpryyemstvakh (link \"Download ZIP\")",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/cloud.csv",
+  "bytes": 12044,
+  "sha256": "8c12d4464c3293a45e6b24c19dba914ecb6c9c20570543105d732a0ccbf9ac02",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_CLOUD.UA00000000000000000.CLOUD_COMPUTING_TYPE+_T._T._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/crm.csv",
+  "bytes": 11112,
+  "sha256": "bddd8c15cf87c7c2e4a395fbb8b0fe1873fa8c0e75993de8ae094be9a47d9967",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_CRM_SOFTWARE.UA00000000000000000._T._T._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/erp.csv",
+  "bytes": 11117,
+  "sha256": "6b9129649facb84a11aee682bd329f9b5963e1caf73884131016413492866bdc",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_ERP_SOFTWARE.UA00000000000000000._T._T._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/ict_security_documents.csv",
+  "bytes": 7478,
+  "sha256": "46cbf415d5f0da2185e49f735770fa9d351b4c05faaedde248c9ed293135aef5",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_HAVE_DOCUMENT.UA00000000000000000._T._T._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/ict_security_measures.csv",
+  "bytes": 113009,
+  "sha256": "235e547751c9f1c09e6981d1236a0d395febb664923cbee04bc1d8027331fa9b",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_ICT_SECURITY.UA00000000000000000.*.*._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/data_bank/iot.csv",
+  "bytes": 60593,
+  "sha256": "ba475a664b9982a2422ccdaedc26597b9293e594154c939bddf495cc8e17ab7b",
+  "url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_INTERNET_THINGS.UA00000000000000000.*.*._T.C10-C12+_T.A",
+  "accept_header": "application/vnd.sdmx.data+csv;version=2.0.0",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/methodology/126_2026_calculation_method.pdf",
+  "bytes": 2023422,
+  "sha256": "dde5f6b9522973ffbd101356dd3936708679a83a63efdff75f66f27cef535ce6",
+  "url": "https://stat.gov.ua/sites/default/files/2026-05/126_2026.pdf",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/methodology/139_2025_methodology.pdf",
+  "bytes": 540121,
+  "sha256": "a2ba71b55904fba3bfd731ca6acfd1e8dac0052507ed0be67ef0c1033ba89408",
+  "url": "https://stat.gov.ua/sites/default/files/2026-05/139_2025.pdf",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/methodology/415_2022_methodology.pdf",
+  "bytes": 889528,
+  "sha256": "9c3ef228f8be4c108b184f1ff253f667f51c953a5e5e7ec3390aff7da471f2d6",
+  "url": "https://stat.gov.ua/sites/default/files/2026-05/415_2022.pdf",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/methodology/zv_vikt_2022_quality_report.pdf",
+  "bytes": 115967,
+  "sha256": "e9f5a5db55ed836801b9d08c923a39aebafc1f30c8c47d1c25902f7ce2759895",
+  "url": "https://stat.gov.ua/sites/default/files/2026-04/zv_vikt_2022.pdf",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/methodology/zv_vikt_2024_quality_report.pdf",
+  "bytes": 323215,
+  "sha256": "60af0b382c140dabb83c9d3d76c913a6a6d49f3a6fd4c524d9c4e322ac87bd42",
+  "url": "https://stat.gov.ua/sites/default/files/2026-04/zv_vikt_2024.pdf",
+  "downloaded": "2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/elt.xlsx",
+  "bytes": 58864,
+  "sha256": "f48e32f2f6b741f9afb877aed6809fce912c0af92fc7ac27b26d21231dabfbac",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/elt.xlsx",
+  "server_last_modified": "2025-09-16",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_18-21.xls",
+  "bytes": 214016,
+  "sha256": "5526b83181dd32abe1f17f30212ddbae587a0acd2d636e53f14b8aba9e3be2e4",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_18-21.xls",
+  "server_last_modified": "2021-09-30",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_18-22.xlsx",
+  "bytes": 43487,
+  "sha256": "cf30a57201d95692f121d0577ad64ba66540d87cbd9e59de962538d3eeae4d8b",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_18-22.xlsx",
+  "server_last_modified": "2023-02-06",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_3D_18-21.xlsx",
+  "bytes": 74180,
+  "sha256": "0de5df37de3f282744e1019650c8c02f26632ffd7d4fa2437ed93c45c270b4b1",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_3D_18-21.xlsx",
+  "server_last_modified": "2021-09-30",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_int.xlsx",
+  "bytes": 227095,
+  "sha256": "016ff6b692a113e699a17c10e5956517564538d4e4c632c4ba00bb37909ab7a9",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_int.xlsx",
+  "server_last_modified": "2024-07-01",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_ns.xlsx",
+  "bytes": 209248,
+  "sha256": "cc6e877693c791d8afdaf2ef54ca68bc33ec753bbf6d948b3ecc95d953e682f2",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_ns.xlsx",
+  "server_last_modified": "2025-09-16",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_shi.xlsx",
+  "bytes": 167270,
+  "sha256": "5eedbc9e28d2e65fdf5ea6bef392ab7094604d45a43b27c39a27a2349570c0a6",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_shi.xlsx",
+  "server_last_modified": "2024-11-22",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vikpt_torg.xlsx",
+  "bytes": 101725,
+  "sha256": "a0c80894ba9abc7a49b31b9ebee2bcc15a5f2d8e07a3990228f61e0439bf644b",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vikpt_torg.xlsx",
+  "server_last_modified": "2024-07-01",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/viktp2017_u.xls",
+  "bytes": 350720,
+  "sha256": "e49b6da8cd59aa55d0c630ba8a7c1ab6bb173d1524107b931089524358dfacf3",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2018/zv/ikt/viktp2017_u.xls",
+  "server_last_modified": "2018-07-13",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/viktp2018-2019_u.xls",
+  "bytes": 239616,
+  "sha256": "72cd4f76c03590cffcd5b8e63d46e77b280a0db5f7bb15d58809c6d6aa7b5371",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2018/zv/ikt/viktp2018-2019_u.xls",
+  "server_last_modified": "2020-07-13",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ },
+ {
+  "file": "data/raw/ukrstat/xlsx_tables/vuk_rah_fakt_18-23.xlsx",
+  "bytes": 73856,
+  "sha256": "dbb97e5a01c70853b410f2c39941be26da7280f68b482a50a3bbc17d6badcfe5",
+  "url": "https://www.ukrstat.gov.ua/operativ/operativ2021/zv/ikt/vuk_rah_fakt_18-23.xlsx",
+  "server_last_modified": "2024-10-15",
+  "downloaded": "2026-10-09",
+  "note": "archive page https://ukrstat.gov.ua/operativ/operativ2018/zv/ikt/arh_ikt_u.html; server TLS certificate expired on 2026-10-09"
+ }
+]
