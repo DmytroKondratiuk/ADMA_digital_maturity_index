@@ -7,8 +7,8 @@ Every number on the calculation sheets is an Excel formula. Yellow cells are inp
 - Parameters: alpha, delta and level bounds used by all formulas (Section 3, Table 2).
 - Calculator: enter the 21 questionnaire answers (1-5) and get layer scores, penalty, ADMI, level, DM_I, DM_S (equations 1-5).
 - Worked_example: the profile at the start of Section 4.
-- Statistics_mode: Table 5, food processing (NACE C10-C12) of EU-27, Germany, nine CEE countries and Ukraine (equation 6, P_min = 0). Uses EU_data and UA_data.
-- TOPSIS: the independent ranking of Table 5 (entropy weights, closeness to the ideal solution) and its Spearman correlation with ADMI.
+- Statistics_mode: Tables 5 and 6, food processing (NACE C10-C12) of EU-27, Germany, nine CEE countries and Ukraine (equation 6, P_min = 0). Uses EU_data and UA_data.
+- TOPSIS: the independent ranking of Table 6 (entropy weights, closeness to the ideal solution) and its Spearman correlation with ADMI.
 - EU_data: Eurostat values for the EU-27 aggregate and all 27 member states; the leader is found with MAX/INDEX/MATCH.
 - UA_data: Derzhstat values with direct download links.
 - Diagnostic_situations: Table 4.
@@ -20,7 +20,7 @@ Every number on the calculation sheets is an Excel formula. Yellow cells are inp
 ## Full experiment and statistics mode
 
 - The complete experiment (2 x 100 000 profiles, 99 parameter combinations, Table 3, Supplementary Table S2, propositions P1-P3) is run by scripts/simulation_experiment.py.
-- The statistics mode with the proxy robustness check (Table 5, Supplementary Table S3, proposition P4) is run by scripts/statistics_mode_local.py.
+- The statistics mode with the proxy robustness check (Tables 5 and 6, Supplementary Table S3, proposition P4) is run by scripts/statistics_mode_local.py.
 - The profiles are stored in data/generated/profiles_uniform.csv and data/generated/profiles_low_skewed.csv; any row can be typed into the Calculator to check it.
 
 ## Level rule

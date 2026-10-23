@@ -1,8 +1,8 @@
 """Build excel/ADMA_workbook.xlsx: every calculation of the paper that can be checked by hand,
 written as live Excel formulas (not pasted values).
 
-Sheets: README, Parameters, Calculator, Worked_example (start of Section 4), Statistics_mode (Table 5),
-TOPSIS (independent ranking of Table 5), EU_data, UA_data, Diagnostic_situations (Table 4),
+Sheets: README, Parameters, Calculator, Worked_example (start of Section 4), Statistics_mode (Tables 5 and 6),
+TOPSIS (independent ranking of Table 6), EU_data, UA_data, Diagnostic_situations (Table 4),
 Boundary_band (equation 7), Experiment_sample (first 1 000 profiles of the uniform scenario),
 Figure_2_band and Figure_3_map (native Excel charts of Figures 2 and 3).
 
@@ -99,8 +99,8 @@ README_SECTIONS = [
         "Parameters: alpha, delta and level bounds used by all formulas (Section 3, Table 2).",
         "Calculator: enter the 21 questionnaire answers (1-5) and get layer scores, penalty, ADMI, level, DM_I, DM_S (equations 1-5).",
         "Worked_example: the profile at the start of Section 4.",
-        "Statistics_mode: Table 5, food processing (NACE C10-C12) of EU-27, Germany, nine CEE countries and Ukraine (equation 6, P_min = 0). Uses EU_data and UA_data.",
-        "TOPSIS: the independent ranking of Table 5 (entropy weights, closeness to the ideal solution) and its Spearman correlation with ADMI.",
+        "Statistics_mode: Tables 5 and 6, food processing (NACE C10-C12) of EU-27, Germany, nine CEE countries and Ukraine (equation 6, P_min = 0). Uses EU_data and UA_data.",
+        "TOPSIS: the independent ranking of Table 6 (entropy weights, closeness to the ideal solution) and its Spearman correlation with ADMI.",
         "EU_data: Eurostat values for the EU-27 aggregate and all 27 member states; the leader is found with MAX/INDEX/MATCH.",
         "UA_data: Derzhstat values with direct download links.",
         "Diagnostic_situations: Table 4.",
@@ -112,7 +112,7 @@ README_SECTIONS = [
     ]),
     ("Full experiment and statistics mode", [
         "The complete experiment (2 x 100 000 profiles, 99 parameter combinations, Table 3, Supplementary Table S2, propositions P1-P3) is run by scripts/simulation_experiment.py.",
-        "The statistics mode with the proxy robustness check (Table 5, Supplementary Table S3, proposition P4) is run by scripts/statistics_mode_local.py.",
+        "The statistics mode with the proxy robustness check (Tables 5 and 6, Supplementary Table S3, proposition P4) is run by scripts/statistics_mode_local.py.",
         "The profiles are stored in data/generated/profiles_uniform.csv and data/generated/profiles_low_skewed.csv; "
         "any row can be typed into the Calculator to check it.",
     ]),
@@ -322,7 +322,7 @@ def index_cell(country, header):
 
 def build_statistics_mode(workbook):
     sheet = workbook.create_sheet("Statistics_mode")
-    sheet["A1"] = "Table 5. Statistics mode of ADMA for food processing (NACE C10-C12): layer scores, index and ranking (equation 6, P_min = 0)"
+    sheet["A1"] = "Tables 5 and 6. Statistics mode of ADMA for food processing (NACE C10-C12): layer scores, index and ranking (equation 6, P_min = 0)"
     sheet["A1"].font = TITLE
     sheet["A2"] = "Upper part: every indicator divided by the value of the EU leader. Lower part: layers, ADMI and ranks. EU-27 and Germany are reference rows outside the ranking."
     headers = ["Layer", "Indicator", "Statement", "Strength", "EU year", "UA year", "Leader", "Leader, %"] + [COUNTRY_NAMES[country] for country in TABLE_ROWS]
@@ -387,7 +387,7 @@ TOPSIS_COLUMNS = {"to_ideal": "Z", "to_anti_ideal": "AA", "closeness": "AB", "ra
 def build_topsis(workbook):
     """TOPSIS with entropy weights on the five layers of Table 5 (Hwang and Yoon, 1981), every step a formula."""
     sheet = workbook.create_sheet("TOPSIS")
-    sheet["A1"] = "TOPSIS ranking of the ten ranked objects of Table 5 on the same five layers, entropy weights"
+    sheet["A1"] = "TOPSIS ranking of the ten ranked objects of Table 6 on the same five layers, entropy weights"
     sheet["A1"].font = TITLE
     last_row = TOPSIS_FIRST_ROW + len(RANKED) - 1
     count = len(RANKED)

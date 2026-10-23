@@ -8,7 +8,7 @@ The repository contains every statistical input of the paper in its original for
 
 ## Two ways to check the results
 
-- **No programming:** open `excel/ADMA_workbook.xlsx`. Every calculation that can be checked by hand is written there as live Excel formulas: an ADMI calculator for the 21-statement questionnaire, the worked example, Table 5 with all source values and links, the TOPSIS ranking, Table 4, equation (7) and the first 1 000 profiles of the experiment row by row. See its README sheet.
+- **No programming:** open `excel/ADMA_workbook.xlsx`. Every calculation that can be checked by hand is written there as live Excel formulas: an ADMI calculator for the 21-statement questionnaire, the worked example, Tables 5 and 6 with all source values and links, the TOPSIS ranking, Table 4, equation (7) and the first 1 000 profiles of the experiment row by row. See its README sheet.
 - **Full reproduction:** run the Python scripts below. They reproduce every number of the paper, including the full experiment on 2 x 100 000 profiles.
 
 `scripts/verify_workbook.py` evaluates the workbook formulas with an independent engine and checks 7 533 values against the Python results; they agree exactly.
@@ -36,7 +36,7 @@ scripts/
   generate_profiles.py     regenerates data/generated/ (seeded, byte-identical)
   simulation_experiment.py computational experiment, propositions P1-P3 (Table 3, Table 4, Supplementary Table S2)
   data_sources.py          indicator pairs, statement mapping, API addresses, matrix builder
-  statistics_mode_local.py statistics mode on the stored data, proposition P4 (Table 5, Supplementary Table S3)
+  statistics_mode_local.py statistics mode on the stored data, proposition P4 (Tables 5 and 6, Supplementary Table S3)
   statistics_mode_api.py   the same on data downloaded live from the official APIs
   build_workbook.py        builds excel/ADMA_workbook.xlsx from data/ and results/
   verify_workbook.py       checks that the Excel formulas give the same numbers as Python
@@ -81,7 +81,7 @@ Reads the stored profiles in `data/generated/` and writes `results/simulation_ex
 python scripts/statistics_mode_local.py
 ```
 
-Rebuilds the comparison matrix from `data/raw/eurostat/ict_c10_c12/` and `data/raw/ukrstat/ict_c10_c12/`, checks that it is identical to `data/matrix.csv`, prints Table 5 and writes `results/statistics_mode_local.json`: indicator scores, layer scores, ADMI, levels and ranks (`countries`, `ranking`), the comparison with the unpenalised base index (`spearman_ADMI_base`), the TOPSIS comparison (`entropy_weights`, `spearman_ADMI_TOPSIS`, `pearson_ADMI_TOPSIS_values`, `spearman_TOPSIS_entropy_vs_equal`) and the proxy robustness check of Supplementary Table S3 (`proxy_robustness`). This reproduces the published values regardless of later revisions by the statistical agencies.
+Rebuilds the comparison matrix from `data/raw/eurostat/ict_c10_c12/` and `data/raw/ukrstat/ict_c10_c12/`, checks that it is identical to `data/matrix.csv`, prints Tables 5 and 6 and writes `results/statistics_mode_local.json`: indicator scores, layer scores, ADMI, levels and ranks (`countries`, `ranking`), the comparison with the unpenalised base index (`spearman_ADMI_base`), the TOPSIS comparison (`entropy_weights`, `spearman_ADMI_TOPSIS`, `pearson_ADMI_TOPSIS_values`, `spearman_TOPSIS_entropy_vs_equal`) and the proxy robustness check of Supplementary Table S3 (`proxy_robustness`). This reproduces the published values regardless of later revisions by the statistical agencies.
 
 **3. Statistics mode on live data (optional).** Requires internet access, a few minutes.
 

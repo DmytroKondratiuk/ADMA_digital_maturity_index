@@ -1,7 +1,7 @@
 """Download the statistics-mode data live from the official APIs and compare with the stored data.
 
 Downloads the same slices as data/raw/eurostat/ict_c10_c12/ and data/raw/ukrstat/ict_c10_c12/ from the Eurostat API
-and the Derzhstat data bank into data/api_snapshot/<date>/ with the same layout, rebuilds the comparison matrix, runs the statistics mode (Table 5) and lists
+and the Derzhstat data bank into data/api_snapshot/<date>/ with the same layout, rebuilds the comparison matrix, runs the statistics mode (Tables 5 and 6) and lists
 every value that differs from the stored data. Differences are expected over time, because both agencies revise
 data and add survey years. The paper is based on the stored files (downloaded 9 October 2026).
 
