@@ -1,4 +1,4 @@
-"""Statistics mode of ADMA on official data (proposition P4; Table 5 and Supplementary Table S3 of the paper).
+"""Statistics mode of ADMA on official data (proposition P4; Tables 5 and 6 and Supplementary Table S3 of the paper).
 
 Food processing (NACE C10-C12, enterprises 10+): EU-27, Germany, nine CEE countries and Ukraine.
   * equation (6) with P_min = 0: every indicator is divided by the value of the EU leader;
@@ -13,7 +13,7 @@ Reads data/raw/eurostat/ict_c10_c12/ and data/raw/ukrstat/ict_c10_c12/ (the stor
 identical to data/matrix.csv. Works offline.
 
 Usage:  python scripts/statistics_mode_local.py
-Output: results/statistics_mode_local.json and a printed version of Table 5.
+Output: results/statistics_mode_local.json and a printed version of Tables 5 and 6.
 """
 
 import json

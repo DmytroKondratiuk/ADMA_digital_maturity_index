@@ -2,7 +2,7 @@
 
 The workbook formulas are evaluated with pycel (an independent Excel formula engine), and every
 result is compared with the Python implementation:
-  Calculator and Worked_example, Statistics_mode (Table 5), TOPSIS, Diagnostic_situations (Table 4),
+  Calculator and Worked_example, Statistics_mode (Tables 5 and 6), TOPSIS, Diagnostic_situations (Table 4),
   Boundary_band (equation 7) and all rows of Experiment_sample.
 
 Usage:  python scripts/verify_workbook.py     (requires openpyxl and pycel)
@@ -86,7 +86,7 @@ def check_calculator(compiler, formulas, checker, sheet_name):
 
 
 def check_statistics_mode(compiler, checker):
-    """Table 5: leaders, indicator scores, layers, ADMI, levels and ranks; TOPSIS weights, closeness, ranks, Spearman."""
+    """Tables 5 and 6: leaders, indicator scores, layers, ADMI, levels and ranks; TOPSIS weights, closeness, ranks, Spearman."""
     matrix = {row["pair_id"]: row for row in read_matrix()}
     result = compute_statistics_mode(list(matrix.values()))
     for offset, code in enumerate(STATISTICS_INDICATORS):

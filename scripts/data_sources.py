@@ -141,7 +141,7 @@ INDICATOR_PAIRS = [
      "comparability_note": "As DII_BASIC_V3, but the even-year Eurostat version (DII v4, 2022/2024)."},
 ]
 
-# Statistics mode of ADMA (Table 5 and Supplementary Table S1 of the paper).
+# Statistics mode of ADMA (Tables 5 and 6 and Supplementary Table S1 of the paper).
 # Layer composition: each indicator stands for one questionnaire statement (numbering 1-21 of Table 1).
 LAYERS = {
     "C": ["ERP", "IOT_PRODUCTION", "ICT_SECURITY_DOCUMENT"],
