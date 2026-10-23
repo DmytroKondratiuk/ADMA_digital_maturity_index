@@ -1,0 +1,523 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "E-commerce sales of enterprises by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-06-15T11:00:00+0200",
+ "value": {
+  "0": 13.63,
+  "1": 15.88,
+  "2": 17.43,
+  "3": 19.77,
+  "4": 22.27,
+  "5": 22.35,
+  "6": 23.81,
+  "7": 23.52,
+  "8": 25.85,
+  "9": 25.12,
+  "10": 26.45,
+  "11": 27.14,
+  "12": 29.75,
+  "13": 32.96,
+  "14": 31.86,
+  "15": 33.14,
+  "16": 34.16,
+  "221": 3.77,
+  "223": 4.15,
+  "225": 4.84,
+  "227": 5.81,
+  "229": 7.3,
+  "231": 7.19,
+  "233": 8.45,
+  "257": 1.45,
+  "259": 1.32,
+  "261": 1.93,
+  "263": 2.13,
+  "265": 1.93,
+  "267": 2.74,
+  "204": 12.5,
+  "206": 16.42,
+  "208": 21.16,
+  "210": 22.12,
+  "212": 24.79,
+  "214": 25.57,
+  "216": 28.95,
+  "238": 2.33,
+  "240": 1.56,
+  "242": 1.51,
+  "244": 2.01,
+  "246": 2.24,
+  "248": 1.98,
+  "250": 3.23,
+  "53": 7.87,
+  "54": 8.71,
+  "55": 10.69,
+  "56": 9.88,
+  "57": 11.95,
+  "58": 12.59,
+  "59": 14.33,
+  "60": 13.91,
+  "61": 14.43,
+  "62": 15.46,
+  "63": 18.2,
+  "64": 22.67,
+  "65": 22.17,
+  "66": 22.95,
+  "67": 24.13,
+  "172": 1.93,
+  "174": 2.02,
+  "176": 2.85,
+  "178": 3.92,
+  "180": 3.93,
+  "182": 4.95,
+  "183": 5.74,
+  "185": 6.27,
+  "186": 6.42,
+  "314": 3.97,
+  "316": 3.96,
+  "318": 5.21,
+  "319": 5.83,
+  "321": 6.76,
+  "322": 6.54,
+  "155": 7.14,
+  "157": 9.74,
+  "159": 10.57,
+  "161": 13.79,
+  "163": 13.87,
+  "165": 17.43,
+  "166": 21.77,
+  "168": 22.32,
+  "169": 23.82,
+  "105": 6.37,
+  "106": 8.27,
+  "107": 8.07,
+  "108": 9.05,
+  "109": 10.14,
+  "110": 11.54,
+  "111": 11.21,
+  "112": 11.65,
+  "113": 12.92,
+  "114": 15.49,
+  "115": 19.57,
+  "116": 19.06,
+  "117": 19.79,
+  "118": 21.03,
+  "297": 2.47,
+  "298": 2.15,
+  "299": 2.61,
+  "300": 3.22,
+  "301": 4.93,
+  "302": 5.46,
+  "303": 5.86,
+  "304": 5.95,
+  "305": 5.12,
+  "189": 1.07,
+  "191": 1.01,
+  "193": 1.44,
+  "195": 1.46,
+  "197": 1.33,
+  "199": 2.26,
+  "200": 2.01,
+  "202": 2.81,
+  "203": 2.54,
+  "72": 6.04,
+  "73": 6.12,
+  "74": 7.26,
+  "75": 7.27,
+  "76": 7.9,
+  "77": 7.65,
+  "78": 7.93,
+  "79": 6.83,
+  "80": 8.47,
+  "81": 11.06,
+  "82": 11.48,
+  "83": 11.94,
+  "84": 11.55,
+  "89": 9.16,
+  "90": 8.56,
+  "91": 9.51,
+  "92": 10.56,
+  "93": 12.12,
+  "94": 11.92,
+  "95": 12.36,
+  "96": 13.86,
+  "97": 16.17,
+  "98": 20.43,
+  "99": 20.09,
+  "100": 20.88,
+  "101": 22.5,
+  "280": 2.68,
+  "281": 2.35,
+  "282": 2.95,
+  "283": 3.38,
+  "284": 5.08,
+  "285": 5.74,
+  "286": 6.15,
+  "287": 6.25,
+  "288": 5.22,
+  "123": 8.91,
+  "124": 8.41,
+  "125": 9.33,
+  "126": 10.42,
+  "127": 11.86,
+  "128": 11.58,
+  "129": 12.08,
+  "130": 13.22,
+  "131": 15.81,
+  "132": 19.94,
+  "133": 19.56,
+  "134": 20.18,
+  "135": 21.68,
+  "382": 1.96,
+  "383": 1.97,
+  "384": 2.27,
+  "385": 2.75,
+  "386": 4.06,
+  "387": 4.34,
+  "388": 4.74,
+  "389": 4.75,
+  "390": 4.11,
+  "348": 3.3,
+  "349": 3.15,
+  "350": 3.34,
+  "351": 4.11,
+  "352": 6.15,
+  "353": 6.61,
+  "354": 6.82,
+  "355": 7.27,
+  "356": 6.05,
+  "406": 2.49,
+  "407": 1.97,
+  "365": 2.51,
+  "366": 2.37,
+  "367": 2.49,
+  "368": 2.84,
+  "369": 3.77,
+  "370": 4.88,
+  "371": 4.81,
+  "372": 4.99,
+  "373": 4.21,
+  "331": 11.82,
+  "332": 12.57,
+  "333": 13.16,
+  "334": 13.82,
+  "335": 16.19,
+  "336": 20.37,
+  "337": 20.03,
+  "338": 20.45,
+  "339": 22.19,
+  "140": 3.71,
+  "141": 4.23,
+  "142": 4.85,
+  "143": 5.51,
+  "144": 5.53,
+  "145": 5.72,
+  "146": 5.76,
+  "147": 5.5,
+  "148": 8.19,
+  "149": 9.22,
+  "150": 10.07,
+  "151": 10.19,
+  "152": 10.32,
+  "36": 11.96,
+  "37": 14.07,
+  "38": 14.54,
+  "39": 15.24,
+  "40": 16.15,
+  "41": 14.55,
+  "42": 15.98,
+  "43": 15.43,
+  "44": 16.5,
+  "45": 15.97,
+  "46": 16.91,
+  "47": 16.61,
+  "48": 16.86,
+  "49": 17.45,
+  "50": 16.93,
+  "17": 12.04,
+  "18": 13.96,
+  "19": 14.59,
+  "20": 17.11,
+  "21": 18.08,
+  "22": 18.85,
+  "23": 20.74,
+  "24": 19.93,
+  "25": 21.65,
+  "26": 21.0,
+  "27": 22.0,
+  "28": 21.87,
+  "29": 22.87,
+  "30": 25.38,
+  "31": 25.75,
+  "32": 26.75,
+  "33": 27.25
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  28,
+  1,
+  1,
+  17
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_AESELL": 0,
+     "E_ESELL": 1,
+     "E_AXSELL": 2,
+     "E_AWSELL": 3,
+     "E_AWS_B2BG": 4,
+     "E_AWS_B2C": 5,
+     "E_AWSVAL_B2C_GE10WS": 6,
+     "E_AWS_B2C_GT1WS": 7,
+     "E_AWS_GT1_B2C_GT10WS": 8,
+     "E_AWSHM": 9,
+     "E_AWSEU": 10,
+     "E_AWSWW": 11,
+     "E_AESHM": 12,
+     "E_AESEU": 13,
+     "E_AESWW": 14,
+     "E_AESEUWW": 15,
+     "E_AWS_B2C_CMP": 16,
+     "E_AWSVAL_B2C_GE10WS_CMP": 17,
+     "E_AWSFOR": 18,
+     "E_AWS_COWN": 19,
+     "E_AWS_CMP": 20,
+     "E_AWS_CMP_GE20": 21,
+     "E_AWS_CBOTH": 22,
+     "E_AWS_CMPQ": 23,
+     "E_AWSPG": 24,
+     "E_AWSDS": 25,
+     "E_AWSSV": 26,
+     "E_AWSDSQ": 27
+    },
+    "label": {
+     "E_AESELL": "Enterprises with e-commerce sales",
+     "E_ESELL": "Enterprises with e-commerce sales of at least 1% turnover",
+     "E_AXSELL": "Enterprises with EDI-type sales",
+     "E_AWSELL": "Enterprises with web sales (via websites, apps or marketplaces)",
+     "E_AWS_B2BG": "Enterprises with web sales - B2B and B2G",
+     "E_AWS_B2C": "Enterprises with web sales - B2C",
+     "E_AWSVAL_B2C_GE10WS": "Enterprises where B2C web sales are 10% or more of the web sales",
+     "E_AWS_B2C_GT1WS": "Enterprises where B2C web sales are more than 1% of the web sales",
+     "E_AWS_GT1_B2C_GT10WS": "Enterprises where web sales are more than 1% of total turnover and B2C web sales more than 10% of the web sales",
+     "E_AWSHM": "Enterprises with web sales to the own country",
+     "E_AWSEU": "Enterprises with web sales to other EU countries",
+     "E_AWSWW": "Enterprises with web sales to the rest of the world",
+     "E_AESHM": "Enterprises with e-commerce sales to the own country",
+     "E_AESEU": "Enterprises with e-commerce sales to other EU countries",
+     "E_AESWW": "Enterprises with e-commerce sales to the rest of the world",
+     "E_AESEUWW": "Enterprises with e-commerce sales to other EU countries and the rest of the world",
+     "E_AWS_B2C_CMP": "Enterprises with B2C web sales and web sales via e-commerce marketplaces",
+     "E_AWSVAL_B2C_GE10WS_CMP": "Enterprises where B2C web sales are 10% or more of the total web sales and which sold via e-commerce marketplaces",
+     "E_AWSFOR": "Enterprises with web sales to foreign countries (EU or rest of the world)",
+     "E_AWS_COWN": "Enterprises with web sales via their own websites or apps",
+     "E_AWS_CMP": "Enterprises with web sales via e-commerce marketplaces",
+     "E_AWS_CMP_GE20": "Enterprises with at least 20% of web sales via e-commerce marketplaces",
+     "E_AWS_CBOTH": "Enterprises which sold via their own websites or apps and via an e-commerce marketplace",
+     "E_AWS_CMPQ": "Enterprises with web sales via e-commerce marketplaces but with no web sales via their own websites or apps",
+     "E_AWSPG": "Enterprises with web sales of physical goods (via websites, apps or via an e-commerce marketplace)",
+     "E_AWSDS": "Enterprises with web sales of digital services (digitally delivered) (via websites, apps or via an e-commerce marketplace)",
+     "E_AWSSV": "Enterprises with web sales of services not digitally delivered (via websites or apps or via an e-commerce marketplace)",
+     "E_AWSDSQ": "Enterprises with web sales of digital services (digitally delivered), but with no web sales of physical goods or other services (via websites, apps or via an e-commerce marketplace)"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2009": 0,
+     "2010": 1,
+     "2011": 2,
+     "2012": 3,
+     "2013": 4,
+     "2014": 5,
+     "2015": 6,
+     "2016": 7,
+     "2017": 8,
+     "2018": 9,
+     "2019": 10,
+     "2020": 11,
+     "2021": 12,
+     "2022": 13,
+     "2023": 14,
+     "2024": 15,
+     "2025": 16
+    },
+    "label": {
+     "2009": "2009",
+     "2010": "2010",
+     "2011": "2011",
+     "2012": "2012",
+     "2013": "2013",
+     "2014": "2014",
+     "2015": "2015",
+     "2016": "2016",
+     "2017": "2017",
+     "2018": "2018",
+     "2019": "2019",
+     "2020": "2020",
+     "2021": "2021",
+     "2022": "2022",
+     "2023": "2023",
+     "2024": "2024",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_EC_ESELN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_EC_ESELN2",
+   "agencyId": "ESTAT",
+   "version": "49.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T15:24:56+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_EC_ESELN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_EC_ESELN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-07-28</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "734439"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2009"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [
+    24,
+    25,
+    26,
+    27
+   ],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

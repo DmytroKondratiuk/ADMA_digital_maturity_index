@@ -1,0 +1,395 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Cloud computing services by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-02-27T11:00:00+0100",
+ "value": {
+  "0": 12.46,
+  "2": 13.55,
+  "4": 15.65,
+  "5": 28.85,
+  "6": 30.15,
+  "7": 34.66,
+  "9": 40.88,
+  "186": 5.79,
+  "187": 4.93,
+  "189": 5.46,
+  "216": 8.96,
+  "217": 8.86,
+  "219": 10.69,
+  "196": 3.16,
+  "197": 3.93,
+  "199": 5.22,
+  "246": 20.85,
+  "247": 23.68,
+  "249": 29.43,
+  "136": 29.73,
+  "137": 36.83,
+  "139": 40.62,
+  "146": 0.27,
+  "147": 0.58,
+  "149": 0.25,
+  "256": 3.85,
+  "257": 7.05,
+  "259": 8.24,
+  "206": 20.65,
+  "207": 25.1,
+  "209": 29.79,
+  "226": 23.82,
+  "227": 29.03,
+  "229": 35.13,
+  "236": 28.54,
+  "237": 32.68,
+  "239": 39.53,
+  "287": 17.09,
+  "289": 22.5,
+  "170": 5.16,
+  "172": 5.51,
+  "174": 7.17,
+  "175": 15.06,
+  "266": 14.47,
+  "276": 14.98,
+  "150": 5.04,
+  "152": 4.82,
+  "154": 5.43,
+  "155": 9.42,
+  "160": 6.58,
+  "162": 6.92,
+  "164": 7.63,
+  "165": 13.35,
+  "110": 11.75,
+  "112": 12.91,
+  "114": 15.08,
+  "115": 28.52,
+  "70": 2.1,
+  "72": 1.93,
+  "74": 2.62,
+  "75": 5.28,
+  "76": 5.11,
+  "77": 6.98,
+  "79": 7.93,
+  "60": 2.18,
+  "62": 2.11,
+  "64": 2.98,
+  "65": 5.03,
+  "66": 6.23,
+  "67": 6.35,
+  "69": 8.53,
+  "30": 4.22,
+  "32": 5.47,
+  "34": 6.09,
+  "35": 12.01,
+  "36": 11.95,
+  "37": 12.96,
+  "39": 16.99,
+  "295": 20.18,
+  "296": 20.47,
+  "297": 23.19,
+  "299": 29.13,
+  "106": 3.85,
+  "107": 7.05,
+  "109": 8.24,
+  "10": 8.64,
+  "12": 9.48,
+  "14": 10.67,
+  "15": 21.69,
+  "16": 23.71,
+  "17": 27.62,
+  "19": 33.52,
+  "86": 6.88,
+  "87": 9.44,
+  "89": 12.28,
+  "50": 4.26,
+  "52": 4.13,
+  "54": 5.07,
+  "55": 11.89,
+  "56": 13.16,
+  "57": 16.62,
+  "59": 21.91,
+  "40": 5.22,
+  "42": 7.32,
+  "44": 9.69,
+  "45": 18.05,
+  "46": 18.52,
+  "47": 21.56,
+  "49": 27.16,
+  "305": 20.98,
+  "306": 20.85,
+  "307": 23.68,
+  "309": 29.43,
+  "120": 0.69,
+  "122": 0.64,
+  "124": 0.44,
+  "125": 0.13,
+  "96": 16.33,
+  "97": 20.15,
+  "99": 25.11,
+  "20": 4.91,
+  "22": 5.64,
+  "24": 7.24,
+  "25": 15.57,
+  "26": 17.34,
+  "27": 20.52,
+  "29": 26.88
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  31,
+  1,
+  1,
+  10
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_CC": 0,
+     "E_CC_PEM": 1,
+     "E_CC_PSOFT": 2,
+     "E_CC_PDB": 3,
+     "E_CC_PFIL": 4,
+     "E_CC_PFACC": 5,
+     "E_CC_PCRM": 6,
+     "E_CC_PCPU": 7,
+     "E_CC_PERP": 8,
+     "E_CC_PSEC": 9,
+     "E_CC_PDEV": 10,
+     "E_CC_PANY": 11,
+     "E_CC_PNONE": 12,
+     "E_CC1_PANY": 13,
+     "E_CC1_PNONE": 14,
+     "E_CC_LO": 15,
+     "E_CC_ME": 16,
+     "E_CC_HI": 17,
+     "E_CC1_B": 18,
+     "E_CC1_I": 19,
+     "E_CC1_S": 20,
+     "E_CC1_BI": 21,
+     "E_CC1_SI": 22,
+     "E_CC1_SS_GE1": 23,
+     "E_CC1_IS_GE1": 24,
+     "E_CC1_PS": 25,
+     "E_CC_IOT": 26,
+     "E_CC_IOTX": 27,
+     "E_CC_DA": 28,
+     "E_CC_PDBFIL": 29,
+     "E_CC_PHW": 30
+    },
+    "label": {
+     "E_CC": "Enterprises using paid cloud computing services used over the internet",
+     "E_CC_PEM": "Enterprises using e-mail (as a paid CC service)",
+     "E_CC_PSOFT": "Enterprises using office software (e.g. word processors, spreadsheets, etc.) (as a paid CC service)",
+     "E_CC_PDB": "Enterprises using hosting for the enterprise's database (as a paid CC service)",
+     "E_CC_PFIL": "Enterprises using storage of files (as a paid CC service)",
+     "E_CC_PFACC": "Enterprises using finance or accounting software applications (as a paid CC service)",
+     "E_CC_PCRM": "Enterprises using CRM software (as a paid CC service)",
+     "E_CC_PCPU": "Enterprises using computing power to run the enterprise's own software (as a paid CC service)",
+     "E_CC_PERP": "Enterprises using ERP software applications (as a paid CC service)",
+     "E_CC_PSEC": "Enterprises using security software applications (as a paid CC service)",
+     "E_CC_PDEV": "Enterprises using computing platform providing a hosted environment for application development, testing or deployment (as a paid CC service)",
+     "E_CC_PANY": "Buy at least one of the mentioned CC services - until 2020 (E_CC_PEM, E_CC_PSOFT, E_CC_PDB, E_CC_PFIL, E_CC_PFACC, E_CC_PCRM, E_CC_PCPU)",
+     "E_CC_PNONE": "Don't buy any of the mentioned CC services - until 2020 (E_CC_PEM, E_CC_PSOFT, E_CC_PDB, E_CC_PFIL, E_CC_PFACC, E_CC_PCRM, E_CC_PCPU)",
+     "E_CC1_PANY": "Enterprises using at least one of the paid CC services: CC_PEM, CC_PSOFT, CC_PFACC, CC_PERP, CC_PCRM, CC_PSEC, CC_PDB, CC_PFIL, CC_PCPU, CC_PDEV",
+     "E_CC1_PNONE": "Enterprises not using any of the paid CC services: CC_PEM, CC_PSOFT, CC_PFACC, CC_PERP, CC_PCRM, CC_PSEC, CC_PDB, CC_PFIL, CC_PCPU, CC_PDEV",
+     "E_CC_LO": "Buy only low CC services - until 2020 (e-mail, office software, storage of files)",
+     "E_CC_ME": "Buy only medium CC services - until 2020 (e-mail, office software, storage of files, hosting of the enterprise's database)",
+     "E_CC_HI": "Buy high CC services - until 2020 (accounting software applications, CRM software, computing power)",
+     "E_CC1_B": "Enterprises using only basic paid CC services, at least one of: CC_PEM, CC_PSOFT, CC_PFIL, CC_PCPU",
+     "E_CC1_I": "Enterprises using at most  intermediate paid CC services, at least one of: CC_PFACC, CC_PERP, CC_PCRMCC_PCRM",
+     "E_CC1_S": "Enterprises using sophisticated paid CC services, at least one of: CC_PSEC, CC_PDB, CC_PDEV",
+     "E_CC1_BI": "Enterprises using basic or intermediate paid CC services, at least one of:  CC_PEM, CC_PSOFT, CC_PFIL, CC_PCPU, CC_PFACC, CC_PERP, CC_PCRM",
+     "E_CC1_SI": "Enterprises using sophisticated or intermediate paid CC services, at least one of: CC_PFACC, CC_PERP, CC_PCRM, CC_PSEC, CC_PDB, CC_PDEV",
+     "E_CC1_SS_GE1": "Enterprises using at least one of the paid CC software services: CC_PEM, CC_PSOFT, CC_PFACC, CC_PERP, CC_PCRM, CC_PSEC",
+     "E_CC1_IS_GE1": "Enterprises using at least one of the paid CC infrastructure service: CC_PDB, CC_PFIL, CC_PCPU",
+     "E_CC1_PS": "Enterprises using paid CC platform services: CC_PDEV",
+     "E_CC_IOT": "Enterprises buying CC services and using IoT (until 2021)",
+     "E_CC_IOTX": "Enterprises buying CC services but not using IoT (until 2021)",
+     "E_CC_DA": "Enterprises using paid cloud computing services and perform data analytics",
+     "E_CC_PDBFIL": "Enterprises using hosting for the enterprise's database(s) or storage of files (as a paid CC service)",
+     "E_CC_PHW": "Enterprises using hosting for the enterprise's database(s) or storage of files or computing power (as a paid CC service)"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2014": 0,
+     "2015": 1,
+     "2016": 2,
+     "2017": 3,
+     "2018": 4,
+     "2020": 5,
+     "2021": 6,
+     "2023": 7,
+     "2024": 8,
+     "2025": 9
+    },
+    "label": {
+     "2014": "2014",
+     "2015": "2015",
+     "2016": "2016",
+     "2017": "2017",
+     "2018": "2018",
+     "2020": "2020",
+     "2021": "2021",
+     "2023": "2023",
+     "2024": "2024",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_CICCE_USEN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_CICCE_USEN2",
+   "agencyId": "ESTAT",
+   "version": "20.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T09:48:31+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_CICCE_USEN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_CICCE_USEN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "596600"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2014"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [],
+   "unit": [],
+   "geo": [],
+   "time": [
+    1,
+    3,
+    8
+   ]
+  }
+ }
+}

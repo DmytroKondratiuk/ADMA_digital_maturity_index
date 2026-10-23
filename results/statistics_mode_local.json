@@ -1,159 +1,930 @@
 {
-    "rows": [
-        {
-            "name": "ERP software",
-            "layer": "C",
-            "statement": 1,
-            "eurostat_indicator": "E_ERP1",
-            "ukraine_percent": 20.4,
-            "ukraine_year": "2025",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 45.06,
-            "eurostat_year": "2025",
-            "leader_country": "ES",
-            "leader_percent": 66.42,
-            "eu27_countries_without_value": [
-                "BE",
-                "DK",
-                "FI",
-                "LU",
-                "PT"
-            ],
-            "ukraine_score": 0.307,
-            "eu27_score": 0.678
+    "parameters": {
+        "alpha": 0.4,
+        "delta": 0.375,
+        "normalisation": "P / value of the EU-27 member state with the highest published value (P_min = 0)"
+    },
+    "layers": {
+        "C": [
+            "ERP",
+            "IOT_PRODUCTION",
+            "ICT_SECURITY_DOCUMENT"
+        ],
+        "L1": [
+            "ICT_TRAINING_ICT_SPECIALISTS",
+            "ICT_TRAINING_OTHER_EMPLOYEES"
+        ],
+        "L2": [
+            "SUPPLY_CHAIN_DATA_EXCHANGE",
+            "DATA_ANALYTICS",
+            "IOT_ANY"
+        ],
+        "L3": [
+            "MOBILE_INTERNET",
+            "PAID_CLOUD"
+        ],
+        "L4": [
+            "ECOMMERCE_SALES",
+            "WEBSITE",
+            "CRM"
+        ]
+    },
+    "outside_index": {
+        "I": [
+            "EINVOICE_AUTOMATED",
+            "BI"
+        ],
+        "S": [
+            "AI_ANY",
+            "DII_BASIC_V3"
+        ]
+    },
+    "statement": {
+        "ERP": 1,
+        "CRM": 14,
+        "BI": 18,
+        "IOT_ANY": 9,
+        "IOT_PRODUCTION": 2,
+        "ICT_SECURITY_DOCUMENT": 3,
+        "ICT_TRAINING_ICT_SPECIALISTS": 5,
+        "ICT_TRAINING_OTHER_EMPLOYEES": 5,
+        "DATA_ANALYTICS": 8,
+        "SUPPLY_CHAIN_DATA_EXCHANGE": 7,
+        "PAID_CLOUD": 11,
+        "MOBILE_INTERNET": 10,
+        "ECOMMERCE_SALES": 13,
+        "WEBSITE": 13,
+        "EINVOICE_AUTOMATED": 16,
+        "AI_ANY": 19,
+        "DII_BASIC_V3": 20
+    },
+    "strength": {
+        "ERP": "direct",
+        "CRM": "direct",
+        "BI": "proxy",
+        "IOT_ANY": "acceptable",
+        "IOT_PRODUCTION": "acceptable",
+        "ICT_SECURITY_DOCUMENT": "proxy",
+        "ICT_TRAINING_ICT_SPECIALISTS": "acceptable",
+        "ICT_TRAINING_OTHER_EMPLOYEES": "acceptable",
+        "DATA_ANALYTICS": "acceptable",
+        "SUPPLY_CHAIN_DATA_EXCHANGE": "proxy",
+        "PAID_CLOUD": "proxy",
+        "MOBILE_INTERNET": "proxy",
+        "ECOMMERCE_SALES": "direct",
+        "WEBSITE": "direct",
+        "EINVOICE_AUTOMATED": "proxy",
+        "AI_ANY": "proxy",
+        "DII_BASIC_V3": "proxy"
+    },
+    "years_and_leaders": {
+        "ERP": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "ES",
+            "leader_value": 66.42
         },
-        {
-            "name": "IoT for production processes",
-            "layer": "C",
-            "statement": 2,
-            "eurostat_indicator": "E_IOTDPP",
-            "ukraine_percent": 2.2,
-            "ukraine_year": "2022",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 9.68,
-            "eurostat_year": "2021",
-            "leader_country": "IT",
-            "leader_percent": 21.2,
-            "eu27_countries_without_value": [
-                "BE",
-                "ES",
-                "FI",
-                "LU"
-            ],
-            "ukraine_score": 0.104,
-            "eu27_score": 0.457
+        "CRM": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "NL",
+            "leader_value": 31.25
         },
-        {
-            "name": "Document(s) on ICT security",
-            "layer": "C",
-            "statement": 3,
-            "eurostat_indicator": "E_SECPOL2",
-            "ukraine_percent": 7.3,
-            "ukraine_year": "2023",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 26.68,
-            "eurostat_year": "2024",
-            "leader_country": "IE",
-            "leader_percent": 65.85,
-            "eu27_countries_without_value": [
-                "BE",
-                "FI",
-                "LU"
-            ],
-            "ukraine_score": 0.111,
-            "eu27_score": 0.405
+        "BI": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "NL",
+            "leader_value": 34.8
         },
-        {
-            "name": "Internet of Things",
-            "layer": "L2",
-            "statement": 8,
-            "eurostat_indicator": "E_IOT1",
-            "ukraine_percent": 9.4,
-            "ukraine_year": "2022",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 29.43,
-            "eurostat_year": "2021",
-            "leader_country": "SE",
-            "leader_percent": 49.89,
-            "eu27_countries_without_value": [
-                "AT",
-                "BE",
-                "ES",
-                "FI",
-                "LU"
-            ],
-            "ukraine_score": 0.188,
-            "eu27_score": 0.59
+        "IOT_ANY": {
+            "eurostat": "2021",
+            "ukrstat": "2022",
+            "leader": "SE",
+            "leader_value": 49.89
         },
-        {
-            "name": "Paid cloud computing services",
-            "layer": "L3",
-            "statement": 10,
-            "eurostat_indicator": "E_CC",
-            "ukraine_percent": 16.9,
-            "ukraine_year": "2025",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 40.88,
-            "eurostat_year": "2025",
-            "leader_country": "IE",
-            "leader_percent": 71.23,
-            "eu27_countries_without_value": [
-                "BE",
-                "DK",
-                "FI",
-                "LU"
-            ],
-            "ukraine_score": 0.237,
-            "eu27_score": 0.574
+        "IOT_PRODUCTION": {
+            "eurostat": "2021",
+            "ukrstat": "2022",
+            "leader": "IT",
+            "leader_value": 21.2
         },
-        {
-            "name": "CRM software",
-            "layer": "L4",
-            "statement": 13,
-            "eurostat_indicator": "E_CRM1",
-            "ukraine_percent": 6.9,
-            "ukraine_year": "2025",
-            "ukraine_data_updated": "16.09.2026",
-            "eu27_percent": 17.99,
-            "eurostat_year": "2025",
-            "leader_country": "NL",
-            "leader_percent": 31.25,
-            "eu27_countries_without_value": [
-                "BE",
-                "FI",
-                "LU"
-            ],
-            "ukraine_score": 0.221,
-            "eu27_score": 0.576
-        }
-    ],
-    "layer_profile": {
-        "C": {
-            "ukraine": 0.174,
-            "eu27": 0.513
+        "ICT_SECURITY_DOCUMENT": {
+            "eurostat": "2024",
+            "ukrstat": "2023",
+            "leader": "IE",
+            "leader_value": 65.85
         },
-        "L2": {
-            "ukraine": 0.188,
-            "eu27": 0.59
+        "ICT_TRAINING_ICT_SPECIALISTS": {
+            "eurostat": "2024",
+            "ukrstat": "2025",
+            "leader": "IE",
+            "leader_value": 18.08
         },
-        "L3": {
-            "ukraine": 0.237,
-            "eu27": 0.574
+        "ICT_TRAINING_OTHER_EMPLOYEES": {
+            "eurostat": "2024",
+            "ukrstat": "2025",
+            "leader": "IE",
+            "leader_value": 33.89
         },
-        "L4": {
-            "ukraine": 0.221,
-            "eu27": 0.576
+        "DATA_ANALYTICS": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "LT",
+            "leader_value": 66.58
+        },
+        "SUPPLY_CHAIN_DATA_EXCHANGE": {
+            "eurostat": "2023",
+            "ukrstat": "2025",
+            "leader": "SI",
+            "leader_value": 52.82
+        },
+        "PAID_CLOUD": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "IE",
+            "leader_value": 71.23
+        },
+        "MOBILE_INTERNET": {
+            "eurostat": "2024",
+            "ukrstat": "2023",
+            "leader": "SI",
+            "leader_value": 95.81
+        },
+        "ECOMMERCE_SALES": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "NL",
+            "leader_value": 62.2
+        },
+        "WEBSITE": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "DK",
+            "leader_value": 97.47
+        },
+        "EINVOICE_AUTOMATED": {
+            "eurostat": "2023",
+            "ukrstat": "2025",
+            "leader": "IT",
+            "leader_value": 97.92
+        },
+        "AI_ANY": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "DK",
+            "leader_value": 26.48
+        },
+        "DII_BASIC_V3": {
+            "eurostat": "2025",
+            "ukrstat": "2025",
+            "leader": "FI",
+            "leader_value": 96.43
         }
     },
-    "layers_not_measured": [
-        "L1"
-    ],
-    "ukraine_layers_below_delta": [
-        "C",
-        "L2",
-        "L3",
-        "L4"
-    ],
-    "eu27_layers_below_delta": [],
-    "note": "L1 has no common indicator in Derzhstat and Eurostat; agriculture (NACE A) is not covered by either survey."
+    "indicator_scores": {
+        "ERP": {
+            "EU27_2020": 0.6784101174345077,
+            "DE": 0.5534477566997892,
+            "PL": 0.5597711532670883,
+            "HU": 0.42261367058115024,
+            "RO": 0.31647094248720264,
+            "CZ": 0.7250828063836193,
+            "SK": 0.31737428485395963,
+            "LT": 0.8914483589280338,
+            "LV": 0.6820234869015356,
+            "EE": 0.560523938572719,
+            "BG": 0.3130081300813008,
+            "UA": 0.3071364046973803
+        },
+        "CRM": {
+            "EU27_2020": 0.57568,
+            "DE": 0.48544,
+            "PL": 0.67648,
+            "HU": 0.40256000000000003,
+            "RO": 0.28096,
+            "CZ": 0.96576,
+            "SK": 0.43872000000000005,
+            "LT": 0.83328,
+            "LV": 0.42048,
+            "EE": 0.36512,
+            "BG": 0.21344,
+            "UA": 0.22080000000000002
+        },
+        "BI": {
+            "EU27_2020": 0.4373563218390805,
+            "DE": 0.3344827586206897,
+            "PL": 0.2862068965517242,
+            "HU": 0.17212643678160922,
+            "RO": 0.17040229885057473,
+            "CZ": 0.3876436781609196,
+            "SK": 0.14655172413793105,
+            "LT": 0.8824712643678162,
+            "LV": 0.5160919540229886,
+            "EE": 0.5267241379310345,
+            "BG": 0.17729885057471265,
+            "UA": 0.18965517241379312
+        },
+        "IOT_ANY": {
+            "EU27_2020": 0.5898977751052314,
+            "DE": 0.7660853878532772,
+            "PL": 0.317498496692724,
+            "HU": 0.4231308879534977,
+            "RO": 0.20264582080577268,
+            "CZ": 0.687312086590499,
+            "SK": 0.712367207857286,
+            "LT": 0.7576668671076368,
+            "LV": 0.6023251152535578,
+            "EE": 0.5085187412307076,
+            "BG": 0.3062738023652034,
+            "UA": 0.18841451192623773
+        },
+        "IOT_PRODUCTION": {
+            "EU27_2020": 0.45660377358490567,
+            "DE": 0.49528301886792453,
+            "PL": 0.30188679245283023,
+            "HU": 0.31933962264150945,
+            "RO": 0.14339622641509434,
+            "CZ": 0.7089622641509434,
+            "SK": 0.5306603773584906,
+            "LT": 0.6547169811320755,
+            "LV": 0.6806603773584906,
+            "EE": 0.5650943396226416,
+            "BG": 0.2528301886792453,
+            "UA": 0.1037735849056604
+        },
+        "ICT_SECURITY_DOCUMENT": {
+            "EU27_2020": 0.40516324981017465,
+            "DE": 0.391951404707669,
+            "PL": 0.46742596810933945,
+            "HU": 0.13591495823842065,
+            "RO": 0.8616552771450267,
+            "CZ": 0.255125284738041,
+            "SK": 0.20410022779043283,
+            "LT": 0.5377372817008352,
+            "LV": 0.7697798025816249,
+            "EE": 0.6095671981776766,
+            "BG": 0.08914198936977981,
+            "UA": 0.1108580106302202
+        },
+        "ICT_TRAINING_ICT_SPECIALISTS": {
+            "EU27_2020": 0.3926991150442478,
+            "DE": 0.35342920353982304,
+            "PL": 0.7455752212389382,
+            "HU": 0.3196902654867257,
+            "RO": 0.31803097345132747,
+            "CZ": 0.4148230088495576,
+            "SK": 0.23008849557522126,
+            "LT": 0.4275442477876107,
+            "LV": 0.34070796460176994,
+            "EE": 0.25055309734513276,
+            "BG": 0.11670353982300885,
+            "UA": 0.2765486725663717
+        },
+        "ICT_TRAINING_OTHER_EMPLOYEES": {
+            "EU27_2020": 0.4237238123340218,
+            "DE": 0.39303629389200356,
+            "PL": 0.511360283269401,
+            "HU": 0.27205665388020067,
+            "RO": 0.16494541162584833,
+            "CZ": 0.4697550899970493,
+            "SK": 0.2398937739746238,
+            "LT": 0.3532015343759221,
+            "LV": 0.1956329300678666,
+            "EE": 0.4895249336087341,
+            "BG": 0.09766892888757746,
+            "UA": 0.19179699026261435
+        },
+        "DATA_ANALYTICS": {
+            "EU27_2020": 0.5666866927005106,
+            "DE": 0.507509762691499,
+            "PL": 0.2811655151697206,
+            "HU": 0.6432862721538,
+            "RO": 0.4750675878642235,
+            "CZ": 0.6234604986482427,
+            "SK": 0.4414238510063082,
+            "LT": 1.0,
+            "LV": 0.6960048062481227,
+            "EE": 0.7550315410033044,
+            "BG": 0.34334635025533194,
+            "UA": 0.31991589065785525
+        },
+        "SUPPLY_CHAIN_DATA_EXCHANGE": {
+            "EU27_2020": 0.4384702764104506,
+            "DE": 0.5045437334343051,
+            "PL": 0.4473684210526316,
+            "HU": null,
+            "RO": 0.18515713744793638,
+            "CZ": 0.7027641045058689,
+            "SK": 0.6463460810299129,
+            "LT": 0.5132525558500568,
+            "LV": 0.3850814085573646,
+            "EE": 0.6139719803104885,
+            "BG": 0.19140477092010602,
+            "UA": 0.5982582355168498
+        },
+        "PAID_CLOUD": {
+            "EU27_2020": 0.5739154850484347,
+            "DE": 0.5493471851747859,
+            "PL": 0.6328794047451916,
+            "HU": 0.476344236978801,
+            "RO": 0.2629510037905377,
+            "CZ": 0.597781833497122,
+            "SK": 0.4926295100379054,
+            "LT": 0.8174926295100378,
+            "LV": 0.4684823810192334,
+            "EE": 0.9232065141092236,
+            "BG": 0.1589218026112593,
+            "UA": 0.23725958163695068
+        },
+        "MOBILE_INTERNET": {
+            "EU27_2020": 0.8607660995720697,
+            "DE": 0.9011585429495877,
+            "PL": 0.9138920780711826,
+            "HU": 0.735622586368855,
+            "RO": 0.8517900010437324,
+            "CZ": 0.8530424799081515,
+            "SK": 0.6130884041331802,
+            "LT": 0.981317190272414,
+            "LV": 0.9389416553595658,
+            "EE": 0.8933305500469679,
+            "BG": 0.7558709946769648,
+            "UA": 0.4790731656403298
+        },
+        "ECOMMERCE_SALES": {
+            "EU27_2020": 0.5491961414790996,
+            "DE": 0.5311897106109325,
+            "PL": 0.3085209003215434,
+            "HU": 0.4299035369774919,
+            "RO": 0.3384244372990354,
+            "CZ": 0.6588424437299034,
+            "SK": 0.6868167202572347,
+            "LT": 0.9717041800643086,
+            "LV": 0.6731511254019292,
+            "EE": 0.7549839228295819,
+            "BG": 0.2372990353697749,
+            "UA": 0.27009646302250806
+        },
+        "WEBSITE": {
+            "EU27_2020": 0.7369447009336206,
+            "DE": 0.90181594336719,
+            "PL": 0.5863342566943675,
+            "HU": 0.6040833076844158,
+            "RO": 0.5149276700523238,
+            "CZ": 0.8116343490304709,
+            "SK": 0.7429978454909203,
+            "LT": 0.8368728839642966,
+            "LV": 0.6954960500666872,
+            "EE": 0.7127321227044219,
+            "BG": 0.4679388529804042,
+            "UA": 0.44116138298963786
+        },
+        "EINVOICE_AUTOMATED": {
+            "EU27_2020": 0.4238153594771242,
+            "DE": 0.2648080065359477,
+            "PL": 0.16472630718954248,
+            "HU": 0.3237336601307189,
+            "RO": 0.44005310457516345,
+            "CZ": 0.35927287581699346,
+            "SK": 0.38735702614379086,
+            "LT": 0.44924428104575165,
+            "LV": 0.3901143790849673,
+            "EE": 0.8004493464052287,
+            "BG": 0.20353349673202614,
+            "UA": 0.38602941176470584
+        },
+        "AI_ANY": {
+            "EU27_2020": 0.4709214501510574,
+            "DE": 0.5702416918429003,
+            "PL": 0.18919939577039274,
+            "HU": 0.22847432024169184,
+            "RO": 0.07741691842900301,
+            "CZ": 0.40709969788519634,
+            "SK": 0.3897280966767372,
+            "LT": 0.6125377643504532,
+            "LV": 0.44561933534743203,
+            "EE": 0.6204682779456193,
+            "BG": 0.1782477341389728,
+            "UA": 0.18882175226586104
+        },
+        "DII_BASIC_V3": {
+            "EU27_2020": 0.6316499014829409,
+            "DE": 0.6487607590998652,
+            "PL": 0.5156071761899823,
+            "HU": 0.5284662449445193,
+            "RO": 0.35995022295965984,
+            "CZ": 0.6859898371875972,
+            "SK": 0.552732552110339,
+            "LT": 0.8280618064917555,
+            "LV": 0.6642123820387845,
+            "EE": 0.7412630923986311,
+            "BG": 0.2943067510110961,
+            "UA": 0.2882920253033288
+        }
+    },
+    "countries": {
+        "EU27_2020": {
+            "layers": {
+                "C": 0.5133923802765293,
+                "L1": 0.4082114636891348,
+                "L2": 0.5316849147387309,
+                "L3": 0.7173407923102522,
+                "L4": 0.6206069474709067
+            },
+            "ADMI_base": 0.5582472996971107,
+            "DM_min": 0.4082114636891348,
+            "weakest_layer": "L1",
+            "penalty": 1.0,
+            "ADMI": 0.5582472996971107,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.43058584065810235,
+            "DM_S": 0.5512856758169992
+        },
+        "DE": {
+            "layers": {
+                "C": 0.4802273934251276,
+                "L1": 0.3732327487159133,
+                "L2": 0.5927129613263604,
+                "L3": 0.7252528640621868,
+                "L4": 0.6394818846593742
+            },
+            "ADMI_base": 0.5621815704377925,
+            "DM_min": 0.3732327487159133,
+            "weakest_layer": "L1",
+            "penalty": 0.9992930994863654,
+            "ADMI": 0.5617841639968941,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.29964538257831874,
+            "DM_S": 0.6095012254713827
+        },
+        "PL": {
+            "layers": {
+                "C": 0.4430279712764193,
+                "L1": 0.6284677522541695,
+                "L2": 0.3486774776383587,
+                "L3": 0.773385741408187,
+                "L4": 0.5237783856719703
+            },
+            "ADMI_base": 0.5434674656498211,
+            "DM_min": 0.3486774776383587,
+            "weakest_layer": "L2",
+            "penalty": 0.9894709910553435,
+            "ADMI": 0.5377452918428643,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.22546660187063333,
+            "DM_S": 0.35240328598018755
+        },
+        "HU": {
+            "layers": {
+                "C": 0.29262275048702674,
+                "L1": 0.2958734596834632,
+                "L2": 0.5332085800536488,
+                "L3": 0.6059834116738281,
+                "L4": 0.4788489482206359
+            },
+            "ADMI_base": 0.4413074300237206,
+            "DM_min": 0.29262275048702674,
+            "weakest_layer": "C",
+            "penalty": 0.9670491001948107,
+            "ADMI": 0.4267659531137234,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.24793004845616406,
+            "DM_S": 0.37847028259310556
+        },
+        "RO": {
+            "layers": {
+                "C": 0.44050748201577455,
+                "L1": 0.2414881925385879,
+                "L2": 0.28762351537264413,
+                "L3": 0.557370502417135,
+                "L4": 0.3781040357837864
+            },
+            "ADMI_base": 0.3810187456255856,
+            "DM_min": 0.2414881925385879,
+            "weakest_layer": "L1",
+            "penalty": 0.9465952770154351,
+            "ADMI": 0.3606705450635248,
+            "level_base": 2,
+            "level": 2,
+            "DM_I": 0.30522770171286906,
+            "DM_S": 0.21868357069433142
+        },
+        "CZ": {
+            "layers": {
+                "C": 0.563056785090868,
+                "L1": 0.44228904942330344,
+                "L2": 0.6711788965815368,
+                "L3": 0.7254121567026368,
+                "L4": 0.8120789309201247
+            },
+            "ADMI_base": 0.642803163743694,
+            "DM_min": 0.44228904942330344,
+            "weakest_layer": "L1",
+            "penalty": 1.0,
+            "ADMI": 0.642803163743694,
+            "level_base": 4,
+            "level": 4,
+            "DM_I": 0.3734582769889565,
+            "DM_S": 0.5465447675363968
+        },
+        "SK": {
+            "layers": {
+                "C": 0.350711630000961,
+                "L1": 0.23499113477492253,
+                "L2": 0.6000457132978357,
+                "L3": 0.5528589570855428,
+                "L4": 0.6228448552493849
+            },
+            "ADMI_base": 0.47229045808172937,
+            "DM_min": 0.23499113477492253,
+            "weakest_layer": "L1",
+            "penalty": 0.943996453909969,
+            "ADMI": 0.44584051764466737,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.26695437514086096,
+            "DM_S": 0.47123032439353807
+        },
+        "LT": {
+            "layers": {
+                "C": 0.6946342072536481,
+                "L1": 0.3903728910817664,
+                "L2": 0.7569731409858979,
+                "L3": 0.8994049098912259,
+                "L4": 0.8806190213428685
+            },
+            "ADMI_base": 0.7244008341110815,
+            "DM_min": 0.3903728910817664,
+            "weakest_layer": "L1",
+            "penalty": 1.0,
+            "ADMI": 0.7244008341110815,
+            "level_base": 4,
+            "level": 4,
+            "DM_I": 0.6658577727067839,
+            "DM_S": 0.7202997854211044
+        },
+        "LV": {
+            "layers": {
+                "C": 0.7108212222805504,
+                "L1": 0.26817044733481826,
+                "L2": 0.5611371100196817,
+                "L3": 0.7037120181893995,
+                "L4": 0.5963757251562055
+            },
+            "ADMI_base": 0.5680433045961311,
+            "DM_min": 0.26817044733481826,
+            "weakest_layer": "L1",
+            "penalty": 0.9572681789339273,
+            "ADMI": 0.5437697797463485,
+            "level_base": 3,
+            "level": 3,
+            "DM_I": 0.453103166553978,
+            "DM_S": 0.5549158586931082
+        },
+        "EE": {
+            "layers": {
+                "C": 0.5783951587910123,
+                "L1": 0.3700390154769334,
+                "L2": 0.6258407541815001,
+                "L3": 0.9082685320780958,
+                "L4": 0.6109453485113346
+            },
+            "ADMI_base": 0.6186977618077752,
+            "DM_min": 0.3700390154769334,
+            "weakest_layer": "L1",
+            "penalty": 0.9980156061907733,
+            "ADMI": 0.6174700217994615,
+            "level_base": 4,
+            "level": 4,
+            "DM_I": 0.6635867421681316,
+            "DM_S": 0.6808656851721252
+        },
+        "BG": {
+            "layers": {
+                "C": 0.21832676937677528,
+                "L1": 0.10718623435529315,
+                "L2": 0.2803416411802138,
+                "L3": 0.4573963986441121,
+                "L4": 0.30622596278339304
+            },
+            "ADMI_base": 0.2738954012679574,
+            "DM_min": 0.10718623435529315,
+            "weakest_layer": "L1",
+            "penalty": 0.8928744937421172,
+            "ADMI": 0.24455421774542155,
+            "level_base": 2,
+            "level": 2,
+            "DM_I": 0.19041617365336938,
+            "DM_S": 0.23627724257503446
+        },
+        "UA": {
+            "layers": {
+                "C": 0.17392266674442028,
+                "L1": 0.23417283141449302,
+                "L2": 0.36886287936698087,
+                "L3": 0.35816637363864023,
+                "L4": 0.3106859486707153
+            },
+            "ADMI_base": 0.2891621399670499,
+            "DM_min": 0.17392266674442028,
+            "weakest_layer": "C",
+            "penalty": 0.9195690666977681,
+            "ADMI": 0.2659045591738295,
+            "level_base": 2,
+            "level": 2,
+            "DM_I": 0.2878422920892495,
+            "DM_S": 0.2385568887845949
+        }
+    },
+    "ranking": {
+        "PL": {
+            "ADMI_rank": 5,
+            "TOPSIS_closeness": 0.6669694054637673,
+            "TOPSIS_rank": 3,
+            "TOPSIS_equal_weights_rank": 4
+        },
+        "HU": {
+            "ADMI_rank": 7,
+            "TOPSIS_closeness": 0.3367831406940952,
+            "TOPSIS_rank": 7,
+            "TOPSIS_equal_weights_rank": 7
+        },
+        "RO": {
+            "ADMI_rank": 8,
+            "TOPSIS_closeness": 0.3141564891858802,
+            "TOPSIS_rank": 8,
+            "TOPSIS_equal_weights_rank": 8
+        },
+        "CZ": {
+            "ADMI_rank": 2,
+            "TOPSIS_closeness": 0.695291399599263,
+            "TOPSIS_rank": 2,
+            "TOPSIS_equal_weights_rank": 2
+        },
+        "SK": {
+            "ADMI_rank": 6,
+            "TOPSIS_closeness": 0.3416882299469192,
+            "TOPSIS_rank": 6,
+            "TOPSIS_equal_weights_rank": 6
+        },
+        "LT": {
+            "ADMI_rank": 1,
+            "TOPSIS_closeness": 0.69943489684542,
+            "TOPSIS_rank": 1,
+            "TOPSIS_equal_weights_rank": 1
+        },
+        "LV": {
+            "ADMI_rank": 4,
+            "TOPSIS_closeness": 0.5334507556207205,
+            "TOPSIS_rank": 5,
+            "TOPSIS_equal_weights_rank": 5
+        },
+        "EE": {
+            "ADMI_rank": 3,
+            "TOPSIS_closeness": 0.596541430246846,
+            "TOPSIS_rank": 4,
+            "TOPSIS_equal_weights_rank": 3
+        },
+        "BG": {
+            "ADMI_rank": 10,
+            "TOPSIS_closeness": 0.050755853486984956,
+            "TOPSIS_rank": 10,
+            "TOPSIS_equal_weights_rank": 10
+        },
+        "UA": {
+            "ADMI_rank": 9,
+            "TOPSIS_closeness": 0.17632309536115978,
+            "TOPSIS_rank": 9,
+            "TOPSIS_equal_weights_rank": 9
+        }
+    },
+    "entropy_weights": {
+        "C": 0.2667754493781255,
+        "L1": 0.27811394220220365,
+        "L2": 0.16703306321860847,
+        "L3": 0.11148960962598704,
+        "L4": 0.17658793557507538
+    },
+    "spearman_ADMI_base": 1.0,
+    "spearman_ADMI_TOPSIS": 0.9636363636363636,
+    "pearson_ADMI_TOPSIS_values": 0.9569744058323312,
+    "spearman_TOPSIS_entropy_vs_equal": 0.9878787878787879,
+    "proxy_robustness": {
+        "counts_in_index": {
+            "direct": 4,
+            "acceptable": 5,
+            "proxy": 4
+        },
+        "strict_set": {
+            "spearman_with_full": 1.0,
+            "max_rank_shift": 0,
+            "countries_with_rank_shift": [],
+            "level_agreement": 0.9,
+            "countries_with_level_change": [
+                "EE"
+            ],
+            "ukraine_rank": 9,
+            "ukraine_level": 2,
+            "ADMI": {
+                "PL": 0.456,
+                "HU": 0.406,
+                "RO": 0.28,
+                "CZ": 0.657,
+                "SK": 0.439,
+                "LT": 0.731,
+                "LV": 0.525,
+                "EE": 0.543,
+                "BG": 0.228,
+                "UA": 0.234
+            },
+            "ranks": {
+                "LT": 1,
+                "CZ": 2,
+                "EE": 3,
+                "LV": 4,
+                "PL": 5,
+                "SK": 6,
+                "HU": 7,
+                "RO": 8,
+                "UA": 9,
+                "BG": 10
+            },
+            "layers": {
+                "C": [
+                    "ERP",
+                    "IOT_PRODUCTION"
+                ],
+                "L1": [
+                    "ICT_TRAINING_ICT_SPECIALISTS",
+                    "ICT_TRAINING_OTHER_EMPLOYEES"
+                ],
+                "L2": [
+                    "DATA_ANALYTICS",
+                    "IOT_ANY"
+                ],
+                "L4": [
+                    "ECOMMERCE_SALES",
+                    "WEBSITE",
+                    "CRM"
+                ]
+            },
+            "layers_dropped": [
+                "L3"
+            ]
+        },
+        "leave_one_out": {
+            "ICT_SECURITY_DOCUMENT": {
+                "spearman_with_full": 1.0,
+                "max_rank_shift": 0,
+                "countries_with_rank_shift": [],
+                "level_agreement": 1.0,
+                "countries_with_level_change": [],
+                "ukraine_rank": 9,
+                "ukraine_level": 2,
+                "ADMI": {
+                    "PL": 0.535,
+                    "HU": 0.443,
+                    "RO": 0.319,
+                    "CZ": 0.674,
+                    "SK": 0.46,
+                    "LT": 0.74,
+                    "LV": 0.538,
+                    "EE": 0.614,
+                    "BG": 0.256,
+                    "UA": 0.275
+                },
+                "ranks": {
+                    "LT": 1,
+                    "CZ": 2,
+                    "EE": 3,
+                    "LV": 4,
+                    "PL": 5,
+                    "SK": 6,
+                    "HU": 7,
+                    "RO": 8,
+                    "UA": 9,
+                    "BG": 10
+                }
+            },
+            "SUPPLY_CHAIN_DATA_EXCHANGE": {
+                "spearman_with_full": 0.988,
+                "max_rank_shift": 1,
+                "countries_with_rank_shift": [
+                    "BG",
+                    "UA"
+                ],
+                "level_agreement": 1.0,
+                "countries_with_level_change": [],
+                "ukraine_rank": 10,
+                "ukraine_level": 2,
+                "ADMI": {
+                    "PL": 0.517,
+                    "HU": 0.427,
+                    "RO": 0.37,
+                    "CZ": 0.64,
+                    "SK": 0.441,
+                    "LT": 0.749,
+                    "LV": 0.561,
+                    "EE": 0.619,
+                    "BG": 0.252,
+                    "UA": 0.245
+                },
+                "ranks": {
+                    "LT": 1,
+                    "CZ": 2,
+                    "EE": 3,
+                    "LV": 4,
+                    "PL": 5,
+                    "SK": 6,
+                    "HU": 7,
+                    "RO": 8,
+                    "BG": 9,
+                    "UA": 10
+                }
+            },
+            "MOBILE_INTERNET": {
+                "spearman_with_full": 0.976,
+                "max_rank_shift": 1,
+                "countries_with_rank_shift": [
+                    "PL",
+                    "CZ",
+                    "LV",
+                    "EE"
+                ],
+                "level_agreement": 0.9,
+                "countries_with_level_change": [
+                    "BG"
+                ],
+                "ukraine_rank": 9,
+                "ukraine_level": 2,
+                "ADMI": {
+                    "PL": 0.51,
+                    "HU": 0.402,
+                    "RO": 0.305,
+                    "CZ": 0.617,
+                    "SK": 0.434,
+                    "LT": 0.708,
+                    "LV": 0.499,
+                    "EE": 0.62,
+                    "BG": 0.191,
+                    "UA": 0.244
+                },
+                "ranks": {
+                    "LT": 1,
+                    "EE": 2,
+                    "CZ": 3,
+                    "PL": 4,
+                    "LV": 5,
+                    "SK": 6,
+                    "HU": 7,
+                    "RO": 8,
+                    "UA": 9,
+                    "BG": 10
+                }
+            },
+            "PAID_CLOUD": {
+                "spearman_with_full": 0.988,
+                "max_rank_shift": 1,
+                "countries_with_rank_shift": [
+                    "BG",
+                    "UA"
+                ],
+                "level_agreement": 0.9,
+                "countries_with_level_change": [
+                    "RO"
+                ],
+                "ukraine_rank": 10,
+                "ukraine_level": 2,
+                "ADMI": {
+                    "PL": 0.566,
+                    "HU": 0.452,
+                    "RO": 0.416,
+                    "CZ": 0.668,
+                    "SK": 0.457,
+                    "LT": 0.741,
+                    "LV": 0.589,
+                    "EE": 0.614,
+                    "BG": 0.298,
+                    "UA": 0.288
+                },
+                "ranks": {
+                    "LT": 1,
+                    "CZ": 2,
+                    "EE": 3,
+                    "LV": 4,
+                    "PL": 5,
+                    "SK": 6,
+                    "HU": 7,
+                    "RO": 8,
+                    "BG": 9,
+                    "UA": 10
+                }
+            }
+        },
+        "leave_one_out_min_spearman": 0.976,
+        "leave_one_out_max_rank_shift": 1
+    }
 }

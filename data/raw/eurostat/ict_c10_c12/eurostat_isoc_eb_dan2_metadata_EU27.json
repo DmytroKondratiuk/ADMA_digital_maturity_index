@@ -1,0 +1,315 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Data analytics by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-02-27T11:00:00+0100",
+ "value": {
+  "42": 31.78,
+  "44": 37.73,
+  "39": 10.17,
+  "41": 12.13,
+  "0": 27.09,
+  "2": 32.34,
+  "27": 24.76,
+  "29": 30.98,
+  "33": 13.3,
+  "35": 16.33,
+  "6": 13.42,
+  "8": 17.15,
+  "3": 22.0,
+  "5": 28.45,
+  "30": 11.14,
+  "32": 14.21,
+  "21": 5.23,
+  "23": 6.09,
+  "15": 4.72,
+  "17": 5.85,
+  "24": 2.28,
+  "26": 2.33,
+  "18": 6.14,
+  "20": 7.31,
+  "9": 8.25,
+  "11": 9.71,
+  "12": 5.79,
+  "14": 7.32,
+  "96": 11.45,
+  "98": 15.25,
+  "84": 10.12,
+  "86": 13.62,
+  "93": 11.8,
+  "95": 12.55,
+  "81": 8.67,
+  "83": 9.64,
+  "99": 3.28,
+  "101": 6.39,
+  "87": 3.14,
+  "89": 5.9,
+  "90": 5.25,
+  "92": 3.53,
+  "78": 2.83,
+  "80": 1.82
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  34,
+  1,
+  1,
+  3
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_DAOWN": 0,
+     "E_DASERP": 1,
+     "E_DASCRM": 2,
+     "E_DASSM": 3,
+     "E_DASWEB": 4,
+     "E_DASLOC": 5,
+     "E_DASSDS": 6,
+     "E_DASGOV": 7,
+     "E_DASSAT": 8,
+     "E_DASANY": 9,
+     "E_DASGE3": 10,
+     "E_DASANY2": 11,
+     "E_DASANY_ADS": 12,
+     "E_DAEXT": 13,
+     "E_DA": 14,
+     "E_DSELL": 15,
+     "E_DSELLX": 16,
+     "E_DASSDS_SELL": 17,
+     "E_DASLOC_SELL": 18,
+     "E_DASSM_SELL": 19,
+     "E_DASWEB_SELL": 20,
+     "E_DBUY": 21,
+     "E_DASSDS_BUY": 22,
+     "E_DASLOC_BUY": 23,
+     "E_DASSM_BUY": 24,
+     "E_DASWEB_BUY": 25,
+     "E_DI3_VLO_DASANY": 26,
+     "E_DI3_LO_DASANY": 27,
+     "E_DI3_HI_DASANY": 28,
+     "E_DI3_VHI_DASANY": 29,
+     "E_DI3_VLO_DA": 30,
+     "E_DI3_LO_DA": 31,
+     "E_DI3_HI_DA": 32,
+     "E_DI3_VHI_DA": 33
+    },
+    "label": {
+     "E_DAOWN": "Enterprises where data analytics for the enterprise is performed by own employees",
+     "E_DASERP": "Enterprises perform data analytics on data from transaction records such as sale details, payments records",
+     "E_DASCRM": "Enterprises perform data analytics on data about customers, e.g. purchasing information, location, preferences, customer reviews, searches",
+     "E_DASSM": "Enterprises perform data analytics on data from social media including from enterprises' own social media profiles",
+     "E_DASWEB": "Enterprises perform data analytics on web data",
+     "E_DASLOC": "Enterprises perform data analytics on location data from the use of portable devices or vehicles",
+     "E_DASSDS": "Enterprises perform data analytics on data from smart devices or sensors",
+     "E_DASGOV": "Enterprises perform data analytics on government authorities’ open data",
+     "E_DASSAT": "Enterprises perform data analytics on satellite data",
+     "E_DASANY": "Enterprises perform data analytics on data from any source",
+     "E_DASGE3": "Enterprises perform data analytics on data from at least three sources",
+     "E_DASANY2": "Enterprises perform data analytics on data from any source among E_DASWEB, E_DASLOC, E_DASSDS, E_DASGOV and E_DASSAT",
+     "E_DASANY_ADS": "Enterprises perform data analytics on data from any source and pay to advertise on the internet",
+     "E_DAEXT": "Enterprises where data analytics for the enterprise is performed by external enterprise or organisation",
+     "E_DA": "Data analytics for the enterprise is performed by the enterprise's own employees or by an external provider",
+     "E_DSELL": "Enterprises sell (access to) any of its own data",
+     "E_DSELLX": "Enterprises don't sell (access to) any of its own data",
+     "E_DASSDS_SELL": "Enterprises perform data analytics on data from smart devices or sensors and sell (access to) its own data",
+     "E_DASLOC_SELL": "Enterprises perform data analytics on location data from the use of portable devices and sell (access to) its own data",
+     "E_DASSM_SELL": "Enterprises perform data analytics on data from social media and sell (access to) its own data",
+     "E_DASWEB_SELL": "Enterprises perform data analytics on web data and sell (access to) its own data",
+     "E_DBUY": "Enterprises purchased (access to) any data",
+     "E_DASSDS_BUY": "Enterprises perform data analytics on data from smart devices or sensors and purchased (access to) any data",
+     "E_DASLOC_BUY": "Enterprises perform data analytics on location data from the use of portable devices and purchased (access to) any data",
+     "E_DASSM_BUY": "Enterprises perform data analytics on data from social media and purchased (access to) any data",
+     "E_DASWEB_BUY": "Enterprises perform data analytics on web data and purchased (access to) any data",
+     "E_DI3_VLO_DASANY": "Enterprises with very low digital intensity index, which perform data analytics on data from any source",
+     "E_DI3_LO_DASANY": "Enterprises with low digital intensity index, which perform data analytics on data from any source",
+     "E_DI3_HI_DASANY": "Enterprises with high digital intensity index, which perform data analytics on data from any source",
+     "E_DI3_VHI_DASANY": "Enterprises with very high digital intensity index, which perform data analytics on data from any source",
+     "E_DI3_VLO_DA": "Enterprises with very low digital intensity index, which perform data analytics",
+     "E_DI3_LO_DA": "Enterprises with low digital intensity index, which perform data analytics",
+     "E_DI3_HI_DA": "Enterprises with high digital intensity index, which perform data analytics",
+     "E_DI3_VHI_DA": "Enterprises with very high digital intensity index, which perform data analytics"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2023": 0,
+     "2024": 1,
+     "2025": 2
+    },
+    "label": {
+     "2023": "2023",
+     "2024": "2024",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_EB_DAN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_EB_DAN2",
+   "agencyId": "ESTAT",
+   "version": "12.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2023-12-08T08:51:36+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_EB_DAN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_EB_DAN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2024-02-06</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "155005"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2023"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2026-01-26T23:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [
+    12,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+   ],
+   "unit": [],
+   "geo": [],
+   "time": [
+    1
+   ]
+  }
+ }
+}

@@ -1,0 +1,1876 @@
+{
+ "generated_at": "2026-10-09T19:38:19+0300",
+ "scope": {
+  "nace_r2": "C10-C12",
+  "size": "enterprises with 10+ persons employed",
+  "unit": "% of enterprises",
+  "countries": [
+   "EU27_2020",
+   "DE",
+   "PL",
+   "HU",
+   "RO",
+   "CZ",
+   "SK",
+   "LT",
+   "LV",
+   "EE",
+   "BG",
+   "UA"
+  ],
+  "leader_pool": [
+   "AT",
+   "BE",
+   "BG",
+   "CY",
+   "CZ",
+   "DE",
+   "DK",
+   "EE",
+   "EL",
+   "ES",
+   "FI",
+   "FR",
+   "HR",
+   "HU",
+   "IE",
+   "IT",
+   "LT",
+   "LU",
+   "LV",
+   "MT",
+   "NL",
+   "PL",
+   "PT",
+   "RO",
+   "SE",
+   "SI",
+   "SK"
+  ]
+ },
+ "ukrstat_dataflow": {
+  "id": "DF_INFORM_COMMUN_TECH_ENTRP",
+  "version": "10.0.0",
+  "names": {
+   "en": "Use of information and communication technologies at enterprises",
+   "uk": "Використання інформаційно-комунікаційних технологій на підприємствах"
+  },
+  "annotations": [
+   {
+    "id": "dataEngineSettings",
+    "value": "{\"historySettingType\":\"FULL_HISTORY\"}"
+   },
+   {
+    "id": "origin",
+    "value": "INTEGRATION"
+   },
+   {
+    "id": "DataEngine",
+    "title": "timeseries_v2"
+   },
+   {
+    "id": "isFinal"
+   },
+   {
+    "id": "lastUpdatedAt",
+    "value": "2026-09-23T15:10:31.434617Z"
+   }
+  ]
+ },
+ "ukrstat_structure_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/structure/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/latest?references=all&detail=full",
+ "failures": [],
+ "pairs": [
+  {
+   "pair_id": "ERP",
+   "comparability_note": "Match: ERP software package to share information between functional areas.",
+   "eurostat": {
+    "dataset": "isoc_eb_iipn2",
+    "dataset_label": "Integration of internal processes by NACE Rev. 2 activity",
+    "indicator": "E_ERP1",
+    "indicator_label": "Enterprises who have ERP software package to share information between different functional areas",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_IIPN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_IIPN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12.E_ERP1.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_iipn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_ERP_SOFTWARE/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_ERP_SOFTWARE": {
+      "label": {
+       "en": "Share of enterprіses that usіng ERP of the total number of enterprіses",
+       "uk": "Частка підприємств, що використовують програмне забезпечення ERP, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_ERP_SOFTWARE.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 8,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "CRM",
+   "comparability_note": "Match for 2023+ (E_CRM1 \"as of 2023\"); UA 2022 value corresponds to the older Eurostat E_CRM concept (break in series).",
+   "eurostat": {
+    "dataset": "isoc_eb_iipn2",
+    "dataset_label": "Integration of internal processes by NACE Rev. 2 activity",
+    "indicator": "E_CRM1",
+    "indicator_label": "Enterprises using Customer Relationship Management (CRM) software (as of 2023)",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_IIPN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_IIPN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12.E_CRM1.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_iipn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_CRM_SOFTWARE/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_CRM_SOFTWARE": {
+      "label": {
+       "en": "Share of enterprіses that usіng сustomer Relatіonshіp Management (CRM) of the total number of enterprіses",
+       "uk": "Частка підприємств, що використовують програмне забезпечення CRM, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_CRM_SOFTWARE.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 18,
+      "series_metadata": {
+       "PURPOSE_CMR_SOFTWARE/MANAGE_ANALYSIS": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_CMR_SOFTWARE/MANAGE_COLLECTION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "BI",
+   "comparability_note": "Match: Business Intelligence software.",
+   "eurostat": {
+    "dataset": "isoc_eb_iipn2",
+    "dataset_label": "Integration of internal processes by NACE Rev. 2 activity",
+    "indicator": "E_ITBI",
+    "indicator_label": "Enterprises using Business Intelligence (BI) software",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_IIPN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_IIPN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iipn2/A.GE10.C10-C12.E_ITBI.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_iipn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_BI/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_BI": {
+      "label": {
+       "en": "Share of enterprіses that usіng Busіness іntellіgenсe (BI) of the total number of enterprіses",
+       "uk": "Частка підприємств, що використовують програмне забезпечення BI, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_BI.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 3,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "IOT_ANY",
+   "comparability_note": "Match on concept (use of IoT). Eurostat module only in 2021 (E_IOT1), UA only 2022.",
+   "eurostat": {
+    "dataset": "isoc_eb_iotn2",
+    "dataset_label": "Internet of Things by NACE Rev. 2 activity",
+    "indicator": "E_IOT1",
+    "indicator_label": "Enterprises use IoT (interconnected devices or systems that can be monitored or remotely controlled via the internet) (as of 2021)",
+    "last_update": "2025-12-11T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_IOTN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_IOTN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iotn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iotn2/A.GE10.C10-C12.E_IOT1.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_iotn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_INTERNET_THINGS/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_INTERNET_THINGS": {
+      "label": {
+       "en": "Share of the number of enterprises use of Internet of Things of the total number of enterprises",
+       "uk": "Частка кількості підприємств, що використовують Інтернет речей, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_INTERNET_THINGS.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 40,
+      "series_metadata": {
+       "PURPOSE_INTERNET_THINGS/CONDITION_BASED_MAINTENANCE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/CUSTOMER_SERVICE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/ENERGY_CONSUMPTION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/LOGISTICS_MANAGEMENT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/OTHER_PURPOSES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/PREMISES_SECURITY": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/PRODUCTION_PROCESSES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "IOT_PRODUCTION",
+   "comparability_note": "Match: IoT for production processes. Eurostat 2021 only, UA 2022 only.",
+   "eurostat": {
+    "dataset": "isoc_eb_iotn2",
+    "dataset_label": "Internet of Things by NACE Rev. 2 activity",
+    "indicator": "E_IOTDPP",
+    "indicator_label": "Enterprises use IoT for production processes (e.g. sensors or RFID tags to monitor or automate the production processes) (as of 2021)",
+    "last_update": "2025-12-11T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_IOTN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_IOTN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iotn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_iotn2/A.GE10.C10-C12.E_IOTDPP.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_iotn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_INTERNET_THINGS/PURPOSE_INTERNET_THINGS/PRODUCTION_PROCESSES",
+    "breakdown_category_label": {
+     "en": "Purpose of using Internet of Things",
+     "uk": "Ціль використання Інтернету речей"
+    },
+    "breakdown_label": {
+     "en": "For production processes",
+     "uk": "Для виробничих процесів"
+    },
+    "indicators": {
+     "SH_ENTRP_INTERNET_THINGS": {
+      "label": {
+       "en": "Share of the number of enterprises use of Internet of Things of the total number of enterprises",
+       "uk": "Частка кількості підприємств, що використовують Інтернет речей, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_INTERNET_THINGS.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 40,
+      "series_metadata": {
+       "PURPOSE_INTERNET_THINGS/CONDITION_BASED_MAINTENANCE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/CUSTOMER_SERVICE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/ENERGY_CONSUMPTION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/LOGISTICS_MANAGEMENT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/OTHER_PURPOSES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/PREMISES_SECURITY": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_INTERNET_THINGS/PRODUCTION_PROCESSES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ICT_SECURITY_DOCUMENT",
+   "comparability_note": "Match: identical wording (document(s) on measures, practices or procedures on ICT security).",
+   "eurostat": {
+    "dataset": "isoc_cisce_ran2",
+    "dataset_label": "Security policy, measures, risks and staff awareness by NACE Rev.2 activity",
+    "indicator": "E_SECPOL2",
+    "indicator_label": "Enterprises have document(s) on measures, practices or procedures on ICT security",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_CISCE_RAN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_CISCE_RAN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cisce_ran2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cisce_ran2/A.GE10.C10-C12.E_SECPOL2.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_cisce_ran2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_HAVE_DOCUMENT/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_HAVE_DOCUMENT": {
+      "label": {
+       "en": "Share of the number of enterprises which have document(s) on measures, practices or procedures on ICT security of the total number of enterprises",
+       "uk": "Частка кількості підприємств, що мають документи щодо заходів, практики або процедур безпеки ІКТ, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_HAVE_DOCUMENT.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 20,
+      "series_metadata": {
+       "TIME_ICT_DOCUMENT/12_MONTH": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "TIME_ICT_DOCUMENT/12_MONTH_24": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "TIME_ICT_DOCUMENT/24_MONTH": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ICT_TRAINING_ICT_SPECIALISTS",
+   "comparability_note": "Match. UA ISOC_ENT_ICTT2_SH/DIRECTION_STUDY/FOR_ICT repeats SH_ENTRP_TRAIN_ICT values for 2018-2022 and extends to 2025.",
+   "eurostat": {
+    "dataset": "isoc_ske_ittn2",
+    "dataset_label": "Enterprises that provided training to develop/upgrade ICT skills of their personnel by NACE Rev.2 activity",
+    "indicator": "E_ITSPT2",
+    "indicator_label": "Enterprise provided training to ICT/IT specialists to develop their ICT skills",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_SKE_ITTN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_SKE_ITTN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12.E_ITSPT2.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ske_ittn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "ISOC_ENT_ICTT2_SH/DIRECTION_STUDY/FOR_ICT",
+    "breakdown_category_label": {
+     "en": "Direction of study",
+     "uk": "Напрям навчання"
+    },
+    "breakdown_label": {
+     "en": "For ICT specialists",
+     "uk": "Для фахівців у сфері ІКТ"
+    },
+    "indicators": {
+     "ISOC_ENT_ICTT2_SH": {
+      "label": {
+       "en": "Share of enterprіses whісh have сonduсted traіnіng to develop ICT-related skіlls of the total number of enterprіses    ",
+       "uk": "Частка підприємств, що проводили навчання з метою розвитку у своїх працівників навичок у сфері ІКТ, у загальній кількості підприємств "
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/ISOC_ENT_ICTT2_SH.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 10,
+      "series_metadata": {
+       "AREAS_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AREAS_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     },
+     "SH_ENTRP_TRAIN_ICT": {
+      "label": {
+       "en": "Share of the number of enterprises which have conducted training for specialists in the field of ICT of the total number of enterprises",
+       "uk": "Частка кількості підприємств, що проводили навчання для фахівців у сфері ІКТ, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_TRAIN_ICT.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 6,
+      "series_metadata": {
+       "DIRECTION_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ICT_TRAINING_OTHER_EMPLOYEES",
+   "comparability_note": "Match. UA 2018-2022 from SH_ENTRP_TRAIN_ICT_OTH; 2025 only in ISOC_ENT_ICTT2_SH/DIRECTION_STUDY/FOR_OTHER (merged, source recorded per year).",
+   "eurostat": {
+    "dataset": "isoc_ske_ittn2",
+    "dataset_label": "Enterprises that provided training to develop/upgrade ICT skills of their personnel by NACE Rev.2 activity",
+    "indicator": "E_ITUST2",
+    "indicator_label": "Enterprise provided training to other persons employed to develop their ICT skills",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_SKE_ITTN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_SKE_ITTN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12.E_ITUST2.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ske_ittn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_TRAIN_ICT_OTH/DIRECTION_STUDY/FOR_OTHER",
+    "breakdown_category_label": {
+     "en": "Direction of study",
+     "uk": "Напрям навчання"
+    },
+    "breakdown_label": {
+     "en": "For other persons employed",
+     "uk": "Для інших працівників"
+    },
+    "indicators": {
+     "SH_ENTRP_TRAIN_ICT_OTH": {
+      "label": {
+       "en": "Share of the number of enterprises which have conducted training for other persons employed of ICT of the total number of enterprises",
+       "uk": "Частка кількості підприємств, що проводили навчання для інших працівників, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_TRAIN_ICT_OTH.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 6,
+      "series_metadata": {
+       "DIRECTION_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     },
+     "ISOC_ENT_ICTT2_SH": {
+      "label": {
+       "en": "Share of enterprіses whісh have сonduсted traіnіng to develop ICT-related skіlls of the total number of enterprіses    ",
+       "uk": "Частка підприємств, що проводили навчання з метою розвитку у своїх працівників навичок у сфері ІКТ, у загальній кількості підприємств "
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/ISOC_ENT_ICTT2_SH.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 10,
+      "series_metadata": {
+       "AREAS_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AREAS_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ICT_TRAINING_ANY",
+   "comparability_note": "UA publishes ISOC_ENT_ICTT2_SH for C10-C12 only by breakdown (FOR_ICT / FOR_OTHER), no total; the shares cannot be summed (overlap). UA side unavailable.",
+   "eurostat": {
+    "dataset": "isoc_ske_ittn2",
+    "dataset_label": "Enterprises that provided training to develop/upgrade ICT skills of their personnel by NACE Rev.2 activity",
+    "indicator": "E_ITT2",
+    "indicator_label": "Enterprise provided training to their personnel to develop their ICT skills",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_SKE_ITTN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_SKE_ITTN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_ittn2/A.GE10.C10-C12.E_ITT2.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ske_ittn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "ISOC_ENT_ICTT2_SH/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "ISOC_ENT_ICTT2_SH": {
+      "label": {
+       "en": "Share of enterprіses whісh have сonduсted traіnіng to develop ICT-related skіlls of the total number of enterprіses    ",
+       "uk": "Частка підприємств, що проводили навчання з метою розвитку у своїх працівників навичок у сфері ІКТ, у загальній кількості підприємств "
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/ISOC_ENT_ICTT2_SH.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 10,
+      "series_metadata": {
+       "AREAS_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AREAS_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_ICT": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "DIRECTION_STUDY/FOR_OTHER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ICT_SPECIALISTS_EMPLOYED",
+   "comparability_note": "Match: employs ICT specialists (UA wording: hired specialists for whom ICT is the main job).",
+   "eurostat": {
+    "dataset": "isoc_ske_itspen2",
+    "dataset_label": "Enterprises that employ ICT specialists by NACE Rev.2 activity",
+    "indicator": "E_ITSP2",
+    "indicator_label": "Enterprise employed ICT/IT specialists (reduced comparability with 2007)",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_SKE_ITSPEN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_SKE_ITSPEN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_itspen2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ske_itspen2/A.GE10.C10-C12.E_ITSP2.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ske_itspen2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_ICT/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_ICT": {
+      "label": {
+       "en": "Share of enterprіses which have ICT specialists  of the total number of enterprіses",
+       "uk": "Частка підприємств, що мають найманих фахівців, для яких ІКТ є основною роботою, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_ICT.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 7,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "DATA_ANALYTICS",
+   "comparability_note": "Match from UA 2024 (data analytics by own employees or external provider). UA 2018-2022 values are the older big-data-analysis concept (break; Eurostat isoc_eb_bdn2).",
+   "eurostat": {
+    "dataset": "isoc_eb_dan2",
+    "dataset_label": "Data analytics by NACE Rev. 2 activity",
+    "indicator": "E_DA",
+    "indicator_label": "Data analytics for the enterprise is performed by the enterprise's own employees or by an external provider",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_DAN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_DAN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_dan2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_dan2/A.GE10.C10-C12.E_DA.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_dan2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_BIGDATA/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_BIGDATA": {
+      "label": {
+       "en": "Share of enterprіses conducting data analytics of the total number of enterprіses",
+       "uk": "Частка підприємств, що проводять аналітику даних, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_BIGDATA.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 83,
+      "series_metadata": {
+       "BIG_DATA_METHOD/METHOD_OTH": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_METHOD/ML": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_METHOD/NLP": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_METHOD/SERVICE_PROVIDER_EXTERNAL": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/DATA_ANALITIC_CUSTOMER_DATA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/DATA_ANALITIC_OPENDATA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/DATA_ANALITIC_SATELLITE_DATA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/DATA_ANALITIC_TRANSACTION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/DATA_ANALITIC_WEBDATA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/GEOLOCATION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/SERVICE_PROVIDER_EXTERNAL": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/SMART_DEVICES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/SOCIAL_MEDIA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "BIG_DATA_SOURCE/SOURCES_OTH": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ANALISIS/EMPLOYEES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ANALISIS/OTH_ENTERP": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "SUPPLY_CHAIN_DATA_EXCHANGE",
+   "comparability_note": "Close match: Eurostat \"share supply chain management information electronically with suppliers or customers\"; UA \"exchange data electronically with suppliers or customers in the supply chain\". No common year.",
+   "eurostat": {
+    "dataset": "isoc_eb_icsn2",
+    "dataset_label": "Integration with customers/suppliers, supply chain management by NACE Rev. 2 activity",
+    "indicator": "E_SISC",
+    "indicator_label": "Enterprises which share supply chain management information electronically with suppliers or customers",
+    "last_update": "2025-12-11T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_ICSN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_ICSN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_icsn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_icsn2/A.GE10.C10-C12.E_SISC.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_icsn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_EXCHANG_DATA/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_EXCHANG_DATA": {
+      "label": {
+       "en": "Share of enterprіses exсhanged data eleсtronісally wіth supplіers or сustomers іn the supply сhaіn of the total number of enterprіses",
+       "uk": "Частка підприємств, що здійснюють обмін даними в електронній формі з постачальниками або клієнтами в ланцюгу постачання, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_EXCHANG_DATA.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 3,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "PAID_CLOUD",
+   "comparability_note": "Match: buy (paid) cloud computing services. UA total is coded CLOUD_COMPUTING_TYPE/_T for 2018-2025 and _T/_T for 2026 (merged).",
+   "eurostat": {
+    "dataset": "isoc_cicce_usen2",
+    "dataset_label": "Cloud computing services by NACE Rev. 2 activity",
+    "indicator": "E_CC",
+    "indicator_label": "Enterprises using paid cloud computing services used over the internet",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_CICCE_USEN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_CICCE_USEN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cicce_usen2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cicce_usen2/A.GE10.C10-C12.E_CC.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_cicce_usen2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_CLOUD/CLOUD_COMPUTING_TYPE/_T",
+    "breakdown_category_label": {
+     "en": "Type of cloud computing services",
+     "uk": "Вид послуг хмарних обчислень"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_CLOUD": {
+      "label": {
+       "en": "Share of enterprіses that purсhased сloud сomputіng servісes of the total number of enterprіses",
+       "uk": "Частка підприємств, що купують послуги хмарних обчислень, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_CLOUD.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 97,
+      "series_metadata": {
+       "CLOUD_COMPUTING_TYPE/AI_SOFTWARE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/APPLICATION_SOFTWARE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/APPLIED_ACCOUNTING_FINANCE_SOFTWARE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/COMPUTING_PLATFORM": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/COMPUTING_POWER": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/EMAIL": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/ENTERPRISE_DATABASE_HOSTING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/ERP_SOFTWARE_APPLICATION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/FILE_STORAGE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/OFFICE_SOFTWARE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/SECURITY_SOFTWARE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "CLOUD_COMPUTING_TYPE/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "MOBILE_INTERNET",
+   "comparability_note": "Partial match: Eurostat measures providing employees with portable devices that connect via mobile telephone networks for business purposes; UA label \"use internet access via mobile communication\". Same survey question family, wording differs. Eurostat E_MOBBB (mobile broadband) ended 2017, so not used.",
+   "eurostat": {
+    "dataset": "isoc_cimobe_usen2",
+    "dataset_label": "Use of mobile connections to the internet by NACE Rev. 2 activity",
+    "indicator": "E_EMPMD2_GT0",
+    "indicator_label": "Provide the employed persons with a portable device that allows internet connection via mobile telephone networks, for business purpose (as of 2018)",
+    "last_update": "2025-12-11T11:00:00+0100",
+    "doi": "10.2908/ISOC_CIMOBE_USEN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_CIMOBE_USEN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cimobe_usen2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_cimobe_usen2/A.GE10.C10-C12.E_EMPMD2_GT0.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_cimobe_usen2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_MOBILE_TELEPHONE/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_MOBILE_TELEPHONE": {
+      "label": {
+       "en": "Share of the number of enterprises use a  internet connection via mobile telephone networks of the total number of enterprises",
+       "uk": "Частка кількості підприємств, які використовують доступ до мережі Інтернет через мобільний зв’язок, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_MOBILE_TELEPHONE.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 5,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "ECOMMERCE_SALES",
+   "comparability_note": "Match on concept (any e-commerce sales, web or EDI). Eurostat survey year X refers to sales in year X-1; UA time convention not stated in the API (see README).",
+   "eurostat": {
+    "dataset": "isoc_ec_eseln2",
+    "dataset_label": "E-commerce sales of enterprises by NACE Rev. 2 activity",
+    "indicator": "E_AESELL",
+    "indicator_label": "Enterprises with e-commerce sales",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_EC_ESELN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EC_ESELN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ec_eseln2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ec_eseln2/A.GE10.C10-C12.E_AESELL.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ec_eseln2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_NMBR_ECOMMERCE/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_NMBR_ECOMMERCE": {
+      "label": {
+       "en": "Share of enterprіses whісh have made  e-сommerсe of the total number of enterprіses ",
+       "uk": "Частка підприємств, які здійснювали електронну торгівлю, у загальній кількості підприємств "
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_NMBR_ECOMMERCE.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 64,
+      "series_metadata": {
+       "ECOMMERCE_TYPE/EDI_MESSAGE": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "ECOMMERCE_TYPE/WEB_AUTHORITIES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "ECOMMERCE_TYPE/WEB_INDIVIDUALS": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "ECOMMERCE_TYPE/WEB_MULT_BUSINESS": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "ECOMMERCE_TYPE/WEB_OWN": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "LOCATION_CUSTOMER/EUC": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "LOCATION_CUSTOMER/REST_WORLD": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "LOCATION_CUSTOMER/UKR": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "WEBSITE",
+   "comparability_note": "Match: enterprises with a website.",
+   "eurostat": {
+    "dataset": "isoc_ciwebn2",
+    "dataset_label": "Websites and functionalities by NACE Rev. 2 activity",
+    "indicator": "E_WEB",
+    "indicator_label": "Enterprises with a website",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_CIWEBN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_CIWEBN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ciwebn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_ciwebn2/A.GE10.C10-C12.E_WEB.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_ciwebn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_WEBSITE/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_WEBSITE": {
+      "label": {
+       "en": "Share of enterprіses wіth a websіte of the total number of enterprіses",
+       "uk": "Частка підприємств, що мають вебсайт, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_WEBSITE.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 9,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "EINVOICE_AUTOMATED",
+   "comparability_note": "Match: sending e-invoices in a standard structure suitable for automated processing. SH_ENTRP_INV_ELECT_AUTOM exists in the codelist but returns no observations; the same concept is published as SH_ENTRP_INV/TYPES_ACCOUNTS/ELECTRO_STRUCT_AUTO.",
+   "eurostat": {
+    "dataset": "isoc_eb_icsn2",
+    "dataset_label": "Integration with customers/suppliers, supply chain management by NACE Rev. 2 activity",
+    "indicator": "E_INV4S_AP",
+    "indicator_label": "Enterprises sending eInvoices, suitable for automated processing",
+    "last_update": "2025-12-11T11:00:00+0100",
+    "doi": "10.2908/ISOC_EB_ICSN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_ICSN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_icsn2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_icsn2/A.GE10.C10-C12.E_INV4S_AP.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_icsn2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_INV/TYPES_ACCOUNTS/ELECTRO_STRUCT_AUTO",
+    "breakdown_category_label": {
+     "en": "Types of accounts",
+     "uk": "Види рахунків"
+    },
+    "breakdown_label": {
+     "en": "In electronic form with a standard structure suitable for automated processing",
+     "uk": "В електронній формі у стандартній структурі, придатній для автоматизованої обробки"
+    },
+    "indicators": {
+     "SH_ENTRP_INV": {
+      "label": {
+       "en": "Share of enterprіses that sent іnvoісes of the total number of enterprіses ",
+       "uk": "Частка підприємств, що надсилали рахунки-фактури, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_INV.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 21,
+      "series_metadata": {
+       "TYPES_ACCOUNTS/ELECTRO_STRUCT_AUTO": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "TYPES_ACCOUNTS/ELECTRO_UNSTRUCT_AUTO": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "TYPES_ACCOUNTS/PAPER_FORM": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     },
+     "SH_ENTRP_INV_ELECT_AUTOM": {
+      "label": {
+       "en": "Share of enterprises that sent invoices in electronic form, in a standard structure suitable for automated processing of the total number of enterprises",
+       "uk": "Частка підприємств, що надсилали рахунки-фактури в електронній формі у стандартній структурі, придатній для автоматизованої обробки, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_INV_ELECT_AUTOM.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 0,
+      "series_metadata": {}
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "AI_ANY",
+   "comparability_note": "Match: at least one AI technology. Eurostat list of technologies extended in 2025 (E_AI_TPVSG: pictures/video/audio); UA added the same item (AI_TECHNOLOGY_GEN_MEDIA) only in TIME_PERIOD 2026.",
+   "eurostat": {
+    "dataset": "isoc_eb_ain2",
+    "dataset_label": "Artificial intelligence by NACE Rev. 2 activity",
+    "indicator": "E_AI_TANY",
+    "indicator_label": "Enterprises using at least one of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+    "last_update": "2026-06-15T11:00:00+0200",
+    "doi": "10.2908/ISOC_EB_AIN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_EB_AIN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_ain2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_eb_ain2/A.GE10.C10-C12.E_AI_TANY.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_eb_ain2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_AI_TECHNOLOGIES/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_AI_TECHNOLOGIES": {
+      "label": {
+       "en": "Share of enterprіses use AI teсhnologіes of the total number of enterprіses",
+       "uk": "Частка підприємств, що використовують технології штучного інтелекту, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_AI_TECHNOLOGIES.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 119,
+      "series_metadata": {
+       "AI_TECHNOLOGY_TYPE/AI_TECHNOLOGY_GEN_MEDIA": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/MACHINE_LEARN": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_AUTOMATING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_CONVERTING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_ENABLING_PHYSICAL": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_GENERATING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_IDENTIFY": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "AI_TECHNOLOGY_TYPE/TECHNOLOGY_PERFORMING_ANALYSIS": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ACQUIR_AI/CLOSED_SOURCE_SW": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ACQUIR_AI/EXTERNAL_DEV_SW": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ACQUIR_AI/INTERNAL_DEV_SW": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ACQUIR_AI/MODIFIED_SOURCE_SW": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "METHOD_ACQUIR_AI/OPEN_SOURCE_SW": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/ACCOUNTING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/BUSINESS_ADMINISTRATION": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/ICT_SECURITY": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/LOGISTICS": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/MANAGEMENT_ENTERPRISES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/MARKETING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/PRODUCTION_PROCESSES": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/RECRUITING": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "PURPOSE_AI/RESEARCH_INNOV": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       },
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "DII_BASIC_V3",
+   "comparability_note": "Concept match (at least basic digital intensity). Eurostat DII version 3 (odd years: 2021/2023/2025) and version 4 (even years: 2022/2024) use different 12-item sets; UA does not state the DII version.",
+   "eurostat": {
+    "dataset": "isoc_e_diin2",
+    "dataset_label": "Digital Intensity by NACE Rev. 2 activity",
+    "indicator": "E_DI3_GELO",
+    "indicator_label": "Enterprises with at least basic level of digital intensity (DII Version 3)",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_E_DIIN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_E_DIIN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_e_diin2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_e_diin2/A.GE10.C10-C12.E_DI3_GELO.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_e_diin2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_BASIC_DIGITAL/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_BASIC_DIGITAL": {
+      "label": {
+       "en": "Share of enterprіses wіth at least a basіс level of dіgіtal іntensіty of the total number of enterprіses",
+       "uk": "Частка підприємств із принаймні базовим рівнем цифрової інтенсивності, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_BASIC_DIGITAL.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 3,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  },
+  {
+   "pair_id": "DII_BASIC_V4",
+   "comparability_note": "As DII_BASIC_V3, but the even-year Eurostat version (DII v4, 2022/2024).",
+   "eurostat": {
+    "dataset": "isoc_e_diin2",
+    "dataset_label": "Digital Intensity by NACE Rev. 2 activity",
+    "indicator": "E_DI4_GELO",
+    "indicator_label": "Enterprises with at least basic level of digital intensity (DII Version 4)",
+    "last_update": "2026-02-27T11:00:00+0100",
+    "doi": "10.2908/ISOC_E_DIIN2",
+    "doi_url": "https://doi.org/10.2908/ISOC_E_DIIN2",
+    "dimension_order": [
+     "freq",
+     "size_emp",
+     "nace_r2",
+     "indic_is",
+     "unit",
+     "geo",
+     "time"
+    ],
+    "data_url_full_slice": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_e_diin2/A.GE10.C10-C12..PC_ENT.?format=SDMX-CSV",
+    "data_url_this_indicator": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/isoc_e_diin2/A.GE10.C10-C12.E_DI4_GELO.PC_ENT.?format=SDMX-CSV",
+    "metadata_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/isoc_e_diin2?geo=EU27_2020&size_emp=GE10&nace_r2=C10-C12&unit=PC_ENT&lang=EN",
+    "unit": "PC_ENT (percentage of enterprises)",
+    "size_emp": "GE10",
+    "nace_r2": "C10-C12"
+   },
+   "ukrstat": {
+    "dataflow": "SSSU:DF_INFORM_COMMUN_TECH_ENTRP",
+    "primary_series": "SH_ENTRP_BASIC_DIGITAL/_T/_T",
+    "breakdown_category_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "breakdown_label": {
+     "en": "Total",
+     "uk": "Усього"
+    },
+    "indicators": {
+     "SH_ENTRP_BASIC_DIGITAL": {
+      "label": {
+       "en": "Share of enterprіses wіth at least a basіс level of dіgіtal іntensіty of the total number of enterprіses",
+       "uk": "Частка підприємств із принаймні базовим рівнем цифрової інтенсивності, у загальній кількості підприємств"
+      },
+      "description": null,
+      "data_url": "https://stat.gov.ua/sdmx/workspaces/default:integration/registry/sdmx/3.0/data/dataflow/SSSU/DF_INFORM_COMMUN_TECH_ENTRP/~/SH_ENTRP_BASIC_DIGITAL.UA00000000000000000.*.*._T.C10-C12.A",
+      "observations_returned": 3,
+      "series_metadata": {
+       "_T/_T": {
+        "updated": "16.09.2026",
+        "next_update": "25.09.2026",
+        "dataset_note": "Data for 2017-2021 exclude the temporarily occupied territories of the Autonomous Republic of Crimea, the city of Sevastopol and a part of temporarily occupied territories in the Donetsk and Luhansk regions. Beginning from 2022 data exclude the territories which are temporarily occupied by the russian federation and part of territories where the military actions are/were conducted.",
+        "dss_type": "incomplete, sample"
+       }
+      }
+     }
+    },
+    "unit_code": "1010 (per cent, from UNITS_OF_MEASURE)",
+    "size": "_T (all enterprises in the survey frame: 10+ persons employed)"
+   }
+  }
+ ]
+}

@@ -1,9 +1,12 @@
-"""Computational experiment on the properties of the ADMI index (Sections 3.5 and 4.1-4.5 of the paper).
+"""Computational experiment on the properties of the ADMI index (Sections 3 and 4 of the paper).
 
-Tests three hypotheses on questionnaire responses generated at the item level:
-  H1  the weak-link penalty changes the maturity level, not only the index value;
-  H2  a scalar that averages DM_I in hides integration gaps that the pair (ADMI, DM_I) reveals;
-  H3  the level classification is robust to the penalty parameters alpha and delta.
+Checks three propositions on questionnaire responses generated at the item level:
+  P1  the weak-link penalty changes the maturity level, not only the index value, for an analytically
+      bounded region of profiles (equation 7);
+  P2  a scalar that averages DM_I in hides integration gaps that the pair (ADMI, DM_I) reveals;
+  P3  the level classification is robust to the penalty parameters alpha and delta.
+It also compares ADMI with other aggregation rules, including the Mazziotta-Pareto index (Table 3).
+P4 (statistics mode on official data) is checked by statistics_mode_local.py.
 
 The profiles are synthetic: they describe the behaviour of the instrument over the whole
 response space, not the state of real enterprises.
@@ -24,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from adma_index import (  # noqa: E402
     CALIBRATED_PARAMETERS, INITIAL_PARAMETERS, ITEMS_INTEGRATION, ITEMS_PER_LAYER, ITEMS_STRATEGY,
-    MODEL_ADJUSTED_BOUNDS, THEORETICAL_BOUNDS, admi, maturity_level, penalty)
+    MODEL_ADJUSTED_BOUNDS, THEORETICAL_BOUNDS, admi, maturity_level, mazziotta_pareto, penalty)
 
 from generate_profiles import GENERATED_DATA, RESPONSE_SCENARIOS, SEED, column_names  # noqa: E402
 
@@ -46,7 +49,7 @@ def load_profiles(scenario_name):
 
 
 def level_change_summary(layers, alpha, delta, bounds=THEORETICAL_BOUNDS):
-    """H1: how often the penalty applies and how often it changes the level (Table 4)."""
+    """P1: how often the penalty applies and how often it changes the level (Supplementary Table S2)."""
     base_index, final_index = admi(layers, alpha, delta)
     base_level = maturity_level(base_index, bounds)
     final_level = maturity_level(final_index, bounds)
@@ -65,6 +68,20 @@ def level_change_summary(layers, alpha, delta, bounds=THEORETICAL_BOUNDS):
         "mean_index_reduction": round(float((base_index - final_index).mean()), 4),
         "max_index_reduction": round(float((base_index - final_index).max()), 4),
         "share_changed_from_level": transitions,
+    }
+
+
+def residual_masking(layers, alpha, delta):
+    """P1: how much masking the penalty leaves. Among profiles at level 3 or higher by ADMI, the share whose
+    weakest layer is below delta (penalised but kept at the level) and the share with a practically failed
+    weakest layer (DM_min <= 1/12: all answers 1 except at most one 2)."""
+    _, final_index = admi(layers, alpha, delta)
+    high_level = maturity_level(final_index) >= 3
+    weakest = layers.min(axis=1)
+    return {
+        "share_level_3plus": round(float(high_level.mean()), 4),
+        "share_of_level_3plus_with_weakest_below_delta": round(float((high_level & (weakest < delta)).sum() / high_level.sum()), 4),
+        "share_of_level_3plus_with_failed_weakest_layer": round(float((high_level & (weakest <= 1 / 12 + 1e-9)).sum() / high_level.sum()), 4),
     }
 
 
@@ -95,11 +112,13 @@ def spearman(first, second):
 
 
 def aggregation_rule_comparison(layers):
-    """Table 5: ADMI versus compensatory and fully non-compensatory aggregation rules."""
+    """Table 3: ADMI versus compensatory, symmetric-penalty and fully non-compensatory aggregation rules."""
     base_index, final_index = admi(layers, **CALIBRATED_PARAMETERS)
+    mazziotta_pareto_index = mazziotta_pareto(layers)
     rules = {
         "arithmetic_mean": base_index,
         "adma_penalised": final_index,
+        "mazziotta_pareto": mazziotta_pareto_index,
         "geometric_mean": np.exp(np.log(np.maximum(layers, 1e-9)).mean(axis=1)),
         "minimum": layers.min(axis=1),
     }
@@ -115,17 +134,29 @@ def aggregation_rule_comparison(layers):
             "correlation_of_adjustment_with_profile_spread":
                 round(float(np.corrcoef(values - base_index, spread)[0, 1]), 4) if rule_name != "arithmetic_mean" else None,
         }
+    # Asymmetry: the strongest layer exceeds the median of the profile by more than 0.25 and no layer is below
+    # the threshold delta. ADMI does not lower such profiles, the Mazziotta-Pareto index does.
+    leading_layer = ((layers.max(axis=1) - np.median(layers, axis=1) > 0.25)
+                     & (layers.min(axis=1) >= CALIBRATED_PARAMETERS["delta"]))
+    summary["asymmetry_check"] = {
+        "share_profiles_with_leading_layer_and_no_weak_layer": round(float(leading_layer.mean()), 4),
+        "mean_mazziotta_pareto_reduction_on_them": round(float((base_index - mazziotta_pareto_index)[leading_layer].mean()), 4),
+        "mean_adma_reduction_on_them": round(float((base_index - final_index)[leading_layer].mean()), 4),
+    }
     return summary
 
 
 def integration_masking(layers, integration):
-    """H2: scalar with DM_I as a sixth component versus the pair (ADMI, DM_I)."""
+    """P2: scalar with DM_I as a sixth component versus the pair (ADMI, DM_I)."""
     _, final_index = admi(layers, **CALIBRATED_PARAMETERS)
     scalar_with_integration = np.column_stack([layers, integration]).mean(axis=1)
     scalar_level = maturity_level(scalar_with_integration)
     final_level = maturity_level(final_index)
     illusion = (final_level >= 3) & (integration <= 0.20)  # "illusion of maturity"
     illusion_kept_by_scalar = illusion & (scalar_level >= 3)
+    # A stronger alternative: DM_I as a sixth layer of the penalised index (same alpha and delta).
+    _, six_layer_index = admi(np.column_stack([layers, integration]), **CALIBRATED_PARAMETERS)
+    illusion_kept_by_six_layer_admi = illusion & (maturity_level(six_layer_index) >= 3)
     generator = np.random.default_rng(SEED + 1)
     first = generator.integers(0, len(layers), 200_000)
     second = generator.integers(0, len(layers), 200_000)
@@ -134,38 +165,65 @@ def integration_masking(layers, integration):
     return {
         "share_illusion_of_maturity": round(float(illusion.mean()), 4),
         "share_of_illusions_kept_at_level_3plus_by_scalar": round(float(illusion_kept_by_scalar.sum() / max(illusion.sum(), 1)), 4),
+        "share_of_illusions_kept_at_level_3plus_by_six_layer_admi": round(float(illusion_kept_by_six_layer_admi.sum() / max(illusion.sum(), 1)), 4),
         "share_same_scalar_level_pairs_with_integration_gap_ge_0_50": round(float(large_integration_gap[same_scalar_level].mean()), 4),
     }
 
 
 def sensitivity(layers):
-    """H3: agreement of levels with the calibrated parameters over a 9 x 11 grid of alpha and delta."""
-    _, reference_index = admi(layers, **CALIBRATED_PARAMETERS)
+    """P3: agreement of levels with the calibrated parameters over a 9 x 11 grid of alpha and delta.
+
+    Agreement over all profiles is high partly because the penalty never changes the level of most profiles,
+    so two further measures are reported: the agreement of the unpenalised mean (baseline) and the agreement
+    on sensitive profiles, i.e. profiles whose level differs from the unpenalised level for at least one grid cell.
+    """
+    base_index, reference_index = admi(layers, **CALIBRATED_PARAMETERS)
     reference_level = maturity_level(reference_index)
+    base_level = maturity_level(base_index)
+    cells = [(float(alpha), float(delta)) for alpha in np.round(np.arange(0.30, 0.701, 0.05), 2)
+             for delta in np.round(np.arange(0.15, 0.401, 0.025), 3)]
+    levels = {cell: maturity_level(admi(layers, *cell)[1]) for cell in cells}
+    sensitive = np.zeros(len(layers), dtype=bool)
+    for cell_levels in levels.values():
+        sensitive |= cell_levels != base_level
     grid = []
-    for alpha in np.round(np.arange(0.30, 0.701, 0.05), 2):
-        for delta in np.round(np.arange(0.15, 0.401, 0.025), 3):
-            _, final_index = admi(layers, alpha, delta)
-            grid.append({
-                "alpha": float(alpha),
-                "delta": float(delta),
-                "agreement_with_calibrated": round(float((maturity_level(final_index) == reference_level).mean()), 4),
-                "share_level_changed_vs_base": level_change_summary(layers, alpha, delta)["share_level_changed"],
-            })
+    for alpha, delta in cells:
+        cell_levels = levels[(alpha, delta)]
+        grid.append({
+            "alpha": alpha,
+            "delta": delta,
+            "agreement_with_calibrated": round(float((cell_levels == reference_level).mean()), 4),
+            "agreement_with_calibrated_sensitive_profiles": round(float((cell_levels == reference_level)[sensitive].mean()), 4),
+            "share_level_changed_vs_base": round(float((cell_levels != base_level).mean()), 4),
+        })
+
+    def zone(key, alpha_range, delta_range):
+        return [cell[key] for cell in grid if alpha_range[0] - 1e-9 <= cell["alpha"] <= alpha_range[1] + 1e-9
+                and delta_range[0] - 1e-9 <= cell["delta"] <= delta_range[1] + 1e-9]
+
     agreements = [cell["agreement_with_calibrated"] for cell in grid]
-    optimum_zone = [cell["agreement_with_calibrated"] for cell in grid
-                    if 0.35 - 1e-9 <= cell["alpha"] <= 0.50 + 1e-9 and 0.35 - 1e-9 <= cell["delta"] <= 0.40 + 1e-9]
+    sensitive_agreements = [cell["agreement_with_calibrated_sensitive_profiles"] for cell in grid]
+    optimum_zone = zone("agreement_with_calibrated", (0.35, 0.50), (0.35, 0.40))
+    worst_sensitive = min(grid, key=lambda cell: cell["agreement_with_calibrated_sensitive_profiles"])
     return {
         "min_agreement": min(agreements),
         "mean_agreement": round(float(np.mean(agreements)), 4),
+        "near_calibrated_min_agreement": min(zone("agreement_with_calibrated", (0.35, 0.45), (0.325, 0.40))),
         "calibration_optimum_zone_min_agreement": min(optimum_zone),
         "calibration_optimum_zone_mean_agreement": round(float(np.mean(optimum_zone)), 4),
+        "baseline_no_penalty_agreement": round(float((base_level == reference_level).mean()), 4),
+        "share_sensitive_profiles": round(float(sensitive.mean()), 4),
+        "sensitive_min_agreement": min(sensitive_agreements),
+        "sensitive_min_agreement_cell": {"alpha": worst_sensitive["alpha"], "delta": worst_sensitive["delta"]},
+        "sensitive_mean_agreement": round(float(np.mean(sensitive_agreements)), 4),
+        "sensitive_near_calibrated_min_agreement": min(zone("agreement_with_calibrated_sensitive_profiles", (0.35, 0.45), (0.325, 0.40))),
+        "sensitive_baseline_no_penalty_agreement": round(float((base_level == reference_level)[sensitive].mean()), 4),
         "grid": grid,
     }
 
 
 def worked_example():
-    """Section 4.1: a profile reachable by real answers in which the penalty changes the level."""
+    """Worked example at the start of Section 4: a profile reachable by real answers in which the penalty changes the level."""
     profile = {"C": 7 / 12, "L1": 0.50, "L2": 0.50, "L3": 1 / 12, "L4": 0.50}
     layers = np.array([list(profile.values())])
     base_index, final_index = admi(layers, **CALIBRATED_PARAMETERS)
@@ -180,7 +238,7 @@ def worked_example():
 
 
 def diagnostic_situations():
-    """Table 6: five diagnostic situations on illustrative profiles."""
+    """Table 4: diagnostic situations on illustrative profiles."""
     situations = {
         "compliance_trap": ({"C": 0.70, "L1": 0.40, "L2": 0.45, "L3": 0.05, "L4": 0.60}, 0.30, 0.40),
         "external_eu_pressure": ({"C": 0.35, "L1": 0.30, "L2": 0.35, "L3": 0.30, "L4": 0.70}, 0.15, 0.30),
@@ -222,12 +280,13 @@ def main():
     for scenario_name, profiles in profiles_by_scenario.items():
         layers = profiles["layers"]
         report["scenarios"][scenario_name] = {
-            "H1_calibrated": level_change_summary(layers, **CALIBRATED_PARAMETERS),
-            "H1_initial": level_change_summary(layers, **INITIAL_PARAMETERS),
-            "H1_calibrated_model_adjusted_bounds": level_change_summary(layers, bounds=MODEL_ADJUSTED_BOUNDS, **CALIBRATED_PARAMETERS),
+            "P1_calibrated": level_change_summary(layers, **CALIBRATED_PARAMETERS),
+            "P1_initial": level_change_summary(layers, **INITIAL_PARAMETERS),
+            "P1_calibrated_model_adjusted_bounds": level_change_summary(layers, bounds=MODEL_ADJUSTED_BOUNDS, **CALIBRATED_PARAMETERS),
+            "P1_residual_masking": residual_masking(layers, **CALIBRATED_PARAMETERS),
             "aggregation_rules": aggregation_rule_comparison(layers),
-            "H2_integration_masking": integration_masking(layers, profiles["integration"]),
-            "H3_sensitivity": sensitivity(layers),
+            "P2_integration_masking": integration_masking(layers, profiles["integration"]),
+            "P3_sensitivity": sensitivity(layers),
         }
     RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
     RESULTS_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -236,14 +295,14 @@ def main():
     print("Worked example: ADMI_base %.3f (level %d) -> penalty %.3f -> ADMI %.3f (level %d)" % (
         example["base_index"], example["base_level"], example["penalty"], example["final_index"], example["final_level"]))
     for scenario_name, scenario in report["scenarios"].items():
-        h1 = scenario["H1_calibrated"]
-        h2 = scenario["H2_integration_masking"]
-        h3 = scenario["H3_sensitivity"]
-        print("[%s] H1: penalised %.1f%%, level changed %.1f%% | H2: illusions %.1f%%, kept at 3+ by scalar %.1f%% | "
-              "H3: min agreement %.1f%%, mean %.1f%%" % (
-                  scenario_name, 100 * h1["share_penalised"], 100 * h1["share_level_changed"],
-                  100 * h2["share_illusion_of_maturity"], 100 * h2["share_of_illusions_kept_at_level_3plus_by_scalar"],
-                  100 * h3["min_agreement"], 100 * h3["mean_agreement"]))
+        p1 = scenario["P1_calibrated"]
+        p2 = scenario["P2_integration_masking"]
+        p3 = scenario["P3_sensitivity"]
+        print("[%s] P1: penalised %.1f%%, level changed %.1f%% | P2: illusions %.1f%%, kept at 3+ by scalar %.1f%% | "
+              "P3: min agreement %.1f%%, mean %.1f%%" % (
+                  scenario_name, 100 * p1["share_penalised"], 100 * p1["share_level_changed"],
+                  100 * p2["share_illusion_of_maturity"], 100 * p2["share_of_illusions_kept_at_level_3plus_by_scalar"],
+                  100 * p3["min_agreement"], 100 * p3["mean_agreement"]))
     print("Saved:", RESULTS_PATH)
 
 

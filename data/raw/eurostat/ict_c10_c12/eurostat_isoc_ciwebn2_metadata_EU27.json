@@ -1,0 +1,396 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Websites and functionalities by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-02-27T11:00:00+0100",
+ "value": {
+  "146": 1.14,
+  "131": 10.1,
+  "238": 5.16,
+  "0": 48.63,
+  "1": 55.14,
+  "2": 55.05,
+  "3": 56.7,
+  "4": 58.53,
+  "5": 61.02,
+  "6": 63.87,
+  "7": 66.09,
+  "8": 66.48,
+  "9": 66.81,
+  "10": 69.62,
+  "11": 70.77,
+  "12": 68.87,
+  "13": 71.09,
+  "14": 71.83,
+  "193": 65.53,
+  "194": 68.05,
+  "208": 44.94,
+  "209": 46.38,
+  "223": 25.12,
+  "224": 26.1,
+  "15": 32.81,
+  "16": 38.09,
+  "17": 33.69,
+  "18": 34.83,
+  "19": 34.84,
+  "20": 51.25,
+  "21": 46.83,
+  "22": 49.84,
+  "23": 51.33,
+  "24": 51.73,
+  "25": 51.95,
+  "26": 55.86,
+  "27": 55.4,
+  "28": 58.42,
+  "29": 60.79,
+  "163": 6.01,
+  "164": 5.61,
+  "270": 3.1,
+  "271": 5.07,
+  "272": 3.44,
+  "273": 3.46,
+  "274": 3.16,
+  "276": 4.22,
+  "277": 3.8,
+  "278": 4.4,
+  "279": 4.65,
+  "280": 5.54,
+  "281": 4.82,
+  "282": 6.27,
+  "283": 6.04,
+  "284": 5.72,
+  "90": 35.29,
+  "91": 39.58,
+  "92": 38.32,
+  "94": 37.15,
+  "96": 47.99,
+  "97": 50.7,
+  "98": 52.98,
+  "99": 52.65,
+  "100": 53.0,
+  "101": 57.29,
+  "102": 56.14,
+  "103": 59.26,
+  "104": 61.65,
+  "107": 8.72,
+  "109": 9.98,
+  "111": 11.52,
+  "112": 13.35,
+  "113": 15.5,
+  "114": 14.46,
+  "115": 15.23,
+  "116": 17.48,
+  "117": 19.79,
+  "118": 23.42,
+  "119": 24.79,
+  "178": 26.25,
+  "179": 27.05,
+  "45": 10.14,
+  "46": 11.07,
+  "47": 11.14,
+  "48": 10.27,
+  "49": 11.75,
+  "50": 12.13,
+  "51": 12.12,
+  "52": 14.19,
+  "53": 16.1,
+  "54": 15.29,
+  "55": 16.18,
+  "56": 18.48,
+  "57": 20.43,
+  "58": 24.43,
+  "59": 25.78,
+  "60": 4.52,
+  "61": 4.23,
+  "62": 3.85,
+  "63": 4.56,
+  "64": 5.51,
+  "65": 5.78,
+  "66": 5.17,
+  "67": 5.54,
+  "68": 6.57,
+  "69": 6.45,
+  "70": 5.79,
+  "71": 7.27,
+  "72": 10.03,
+  "73": 10.8,
+  "74": 10.85,
+  "285": 2.77,
+  "286": 3.62,
+  "287": 3.79,
+  "289": 4.48,
+  "290": 6.59,
+  "291": 5.14,
+  "292": 5.48,
+  "293": 5.92,
+  "294": 5.06,
+  "295": 4.77,
+  "296": 5.16,
+  "297": 6.14,
+  "298": 6.49,
+  "299": 6.15,
+  "80": 19.5,
+  "81": 20.63,
+  "82": 24.19,
+  "83": 28.43,
+  "84": 31.86,
+  "85": 32.53,
+  "86": 35.47,
+  "87": 35.99,
+  "30": 7.0,
+  "31": 9.78,
+  "32": 9.16,
+  "33": 10.26,
+  "34": 11.78,
+  "35": 14.08,
+  "37": 15.43,
+  "43": 20.23,
+  "44": 21.06,
+  "268": 4.0,
+  "253": 4.34
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  20,
+  1,
+  1,
+  15
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_WEB": 0,
+     "E_WEBACC": 1,
+     "E_WEBVAC": 2,
+     "E_WEBORD": 3,
+     "E_WEBOT": 4,
+     "E_WEBSM": 5,
+     "E_WEBF2": 6,
+     "E_WEBF3": 7,
+     "E_CHTP": 8,
+     "E_CHTB": 9,
+     "E_WEBCHT": 10,
+     "E_WEBLANG": 11,
+     "E_WEB1_GE1": 12,
+     "E_WEB1_GE2": 13,
+     "E_WEB1_GE3": 14,
+     "E_MOBAPP": 15,
+     "E_WEB_MOBAPP": 16,
+     "E_WEB_MA_SM1_ANY": 17,
+     "E_WEBCTM": 18,
+     "E_WEBPER": 19
+    },
+    "label": {
+     "E_WEB": "Enterprises with a website",
+     "E_WEBACC": "Enterprises where the website provided description of goods or services, price lists",
+     "E_WEBVAC": "Enterprises where the website provided advertisement of open job positions or online job application",
+     "E_WEBORD": "Enterprises where the website provided online ordering or reservation or booking, e.g. shopping cart",
+     "E_WEBOT": "Enterprises where the website provided order tracking available online",
+     "E_WEBSM": "Enterprises where the website had links or references to the enterprise's social media profiles",
+     "E_WEBF2": "Enterprises where the website had at least one of the following: webacc, webctm, webot or webper",
+     "E_WEBF3": "Enterprises where the website had online ordering, reservation or booking and at least one of: webacc, webctm, webot or webper",
+     "E_CHTP": "Enterprises with a chat service where a person replies to customers",
+     "E_CHTB": "Enterprises with a chat service where a chatbot or a virtual agent replies to customers",
+     "E_WEBCHT": "Enterprises where the website provides a chat service for customer support (a chatbot, virtual agent or a person replying to customers)",
+     "E_WEBLANG": "Enterprises where the website has content available in at least two languages",
+     "E_WEB1_GE1": "Enterprises where the website has at least one of: WEBACC, WEBORD, WEBCTM, WEBOT, WEBPER, WEBCHT, WEBVAC or WEBLANG",
+     "E_WEB1_GE2": "Enterprises where the website has at least two of: WEBACC, WEBORD, WEBCTM, WEBOT, WEBPER, WEBCHT, WEBVAC or WEBLANG",
+     "E_WEB1_GE3": "Enterprises where the website has at least three of: WEBACC, WEBORD, WEBCTM, WEBOT, WEBPER, WEBCHT, WEBVAC or WEBLANG",
+     "E_MOBAPP": "Enterprises having a mobile app for clients (e.g. for loyalty program, e-commerce, customer support)",
+     "E_WEB_MOBAPP": "Enterprises having a website and a mobile app for clients",
+     "E_WEB_MA_SM1_ANY": "Enterprises having a website and a mobile app for clients and using any social media",
+     "E_WEBCTM": "Enterprises where the website provides possibility for visitors to customise or design online goods or services",
+     "E_WEBPER": "Enterprises where the website has personalised content for regular/recurrent visitors"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2009": 0,
+     "2010": 1,
+     "2011": 2,
+     "2012": 3,
+     "2013": 4,
+     "2014": 5,
+     "2015": 6,
+     "2016": 7,
+     "2017": 8,
+     "2018": 9,
+     "2019": 10,
+     "2020": 11,
+     "2021": 12,
+     "2023": 13,
+     "2025": 14
+    },
+    "label": {
+     "2009": "2009",
+     "2010": "2010",
+     "2011": "2011",
+     "2012": "2012",
+     "2013": "2013",
+     "2014": "2014",
+     "2015": "2015",
+     "2016": "2016",
+     "2017": "2017",
+     "2018": "2018",
+     "2019": "2019",
+     "2020": "2020",
+     "2021": "2021",
+     "2023": "2023",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_CIWEBN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_CIWEBN2",
+   "agencyId": "ESTAT",
+   "version": "19.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T08:50:52+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_CIWEBN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_CIWEBN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "523127"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2009"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

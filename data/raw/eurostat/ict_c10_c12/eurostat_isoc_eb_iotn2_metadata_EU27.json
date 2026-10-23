@@ -1,0 +1,250 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Internet of Things by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2025-12-11T11:00:00+0100",
+ "value": {
+  "0": 19.31,
+  "35": 29.43,
+  "29": 28.95,
+  "31": 18.47,
+  "33": 10.66,
+  "6": 5.3,
+  "21": 3.63,
+  "2": 8.61,
+  "5": 11.14,
+  "17": 6.23,
+  "8": 6.41,
+  "19": 8.48,
+  "22": 6.41,
+  "25": 7.27,
+  "15": 9.68,
+  "10": 5.93,
+  "37": 12.43,
+  "13": 20.75,
+  "26": 9.62
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  21,
+  1,
+  1,
+  2
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_IOT": 0,
+     "E_IOTDEC": 1,
+     "E_IOTDEC1": 2,
+     "E_IOTDCUS": 3,
+     "E_IOTDMTN": 4,
+     "E_IOTDPRD": 5,
+     "E_IOTDSEC": 6,
+     "E_IOTDPP": 7,
+     "E_IOTDLOG": 8,
+     "E_IOTDMTN1": 9,
+     "E_IOTDCUS1": 10,
+     "E_IOTDOTH": 11,
+     "E_IOTDOTH1": 12,
+     "E_IOTD_GE2": 13,
+     "E_IOTD1_GE1": 14,
+     "E_IOTD1_GE2": 15,
+     "E_IOTD1_GE3": 16,
+     "E_IOT1": 17,
+     "E_IOTDPRD1": 18,
+     "E_BDA_IOT": 19,
+     "E_BDA_IOTX": 20
+    },
+    "label": {
+     "E_IOT": "Enterprises use IoT (interconnected devices or systems that can be monitored or remotely controlled via the internet) (until 2020)",
+     "E_IOTDEC": "Enterprises use smart meters, smart lamps, smart thermostats to optimise energy consumption in the enterprise's premises (until 2020)",
+     "E_IOTDEC1": "Enterprises use IoT for energy consumption management (e.g. smart-meters, -thermostats, -lights) (as of 2021)",
+     "E_IOTDCUS": "Enterprises use sensors, RFID or IP tags or internet-controlled cameras to improve customer service, monitor customers' activities or offer them a personalised shopping experience (until 2020)",
+     "E_IOTDMTN": "Enterprises use movement or maintenance sensors to track the movement of vehicles or products, to offer condition-based maintenance of vehicles (until 2020)",
+     "E_IOTDPRD": "Enterprises use sensors or RFID tags to monitor or automate production processes, to manage logistics, to track the movement of products (until 2020)",
+     "E_IOTDSEC": "Enterprises use IoT for premises' security (e.g. smart-alarm systems, -smoke detectors, -door locks, -security cameras) (as of 2021)",
+     "E_IOTDPP": "Enterprises use IoT for production processes (e.g. sensors or RFID tags to monitor or automate the production processes) (as of 2021)",
+     "E_IOTDLOG": "Enterprises use IoT for logistics management (e.g. sensors for tracking products or vehicles in warehouse management) (as of 2021)",
+     "E_IOTDMTN1": "Enterprises use IoT for condition-based maintenance (e.g. sensors to monitor maintenance needs of machines or vehicles) (as of 2021)",
+     "E_IOTDCUS1": "Enterprises use IoT for customer service (e.g. smart cameras or sensors to offer customers a personalised shopping experience) (as of 2021)",
+     "E_IOTDOTH": "Enterprises use other IoT devices or systems (than IOTDEC, IOTDCUS, IOTDMTN, IOTDPRD) (until 2020)",
+     "E_IOTDOTH1": "Enterprises use IoT for other purposes (than IOTDEC1, IOTDSEC, IOTDPP, IOTDLOG, IOTDMTN1, IOTDCUS1)",
+     "E_IOTD_GE2": "Enterprises use two or more IoT devices or systems (until 2020)",
+     "E_IOTD1_GE1": "Enterprises use IoT for one or more purposes of: IOTDEC1, IOTDSEC, IOTDPP, IOTDLOG, IOTDMTN1, IOTDCUS1, IOTDOTH1",
+     "E_IOTD1_GE2": "Enterprises use IoT for two or more purposes of: IOTDEC1, IOTDSEC, IOTDPP, IOTDLOG, IOTDMTN1, IOTDCUS1, IOTDOTH1",
+     "E_IOTD1_GE3": "Enterprises use IoT for three or more purposes of: IOTDEC1, IOTDSEC, IOTDPP, IOTDLOG, IOTDMTN1, IOTDCUS1, IOTDOTH1",
+     "E_IOT1": "Enterprises use IoT (interconnected devices or systems that can be monitored or remotely controlled via the internet) (as of 2021)",
+     "E_IOTDPRD1": "Enterprises use IoT for production processes or logistics management (as of 2021)",
+     "E_BDA_IOT": "Enterprises analysing big data internally (from any data source) or externally and using IoT (until 2020)",
+     "E_BDA_IOTX": "Enterprises analysing big data internally (from any data source) or externally but not using IoT (until 2020)"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2020": 0,
+     "2021": 1
+    },
+    "label": {
+     "2020": "2020",
+     "2021": "2021"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_EB_IOTN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_EB_IOTN2",
+   "agencyId": "ESTAT",
+   "version": "15.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T09:14:09+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_EB_IOTN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_EB_IOTN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2025-12-11T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "70126"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2021"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2020"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2025-12-11T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [
+    19,
+    20
+   ],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

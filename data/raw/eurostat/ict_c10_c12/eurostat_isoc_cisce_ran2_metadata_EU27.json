@@ -1,0 +1,342 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Security policy, measures, risks and staff awareness by NACE Rev.2 activity",
+ "source": "ESTAT",
+ "updated": "2026-06-15T11:00:00+0200",
+ "value": {
+  "121": 81.17,
+  "122": 81.56,
+  "117": 65.06,
+  "118": 66.62,
+  "113": 32.33,
+  "114": 30.23,
+  "105": 51.55,
+  "106": 45.95,
+  "107": 48.48,
+  "129": 20.55,
+  "130": 22.84,
+  "131": 22.7,
+  "101": 27.45,
+  "102": 22.02,
+  "103": 24.98,
+  "97": 16.97,
+  "98": 14.47,
+  "99": 17.24,
+  "109": 44.75,
+  "110": 51.53,
+  "111": 49.43,
+  "93": 33.29,
+  "94": 32.44,
+  "95": 32.52,
+  "70": 2.4,
+  "71": 3.16,
+  "41": 89.11,
+  "13": 28.53,
+  "14": 27.81,
+  "15": 29.73,
+  "46": 24.21,
+  "47": 29.42,
+  "54": 86.6,
+  "55": 88.59,
+  "58": 62.18,
+  "59": 64.21,
+  "62": 40.38,
+  "63": 42.94,
+  "66": 24.07,
+  "67": 26.63,
+  "5": 81.97,
+  "29": 35.05,
+  "30": 33.96,
+  "31": 33.01,
+  "21": 55.09,
+  "22": 53.27,
+  "23": 54.84,
+  "17": 67.93,
+  "18": 68.32,
+  "19": 71.7,
+  "33": 24.53,
+  "34": 22.14,
+  "35": 23.93,
+  "50": 32.0,
+  "127": 34.75,
+  "1": 69.15,
+  "2": 75.79,
+  "3": 77.31,
+  "37": 27.34,
+  "38": 25.94,
+  "39": 25.68,
+  "9": 8.34,
+  "10": 9.46,
+  "11": 13.6,
+  "25": 32.5,
+  "26": 35.54,
+  "27": 37.5,
+  "89": 23.96,
+  "90": 28.79,
+  "91": 26.68,
+  "76": 4.23,
+  "77": 4.1,
+  "78": 6.62,
+  "79": 5.32,
+  "72": 13.2,
+  "73": 17.41,
+  "74": 17.57,
+  "75": 15.73,
+  "84": 17.43,
+  "85": 21.51,
+  "86": 24.19,
+  "87": 21.03,
+  "80": 4.61,
+  "81": 2.06,
+  "82": 4.6,
+  "83": 4.1
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  33,
+  1,
+  1,
+  4
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_SECMSPSW": 0,
+     "E_SECMKSUD": 1,
+     "E_SECMUIBM": 2,
+     "E_SECMDENC": 3,
+     "E_SECMOSBU": 4,
+     "E_SECMNAC": 5,
+     "E_SECMVPN": 6,
+     "E_SECMLOG": 7,
+     "E_SECMRASS": 8,
+     "E_SECMTST": 9,
+     "E_SECMANY": 10,
+     "E_SECMDUO": 11,
+     "E_SECMSMS": 12,
+     "E_SECMGE1": 13,
+     "E_SECMGE3": 14,
+     "E_SECMGE5": 15,
+     "E_SECMGE7": 16,
+     "E_SECMALL": 17,
+     "E_SECPREV_CY": 18,
+     "E_SECPREV_1_2": 19,
+     "E_SECPREV_MT2": 20,
+     "E_SECPREV_LE2": 21,
+     "E_SECPOL2": 22,
+     "E_SECAWVTGI": 23,
+     "E_SECAWCTP": 24,
+     "E_SECAWCONT": 25,
+     "E_SECAWANY": 26,
+     "E_SECAWNONE": 27,
+     "E_ITSEC3OWN": 28,
+     "E_ITSEC3EXT": 29,
+     "E_ITSEC3": 30,
+     "E_SECMSMS1": 31,
+     "E_SECAWANY_POL2": 32
+    },
+    "label": {
+     "E_SECMSPSW": "ICT security measure used: strong password authentication",
+     "E_SECMKSUD": "ICT security measure used: keeping the software (including operating systems) up-to-date",
+     "E_SECMUIBM": "ICT security measure used: authentication via biometric methods implemented by the enterprise",
+     "E_SECMDENC": "ICT security measure used: encryption techniques for data, documents or e-mails",
+     "E_SECMOSBU": "ICT security measure used: data backup to a separate location (including backup to the cloud)",
+     "E_SECMNAC": "ICT security measure used: network access control (management of access by devices and users to the enterprise's network)",
+     "E_SECMVPN": "ICT security measure used: VPN (Virtual Private Network extends a private network across a public network to enable secure exchange of data over public network)",
+     "E_SECMLOG": "ICT security measure used: maintaining log files for analysis after security incidents",
+     "E_SECMRASS": "ICT security measure used: ICT risk assessment, i.e. periodically assessment of probability and consequences of ICT security incidents",
+     "E_SECMTST": "ICT security measure used: ICT security tests",
+     "E_SECMANY": "Enterprises using any ICT security measure",
+     "E_SECMDUO": "ICT security measure used: combination of at least two authentication mechanisms (e.g. user-defined password, one-time password (OTP), code generated via a security token or received via a smartphone, biometric methods)",
+     "E_SECMSMS": "ICT security measure used: monitoring system that allows detecting suspicious activity in the ICT systems and alerts the enterprises about it, other than standalone anti-virus software",
+     "E_SECMGE1": "Enterprises using any ICT security measure (as of 2022)",
+     "E_SECMGE3": "Enterprises using at least 3 ICT security measures (as of 2022)",
+     "E_SECMGE5": "Enterprises using at least 5 ICT security measures (as of 2022)",
+     "E_SECMGE7": "Enterprises using at least 7 ICT security measures (as of 2022)",
+     "E_SECMALL": "Enterprises using all ICT security measures (as of 2022)",
+     "E_SECPREV_CY": "The enterprise's ICT security policy was defined or most recently reviewed within the last 12 months",
+     "E_SECPREV_1_2": "The enterprise's ICT security policy was defined or most recently reviewed more than 12 months and up to 24 months ago",
+     "E_SECPREV_MT2": "The enterprise's ICT security policy was defined or most recently reviewed more than 24 months ago",
+     "E_SECPREV_LE2": "The enterprise's ICT security policy was defined or most recently reviewed within the last 24 months",
+     "E_SECPOL2": "Enterprises have document(s) on measures, practices or procedures on ICT security",
+     "E_SECAWVTGI": "Enterprises make persons employed aware of their obligations in ICT security related issues by voluntary training or internally available information (e.g. information on the intranet)",
+     "E_SECAWCTP": "Enterprises make persons employed aware of their obligations in ICT security related issues by compulsory training courses or viewing compulsory material",
+     "E_SECAWCONT": "Enterprises make persons employed aware of their obligations in ICT security related issues by contract (e.g. contract of employment)",
+     "E_SECAWANY": "Enterprises make persons employed aware of their obligations in ICT security related issues",
+     "E_SECAWNONE": "Enterprises don't make persons employed aware of their obligations in ICT security related issues",
+     "E_ITSEC3OWN": "The ICT security related activities are carried out by the own employees",
+     "E_ITSEC3EXT": "The ICT security related activities are carried out by external suppliers",
+     "E_ITSEC3": "The ICT security related activities are carried out by own employees or external suppliers",
+     "E_SECMSMS1": "ICT security measure used: monitoring system used to detect suspicious activity in the ICT systems (e.g. intrusion detection or prevention systems that monitors users’ or devices’ behaviour, network traffic) excluding standalone anti-virus software and default firewall solutions",
+     "E_SECAWANY_POL2": "Enterprises make persons employed aware of their obligations in ICT security related issues and have document(s) on measures, practices or procedures on ICT security"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2015": 0,
+     "2019": 1,
+     "2022": 2,
+     "2024": 3
+    },
+    "label": {
+     "2015": "2015",
+     "2019": "2019",
+     "2022": "2022",
+     "2024": "2024"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_CISCE_RAN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_CISCE_RAN2",
+   "agencyId": "ESTAT",
+   "version": "21.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T07:31:17+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_CISCE_RAN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_CISCE_RAN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "247208"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2024"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2015"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

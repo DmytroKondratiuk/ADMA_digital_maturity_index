@@ -7,17 +7,17 @@ Equation numbers follow the paper:
 
 import numpy as np
 
-# Number of questionnaire statements per block.
-ITEMS_PER_LAYER = {"C": 3, "L1": 2, "L2": 3, "L3": 3, "L4": 3}  # operational layers, enter the index
+# Number of questionnaire statements per block (21 statements, three per block, Table 1 of the paper).
+ITEMS_PER_LAYER = {"C": 3, "L1": 3, "L2": 3, "L3": 3, "L4": 3}  # operational layers, enter the index
 ITEMS_INTEGRATION = 3  # DM_I, kept outside the index
-ITEMS_STRATEGY = 2  # DM_S, kept outside the index
+ITEMS_STRATEGY = 3  # DM_S, kept outside the index
 LAYERS = list(ITEMS_PER_LAYER)
 
 CALIBRATED_PARAMETERS = {"alpha": 0.40, "delta": 0.375}  # calibrated on the IM Onion-S simulation model
 INITIAL_PARAMETERS = {"alpha": 0.50, "delta": 0.25}  # initial hypothesis justified by the scale
 
 THEORETICAL_BOUNDS = (0.20, 0.40, 0.60, 0.80)  # Table 2 of the paper
-MODEL_ADJUSTED_BOUNDS = (0.25, 0.45, 0.60, 0.80)  # used only as a robustness check of H1
+MODEL_ADJUSTED_BOUNDS = (0.25, 0.45, 0.60, 0.80)  # used only as a robustness check of P1
 
 
 def normalise_item(score):
@@ -49,12 +49,23 @@ CLASSIFICATION_DECIMALS = 12  # removes floating-point noise so that exact ties 
 def maturity_level(index_values, bounds=THEORETICAL_BOUNDS):
     """Level 1..5. A value exactly on a bound belongs to the lower level (0.40 -> level 2).
 
-    Index values are multiples of 1/120 for questionnaire answers, so exact ties with a bound occur;
+    Index values are multiples of 1/60 for questionnaire answers, so exact ties with a bound occur;
     rounding to 12 decimals makes the tie test independent of the order of floating-point operations
     (the Excel workbook applies the same rounding).
     """
     rounded = np.round(np.asarray(index_values, dtype=float), CLASSIFICATION_DECIMALS)
     return np.searchsorted(np.asarray(bounds), rounded, side="left") + 1
+
+
+def mazziotta_pareto(layers):
+    """Mazziotta-Pareto index on the layer scores: mean minus standard deviation times coefficient of variation.
+
+    MPI = M - S * cv = M - S^2 / M (De Muro et al., 2011; Mazziotta and Pareto, 2016). The penalty is symmetric
+    and has no threshold: it lowers the score for any unevenness of the profile, including one leading layer.
+    """
+    layers = np.atleast_2d(layers)
+    mean = layers.mean(axis=1)
+    return mean - layers.std(axis=1) ** 2 / np.maximum(mean, 1e-9)
 
 
 def statistics_mode_score(value, leader_value, minimum_value=0.0):
