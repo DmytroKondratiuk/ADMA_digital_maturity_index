@@ -1,0 +1,309 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Digital Intensity by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-02-27T11:00:00+0100",
+ "value": {
+  "168": 5.06,
+  "170": 8.7,
+  "157": 26.12,
+  "159": 35.52,
+  "179": 0.63,
+  "181": 0.9,
+  "146": 68.2,
+  "148": 54.88,
+  "193": 44.91,
+  "195": 48.86,
+  "197": 60.91,
+  "83": 12.97,
+  "85": 15.41,
+  "87": 20.78,
+  "72": 29.8,
+  "74": 30.01,
+  "76": 33.44,
+  "94": 2.14,
+  "96": 3.44,
+  "98": 6.69,
+  "61": 55.09,
+  "63": 51.15,
+  "65": 39.09,
+  "18": 53.73,
+  "20": 57.08,
+  "40": 17.08,
+  "42": 17.85,
+  "29": 33.21,
+  "31": 35.57,
+  "51": 3.44,
+  "53": 3.66,
+  "7": 46.27,
+  "9": 42.92,
+  "121": 11.0,
+  "122": 8.05,
+  "123": 10.97,
+  "124": 7.85,
+  "125": 12.84,
+  "110": 31.31,
+  "111": 33.37,
+  "112": 30.62,
+  "113": 28.36,
+  "114": 32.3,
+  "132": 0.93,
+  "133": 0.79,
+  "134": 1.62,
+  "135": 1.15,
+  "136": 2.18,
+  "99": 56.78,
+  "100": 57.78,
+  "101": 56.8,
+  "102": 62.63,
+  "103": 52.68
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  18,
+  1,
+  1,
+  11
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_DI4_VLO": 0,
+     "E_DI4_GELO": 1,
+     "E_DI4_LO": 2,
+     "E_DI4_HI": 3,
+     "E_DI4_VHI": 4,
+     "E_DI3_VLO": 5,
+     "E_DI3_LO": 6,
+     "E_DI3_HI": 7,
+     "E_DI3_VHI": 8,
+     "E_DI_VLO": 9,
+     "E_DI_LO": 10,
+     "E_DI_HI": 11,
+     "E_DI_VHI": 12,
+     "E_DI2_VLO": 13,
+     "E_DI2_LO": 14,
+     "E_DI2_HI": 15,
+     "E_DI2_VHI": 16,
+     "E_DI3_GELO": 17
+    },
+    "label": {
+     "E_DI4_VLO": "Enterprises with very low digital intensity index (Version 4)",
+     "E_DI4_GELO": "Enterprises with at least basic level of digital intensity (DII Version 4)",
+     "E_DI4_LO": "Enterprises with low digital intensity index (Version 4)",
+     "E_DI4_HI": "Enterprises with high digital intensity index (Version 4)",
+     "E_DI4_VHI": "Enterprises with very high digital intensity index (Version 4)",
+     "E_DI3_VLO": "Enterprises with very low digital intensity index (DII version 3)",
+     "E_DI3_LO": "Enterprises with low digital intensity index (DII version 3)",
+     "E_DI3_HI": "Enterprises with high digital intensity index (DII version 3)",
+     "E_DI3_VHI": "Enterprises with very high digital intensity index (DII version 3)",
+     "E_DI_VLO": "Enterprises with very low digital intensity index (DII version 1)",
+     "E_DI_LO": "Enterprises with low digital intensity index (DII version 1)",
+     "E_DI_HI": "Enterprises with high digital intensity index (DII version 1)",
+     "E_DI_VHI": "Enterprises with very high digital intensity index (DII version 1)",
+     "E_DI2_VLO": "Enterprises with very low digital intensity index (DII version 2)",
+     "E_DI2_LO": "Enterprises with low digital intensity index (DII version 2)",
+     "E_DI2_HI": "Enterprises with high digital intensity index (DII version 2)",
+     "E_DI2_VHI": "Enterprises with very high digital intensity index (DII version 2)",
+     "E_DI3_GELO": "Enterprises with at least basic level of digital intensity (DII Version 3)"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2015": 0,
+     "2016": 1,
+     "2017": 2,
+     "2018": 3,
+     "2019": 4,
+     "2020": 5,
+     "2021": 6,
+     "2022": 7,
+     "2023": 8,
+     "2024": 9,
+     "2025": 10
+    },
+    "label": {
+     "2015": "2015",
+     "2016": "2016",
+     "2017": "2017",
+     "2018": "2018",
+     "2019": "2019",
+     "2020": "2020",
+     "2021": "2021",
+     "2022": "2022",
+     "2023": "2023",
+     "2024": "2024",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_E_DIIN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_E_DIIN2",
+   "agencyId": "ESTAT",
+   "version": "19.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T09:15:09+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_E_DIIN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_E_DIIN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_EXPLANATORY_LINK",
+    "title": "text",
+    "href": "https://ec.europa.eu/eurostat/databrowser-backend/api/public/explanatory-notes/get/Info_note_ISOC_methexplDII_20251211.pdf",
+    "text": "Information note"
+   },
+   {
+    "type": "DISSEMINATION_EXPLANATORY_LINK",
+    "title": "text",
+    "href": "https://ec.europa.eu/eurostat/databrowser-backend/api/public/explanatory-notes/get/Info_note_ISOC_methexplDII_20251211.pdf"
+   },
+   {
+    "type": "DISSEMINATION_EXPLANATORY_LINK",
+    "title": "text",
+    "href": "https://ec.europa.eu/eurostat/databrowser-backend/api/public/explanatory-notes/get/Info_note_ISOC_methexplDII_20251211.pdf"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_dii_esmsip2.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_dii_esmsip2.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "66401"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2015"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

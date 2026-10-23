@@ -1,0 +1,308 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Integration of internal processes by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-02-27T11:00:00+0100",
+ "value": {
+  "130": 44.37,
+  "131": 48.48,
+  "66": 19.36,
+  "67": 21.05,
+  "70": 21.96,
+  "71": 23.9,
+  "72": 24.03,
+  "73": 23.26,
+  "74": 25.96,
+  "108": 16.52,
+  "109": 17.99,
+  "77": 13.99,
+  "78": 13.76,
+  "79": 14.21,
+  "81": 15.39,
+  "82": 15.88,
+  "83": 16.51,
+  "84": 13.73,
+  "85": 16.31,
+  "88": 17.72,
+  "89": 19.67,
+  "90": 19.0,
+  "92": 20.77,
+  "93": 22.78,
+  "94": 22.69,
+  "95": 22.31,
+  "96": 25.34,
+  "185": 14.1,
+  "186": 18.4,
+  "174": 18.63,
+  "175": 18.82,
+  "196": 3.42,
+  "197": 6.68,
+  "163": 8.31,
+  "164": 4.58,
+  "56": 21.21,
+  "57": 22.83,
+  "58": 25.94,
+  "59": 29.98,
+  "60": 34.2,
+  "61": 33.36,
+  "62": 36.0,
+  "63": 36.21,
+  "64": 41.51,
+  "65": 45.06,
+  "202": 14.55,
+  "203": 15.31,
+  "204": 19.07,
+  "205": 22.85,
+  "206": 26.02,
+  "207": 30.3,
+  "208": 34.5,
+  "152": 50.25,
+  "119": 13.33,
+  "120": 15.22,
+  "26": 8.51,
+  "28": 10.81,
+  "48": 3.22,
+  "50": 3.53,
+  "4": 11.84,
+  "6": 14.04,
+  "15": 6.04,
+  "17": 6.37,
+  "37": 5.4,
+  "39": 5.12,
+  "141": 49.74
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  19,
+  1,
+  1,
+  11
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_RFID1": 0,
+     "E_RFPSAS1": 1,
+     "E_RFAC1": 2,
+     "E_RFPSDP1": 3,
+     "E_RFASPRI1": 4,
+     "E_ERP1": 5,
+     "E_CRM": 6,
+     "E_CRMAN": 7,
+     "E_CRMSTR": 8,
+     "E_CRM1": 9,
+     "E_ITBI": 10,
+     "E_BSANY": 11,
+     "E_SI1": 12,
+     "E_ERP_CRM_BI_SISC": 13,
+     "E_DI3_VLO_BSANY": 14,
+     "E_DI3_LO_BSANY": 15,
+     "E_DI3_HI_BSANY": 16,
+     "E_DI3_VHI_BSANY": 17,
+     "E_ERP1_SM1_ANY": 18
+    },
+    "label": {
+     "E_RFID1": "Enterprises using Radio Frequency identification (RFID) technologies (as of 2014)",
+     "E_RFPSAS1": "Enterprises using RFID technologies for after sales product identification or as part of the production and service delivery",
+     "E_RFAC1": "Enterprises using RFID technologies for person identification or access control (as of 2014)",
+     "E_RFPSDP1": "Enterprises using RFID technologies as part of production and service delivery process (as of 2014)",
+     "E_RFASPRI1": "Enterprises using RFID technologies for after sales product identification (as of 2014)",
+     "E_ERP1": "Enterprises who have ERP software package to share information between different functional areas",
+     "E_CRM": "Enterprises using software solutions like Customer Relationship Management (CRM)",
+     "E_CRMAN": "Enterprises using Customer Relationship Management to analyse information about clients for marketing purposes",
+     "E_CRMSTR": "Enterprises using Customer Relationship Management to capture, store and make available clients information to other business functions",
+     "E_CRM1": "Enterprises using Customer Relationship Management (CRM) software (as of 2023)",
+     "E_ITBI": "Enterprises using Business Intelligence (BI) software",
+     "E_BSANY": "Enterprises using any business software (any of ERP, CRM, BI)",
+     "E_SI1": "Enterprises using ERP or CRM, or share supply chain management information electronically with suppliers or customers",
+     "E_ERP_CRM_BI_SISC": "Enterprises using ERP or CRM or BI software, or share supply chain management information electronically with suppliers or customers",
+     "E_DI3_VLO_BSANY": "Enterprises with very low digital intensity index, which use any business software (any of ERP, CRM, BI)",
+     "E_DI3_LO_BSANY": "Enterprises with low digital intensity index, which use any business software (any of ERP, CRM, BI)",
+     "E_DI3_HI_BSANY": "Enterprises with high digital intensity index, which use any business software (any of ERP, CRM, BI)",
+     "E_DI3_VHI_BSANY": "Enterprises with very high digital intensity index, which use any business software (any of ERP, CRM, BI)",
+     "E_ERP1_SM1_ANY": "Enterprises using ERP software and any social media"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2009": 0,
+     "2010": 1,
+     "2012": 2,
+     "2013": 3,
+     "2014": 4,
+     "2015": 5,
+     "2017": 6,
+     "2019": 7,
+     "2021": 8,
+     "2023": 9,
+     "2025": 10
+    },
+    "label": {
+     "2009": "2009",
+     "2010": "2010",
+     "2012": "2012",
+     "2013": "2013",
+     "2014": "2014",
+     "2015": "2015",
+     "2017": "2017",
+     "2019": "2019",
+     "2021": "2021",
+     "2023": "2023",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_EB_IIPN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_EB_IIPN2",
+   "agencyId": "ESTAT",
+   "version": "19.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T09:14:08+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_EB_IIPN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_EB_IIPN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-04-16T23:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "165800"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2009"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-02-27T11:00:00+0100"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

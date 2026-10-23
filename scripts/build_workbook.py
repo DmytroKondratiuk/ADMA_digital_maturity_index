@@ -1,11 +1,12 @@
 """Build excel/ADMA_workbook.xlsx: every calculation of the paper that can be checked by hand,
 written as live Excel formulas (not pasted values).
 
-Sheets: README, Parameters, Calculator, Statistics_mode (Table 7), EU_data, UA_data,
-Diagnostic_situations (Table 6), Worked_example (Section 4.1), Boundary_band (equation 7),
-Experiment_sample (first 1 000 profiles of the uniform scenario).
+Sheets: README, Parameters, Calculator, Worked_example (start of Section 4), Statistics_mode (Table 5),
+TOPSIS (independent ranking of Table 5), EU_data, UA_data, Diagnostic_situations (Table 4),
+Boundary_band (equation 7), Experiment_sample (first 1 000 profiles of the uniform scenario),
+Figure_2_band and Figure_3_map (native Excel charts of Figures 2 and 3).
 
-Inputs are read from data/raw/, data/generated/ and results/simulation_experiment.json, so the workbook
+Inputs are read from data/raw/, data/matrix.csv, data/generated/ and results/simulation_experiment.json, so the workbook
 always matches the scripts. excel/README.md is written from the same text as the README sheet.
 Run scripts/simulation_experiment.py first.
 
@@ -25,11 +26,12 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from adma_index import CALIBRATED_PARAMETERS, ITEMS_PER_LAYER, THEORETICAL_BOUNDS  # noqa: E402
+from adma_index import CALIBRATED_PARAMETERS, ITEMS_INTEGRATION, ITEMS_PER_LAYER, ITEMS_STRATEGY, THEORETICAL_BOUNDS  # noqa: E402
 from data_sources import (  # noqa: E402
-    EU27_COUNTRIES, RAW_DATA, REPOSITORY_ROOT, STATISTICS_MODE_INDICATORS, eurostat_url, eurostat_values, read_csv,
-    ukrstat_url, ukrstat_value)
+    EU_AGGREGATE, EU_MEMBER_STATES, EUROSTAT_SDMX_URL, LAYERS, OUTSIDE_INDEX, RAW_EUROSTAT, REPOSITORY_ROOT, STATEMENT,
+    STRENGTH, UKRSTAT_DATA_URL, INDICATOR_PAIRS, parse_value, read_eurostat, read_matrix)
 from generate_profiles import GENERATED_DATA, column_names  # noqa: E402
+from statistics_mode_local import COUNTRY_NAMES, RANKED, TABLE_ROWS  # noqa: E402
 
 OUTPUT_PATH = REPOSITORY_ROOT / "excel" / "ADMA_workbook.xlsx"
 README_PATH = REPOSITORY_ROOT / "excel" / "README.md"
@@ -48,6 +50,7 @@ STATEMENTS = [
     ("C", "Approved digital development strategy or plan for 2-3 years"),
     ("L1", "Digital tools for human resource management (HRM)"),
     ("L1", "Employees have the skills to work with digital tools"),
+    ("L1", "Production staff enter primary data on mobile devices or terminals at the workplace"),
     ("L2", "Digital accounting of inventories (WMS or spreadsheets)"),
     ("L2", "Collection and analysis of data on resource use, deviations and losses"),
     ("L2", "Monitoring of storage conditions with sensors or IoT"),
@@ -62,9 +65,13 @@ STATEMENTS = [
     ("I", "Integration of the enterprise's digital systems with each other"),
     ("S", "Regular tracking of new digital technologies"),
     ("S", "Dedicated budget or resources for digitalisation"),
+    ("S", "Evaluation of the results of digital projects and revision of digitalisation plans"),
 ]
-# Worked example of Section 4.1: C = 7/12, L1 = L2 = L4 = 0.5, L3 = 1/12.
-WORKED_EXAMPLE_ANSWERS = [3, 3, 4, 3, 3, 3, 3, 3, 2, 1, 1, 3, 3, 3, 2, 2, 2, 2, 2]
+# Worked example at the start of Section 4: C = 7/12, L1 = L2 = L4 = 0.5, L3 = 1/12.
+WORKED_EXAMPLE_ANSWERS = [3, 3, 4, 3, 3, 3, 3, 3, 3, 2, 1, 1, 3, 3, 3, 2, 2, 2, 2, 2, 2]
+STATISTICS_INDICATORS = [code for codes in list(LAYERS.values()) + list(OUTSIDE_INDEX.values()) for code in codes]
+INDICATOR_LAYER = {code: layer for layer, codes in list(LAYERS.items()) + list(OUTSIDE_INDEX.items()) for code in codes}
+PAIRS = {pair["pair_id"]: pair for pair in INDICATOR_PAIRS}
 
 
 def add_name(workbook, name, reference):
@@ -89,34 +96,36 @@ README_INTRO = [
 ]
 README_SECTIONS = [
     ("Sheets and the paper", [
-        "Parameters: alpha, delta and level bounds used by all formulas (Section 3.3, Table 2).",
-        "Calculator: enter 19 questionnaire answers (1-5) and get layer scores, penalty, ADMI, level, DM_I, DM_S (equations 1-5).",
-        "Worked_example: the profile of Section 4.1.",
-        "Statistics_mode: Table 7 (equation 6). Uses EU_data and UA_data.",
-        "EU_data: Eurostat values for all EU-27 countries; the leader is found with MAX/INDEX/MATCH.",
+        "Parameters: alpha, delta and level bounds used by all formulas (Section 3, Table 2).",
+        "Calculator: enter the 21 questionnaire answers (1-5) and get layer scores, penalty, ADMI, level, DM_I, DM_S (equations 1-5).",
+        "Worked_example: the profile at the start of Section 4.",
+        "Statistics_mode: Table 5, food processing (NACE C10-C12) of EU-27, Germany, nine CEE countries and Ukraine (equation 6, P_min = 0). Uses EU_data and UA_data.",
+        "TOPSIS: the independent ranking of Table 5 (entropy weights, closeness to the ideal solution) and its Spearman correlation with ADMI.",
+        "EU_data: Eurostat values for the EU-27 aggregate and all 27 member states; the leader is found with MAX/INDEX/MATCH.",
         "UA_data: Derzhstat values with direct download links.",
-        "Diagnostic_situations: Table 6.",
-        "Boundary_band: equation (7), the band of base index values in which the penalty changes the level (Section 4.2).",
+        "Diagnostic_situations: Table 4.",
+        "Boundary_band: equation (7), the band of base index values in which the penalty changes the level (P1).",
         "Experiment_sample: the first 1 000 of the 100 000 generated profiles (uniform scenario) with all formulas row by row, "
         "and the corresponding results of the full run for comparison.",
         "Figure_2_band: native Excel chart of the band of equation (7) with the sample profiles whose level the penalty changed.",
-        "Figure_3_map: native Excel chart of the diagnostic map (ADMI, DM_I) with the five situations of Table 6.",
+        "Figure_3_map: native Excel chart of the diagnostic map (ADMI, DM_I) with the situations of Table 4.",
     ]),
-    ("Full experiment", [
-        "The complete experiment (2 x 100 000 profiles, 99 parameter combinations, Tables 4-5, hypotheses H1-H3) is run by scripts/simulation_experiment.py.",
+    ("Full experiment and statistics mode", [
+        "The complete experiment (2 x 100 000 profiles, 99 parameter combinations, Table 3, Supplementary Table S2, propositions P1-P3) is run by scripts/simulation_experiment.py.",
+        "The statistics mode with the proxy robustness check (Table 5, Supplementary Table S3, proposition P4) is run by scripts/statistics_mode_local.py.",
         "The profiles are stored in data/generated/profiles_uniform.csv and data/generated/profiles_low_skewed.csv; "
         "any row can be typed into the Calculator to check it.",
     ]),
     ("Level rule", [
         "Level = 1 + number of bounds strictly below the index value rounded to 12 decimals. A value exactly on a bound "
         "belongs to the lower level: 0.40 is level 2, 0.41 is level 3.",
-        "Index values computed from questionnaire answers are multiples of 1/120, so exact ties occur; the rounding removes "
+        "Index values computed from questionnaire answers are multiples of 1/60, so exact ties occur; the rounding removes "
         "floating-point noise so that a tie is never moved to the upper level.",
     ]),
     ("Verification", [
         "scripts/verify_workbook.py evaluates the formulas of this workbook with an independent engine (pycel) and compares "
-        "7 159 values with the Python scripts. All values agree.",
-        "The workbook is generated by scripts/build_workbook.py from data/raw and data/generated; this README is generated "
+        "7 533 values with the Python scripts. All values agree.",
+        "The workbook is generated by scripts/build_workbook.py from data/raw, data/matrix.csv and data/generated; this README is generated "
         "together with the README sheet and has the same content.",
     ]),
 ]
@@ -223,126 +232,218 @@ def build_calculator(workbook, sheet_name, answers, title):
     return sheet
 
 
+def column_letter(column):
+    from openpyxl.utils import get_column_letter
+    return get_column_letter(column)
+
+
+EU_FIRST_ROW = 7  # EU-27 aggregate on row 6, member states on rows 7..33
+EU_LEADER_VALUE_ROW = EU_FIRST_ROW + len(EU_MEMBER_STATES) + 1
+EU_LEADER_ROW = EU_LEADER_VALUE_ROW + 1
+UA_FIRST_ROW = 4
+
+
 def build_data_sheets(workbook):
-    """EU_data and UA_data; returns cell references used by Statistics_mode."""
+    """EU_data (EU-27 aggregate and all member states) and UA_data, one column or row per indicator."""
+    matrix = {row["pair_id"]: row for row in read_matrix()}
     eu_sheet = workbook.create_sheet("EU_data")
-    ua_sheet = workbook.create_sheet("UA_data")
     eu_sheet["A1"] = "Eurostat, ICT usage in enterprises: NACE C10-C12, enterprises with 10+ persons employed, % of enterprises"
     eu_sheet["A1"].font = TITLE
-    eu_sheet.cell(row=2, column=1, value="Country").font = BOLD
-    eu_sheet.cell(row=3, column=1, value="Source (CSV)").font = BOLD
-    countries = list(EU27_COUNTRIES)
-    first_country_row = 5
-    eu_sheet.cell(row=4, column=1, value="EU27_2020").font = BOLD
-    for offset, country in enumerate(countries):
-        eu_sheet.cell(row=first_country_row + offset, column=1, value=country)
-    last_country_row = first_country_row + len(countries) - 1
+    for row, label in ((2, "Indicator"), (3, "Statement"), (4, "Year"), (5, "Source (CSV)"), (6, EU_AGGREGATE),
+                       (EU_LEADER_VALUE_ROW, "Leader value"), (EU_LEADER_ROW, "Leader")):
+        eu_sheet.cell(row=row, column=1, value=label).font = BOLD
+    for offset, country in enumerate(EU_MEMBER_STATES):
+        eu_sheet.cell(row=EU_FIRST_ROW + offset, column=1, value=country)
+    last_member_row = EU_FIRST_ROW + len(EU_MEMBER_STATES) - 1
+    eurostat_cache = {}
+    for offset, code in enumerate(STATISTICS_INDICATORS):
+        column = 2 + offset
+        letter = column_letter(column)
+        pair = PAIRS[code]
+        year = matrix[code]["eurostat_year_used"]
+        if pair["eurostat_dataset"] not in eurostat_cache:
+            eurostat_cache[pair["eurostat_dataset"]] = read_eurostat(RAW_EUROSTAT, pair["eurostat_dataset"])
+        observations = eurostat_cache[pair["eurostat_dataset"]]
+        eu_sheet.cell(row=2, column=column, value="%s (%s)" % (code, pair["eurostat_indicator"])).font = BOLD
+        eu_sheet.cell(row=3, column=column, value=STATEMENT[code])
+        eu_sheet.cell(row=4, column=column, value=int(year))
+        eu_sheet.cell(row=5, column=column, value=EUROSTAT_SDMX_URL.format(dataset=pair["eurostat_dataset"], indicator=pair["eurostat_indicator"]))
+        for row, country in [(6, EU_AGGREGATE)] + [(EU_FIRST_ROW + index, member) for index, member in enumerate(EU_MEMBER_STATES)]:
+            observation = observations.get((pair["eurostat_indicator"], country, year))
+            value = parse_value(observation["value"]) if observation else None
+            eu_sheet.cell(row=row, column=column, value=value).fill = SOURCE_FILL
+        member_range = "%s%d:%s%d" % (letter, EU_FIRST_ROW, letter, last_member_row)
+        eu_sheet.cell(row=EU_LEADER_VALUE_ROW, column=column, value="=MAX(%s)" % member_range)
+        eu_sheet.cell(row=EU_LEADER_ROW, column=column, value="=INDEX($A$%d:$A$%d,MATCH(MAX(%s),%s,0))" % (
+            EU_FIRST_ROW, last_member_row, member_range, member_range))
+    eu_sheet.cell(row=EU_LEADER_ROW + 2, column=1, value="Empty cell = no published value (for example flag u, low reliability). "
+                  "Leader = member state with the highest published value. The CSV links download the full series; filter by geo and TIME_PERIOD.")
+    set_widths(eu_sheet, {"A": 14})
 
-    ua_sheet["A1"] = "State Statistics Service of Ukraine, data bank stat.gov.ua (SSSU:DF_INFORM_COMMUN_TECH_ENTRP): KVED 10-12, % of enterprises"
+    ua_sheet = workbook.create_sheet("UA_data")
+    ua_sheet["A1"] = "State Statistics Service of Ukraine, data bank stat.gov.ua (SSSU:DF_INFORM_COMMUN_TECH_ENTRP): KVED 10-12, enterprises 10+, % of enterprises"
     ua_sheet["A1"].font = TITLE
     ua_sheet.append([])
-    ua_sheet.append(["Indicator", "Breakdown", "Year", "Value, %", "Data updated", "Direct download (CSV)"])
+    ua_sheet.append(["Indicator", "Statement", "Derzhstat series", "Year", "Value, %", "Note", "Direct download (CSV)"])
     for cell in ua_sheet[3]:
         cell.font = BOLD
-
-    eurostat_cache = {}
-    ukrstat_cache = {}
-    references = []
-    for column_offset, indicator in enumerate(STATISTICS_MODE_INDICATORS):
-        column = 2 + column_offset
-        eurostat_spec = indicator["eurostat"]
-        ukrstat_spec = indicator["ukrstat"]
-        if eurostat_spec["dataset"] not in eurostat_cache:
-            eurostat_cache[eurostat_spec["dataset"]] = read_csv(RAW_DATA / "eurostat" / ("%s.csv" % eurostat_spec["dataset"]))
-        rows = eurostat_cache[eurostat_spec["dataset"]]
-        country_values, eu_average, _missing = eurostat_values(rows, eurostat_spec["indicator"], eurostat_spec["year"])
-        eu_sheet.cell(row=2, column=column, value="%s %s" % (eurostat_spec["indicator"], eurostat_spec["year"])).font = BOLD
-        eu_sheet.cell(row=3, column=column, value=eurostat_url(eurostat_spec["dataset"]))
-        eu_sheet.cell(row=4, column=column, value=eu_average).fill = SOURCE_FILL
-        for offset, country in enumerate(countries):
-            value = country_values.get(country)
-            cell = eu_sheet.cell(row=first_country_row + offset, column=column, value=value)
-            cell.fill = SOURCE_FILL
-        column_letter = eu_sheet.cell(row=1, column=column).column_letter
-        country_range = "EU_data!$%s$%d:$%s$%d" % (column_letter, first_country_row, column_letter, last_country_row)
-
-        if ukrstat_spec["file"] not in ukrstat_cache:
-            ukrstat_cache[ukrstat_spec["file"]] = read_csv(RAW_DATA / "ukrstat" / "data_bank" / ("%s.csv" % ukrstat_spec["file"]))
-        ukraine_value, updated = ukrstat_value(ukrstat_cache[ukrstat_spec["file"]], ukrstat_spec["breakdown_category"], ukrstat_spec["breakdown"], ukrstat_spec["year"])
-        ua_row = 4 + column_offset
-        ua_sheet.cell(row=ua_row, column=1, value=indicator["name"])
-        ua_sheet.cell(row=ua_row, column=2, value="%s / %s" % (ukrstat_spec["breakdown_category"], ukrstat_spec["breakdown"]))
-        ua_sheet.cell(row=ua_row, column=3, value=ukrstat_spec["year"])
-        ua_sheet.cell(row=ua_row, column=4, value=ukraine_value).fill = SOURCE_FILL
-        ua_sheet.cell(row=ua_row, column=5, value=updated)
-        ua_sheet.cell(row=ua_row, column=6, value=ukrstat_url(ukrstat_spec["file"]))
-        references.append({
-            "eu_average": "EU_data!$%s$4" % column_letter,
-            "country_range": country_range,
-            "country_names": "EU_data!$A$%d:$A$%d" % (first_country_row, last_country_row),
-            "ukraine": "UA_data!$D$%d" % ua_row,
-        })
-    eu_sheet.cell(row=last_country_row + 2, column=1, value="Empty cell = no published value (flag u, low reliability). The CSV links download the full series; filter by indic_is, geo and TIME_PERIOD.")
-    ua_sheet.cell(row=4 + len(STATISTICS_MODE_INDICATORS) + 1, column=1,
-                  value="Each link downloads a CSV with all years (columns TIME_PERIOD, OBS_VALUE). Interactive table: https://stat.gov.ua/uk/explorer?urn=SSSU%3ADF_INFORM_COMMUN_TECH_ENTRP%28~%29")
-    set_widths(eu_sheet, {"A": 14, "B": 14, "C": 14, "D": 14, "E": 14, "F": 14, "G": 14})
-    set_widths(ua_sheet, {"A": 32, "B": 42, "C": 8, "D": 10, "E": 14, "F": 120})
-    return references
+    for offset, code in enumerate(STATISTICS_INDICATORS):
+        row = UA_FIRST_ROW + offset
+        matrix_row = matrix[code]
+        ua_sheet.cell(row=row, column=1, value=code)
+        ua_sheet.cell(row=row, column=2, value=STATEMENT[code])
+        ua_sheet.cell(row=row, column=3, value=matrix_row["ukrstat_series"])
+        ua_sheet.cell(row=row, column=4, value=int(matrix_row["ukrstat_year_used"]))
+        ua_sheet.cell(row=row, column=5, value=parse_value(matrix_row["UA_value"])).fill = SOURCE_FILL
+        ua_sheet.cell(row=row, column=6, value=matrix_row["UA_flag_or_note"])
+        ua_sheet.cell(row=row, column=7, value=UKRSTAT_DATA_URL.format(indicator=PAIRS[code]["ukrstat_indicator"]))
+    ua_sheet.cell(row=UA_FIRST_ROW + len(STATISTICS_INDICATORS) + 1, column=1,
+                  value="Each link downloads a CSV with all years and breakdowns (columns BREAKDOWN_CATEGORY, BREAKDOWN, TIME_PERIOD, OBS_VALUE). "
+                        "Interactive table: https://stat.gov.ua/uk/explorer?urn=SSSU%3ADF_INFORM_COMMUN_TECH_ENTRP%28~%29")
+    set_widths(ua_sheet, {"A": 30, "B": 10, "C": 46, "D": 7, "E": 10, "F": 60, "G": 120})
 
 
-def build_statistics_mode(workbook, references):
+STATISTICS_FIRST_ROW = 4
+STATISTICS_LAST_ROW = STATISTICS_FIRST_ROW + len(STATISTICS_INDICATORS) - 1
+OBJECT_FIRST_COLUMN = 9  # column I
+INDEX_HEADER_ROW = STATISTICS_LAST_ROW + 3
+INDEX_FIRST_ROW = INDEX_HEADER_ROW + 1
+INDEX_COLUMNS = ["Object", "C", "L1", "L2", "L3", "L4", "ADMI_base", "DM_min", "Penalty", "ADMI", "Level", "DM_I", "DM_S",
+                 "Rank ADMI", "Rank TOPSIS"]
+
+
+def index_row(country):
+    return INDEX_FIRST_ROW + TABLE_ROWS.index(country)
+
+
+def index_cell(country, header):
+    return "%s%d" % (column_letter(INDEX_COLUMNS.index(header) + 1), index_row(country))
+
+
+def build_statistics_mode(workbook):
     sheet = workbook.create_sheet("Statistics_mode")
-    sheet["A1"] = "Table 7. Statistics mode of ADMA for the Ukrainian food-processing industry (equation 6, P_min = 0)"
+    sheet["A1"] = "Table 5. Statistics mode of ADMA for food processing (NACE C10-C12): layer scores, index and ranking (equation 6, P_min = 0)"
     sheet["A1"].font = TITLE
-    sheet.append([])
-    sheet.append(["Layer", "Indicator", "Statement", "Ukraine, %", "Ukraine year", "EU27, %", "EU year", "Leader", "Leader, %", "DM Ukraine", "DM EU27"])
-    for cell in sheet[3]:
-        cell.font = BOLD
-    first_row = 4
-    for offset, (indicator, reference) in enumerate(zip(STATISTICS_MODE_INDICATORS, references)):
-        row = first_row + offset
-        sheet.cell(row=row, column=1, value=indicator["layer"])
-        sheet.cell(row=row, column=2, value=indicator["name"])
-        sheet.cell(row=row, column=3, value=indicator["statement"])
-        sheet.cell(row=row, column=4, value="=%s" % reference["ukraine"])
-        sheet.cell(row=row, column=5, value=indicator["ukrstat"]["year"])
-        sheet.cell(row=row, column=6, value="=%s" % reference["eu_average"])
-        sheet.cell(row=row, column=7, value=indicator["eurostat"]["year"])
-        sheet.cell(row=row, column=8, value="=INDEX(%s,MATCH(MAX(%s),%s,0))" % (reference["country_names"], reference["country_range"], reference["country_range"]))
-        sheet.cell(row=row, column=9, value="=MAX(%s)" % reference["country_range"])
-        sheet.cell(row=row, column=10, value="=D%d/I%d" % (row, row))
-        sheet.cell(row=row, column=11, value="=F%d/I%d" % (row, row))
-    last_row = first_row + len(STATISTICS_MODE_INDICATORS) - 1
-    profile_row = last_row + 2
-    sheet.cell(row=profile_row, column=1, value="Layer profile (mean of the layer's indicators)").font = BOLD
-    sheet.append(["Layer", "DM Ukraine", "DM EU27", "Ukraine below delta?", "EU27 below delta?"])
-    for cell in sheet[profile_row + 1]:
-        cell.font = BOLD
-    measured_layers = []
-    for indicator in STATISTICS_MODE_INDICATORS:
-        if indicator["layer"] not in measured_layers:
-            measured_layers.append(indicator["layer"])
-    for offset, layer in enumerate(measured_layers):
-        row = profile_row + 2 + offset
-        sheet.cell(row=row, column=1, value=layer)
-        sheet.cell(row=row, column=2, value='=AVERAGEIF($A$%d:$A$%d,A%d,$J$%d:$J$%d)' % (first_row, last_row, row, first_row, last_row))
-        sheet.cell(row=row, column=3, value='=AVERAGEIF($A$%d:$A$%d,A%d,$K$%d:$K$%d)' % (first_row, last_row, row, first_row, last_row))
-        sheet.cell(row=row, column=4, value='=IF(B%d<delta,"yes","no")' % row)
-        sheet.cell(row=row, column=5, value='=IF(C%d<delta,"yes","no")' % row)
-    note_row = profile_row + 3 + len(measured_layers)
+    sheet["A2"] = "Upper part: every indicator divided by the value of the EU leader. Lower part: layers, ADMI and ranks. EU-27 and Germany are reference rows outside the ranking."
+    headers = ["Layer", "Indicator", "Statement", "Strength", "EU year", "UA year", "Leader", "Leader, %"] + [COUNTRY_NAMES[country] for country in TABLE_ROWS]
+    for column, header in enumerate(headers, start=1):
+        sheet.cell(row=3, column=column, value=header).font = BOLD
+    member_rows = {member: EU_FIRST_ROW + index for index, member in enumerate(EU_MEMBER_STATES)}
+    member_rows[EU_AGGREGATE] = 6
+    for offset, code in enumerate(STATISTICS_INDICATORS):
+        row = STATISTICS_FIRST_ROW + offset
+        eu_letter = column_letter(2 + offset)
+        sheet.cell(row=row, column=1, value=INDICATOR_LAYER[code])
+        sheet.cell(row=row, column=2, value=code)
+        sheet.cell(row=row, column=3, value=STATEMENT[code])
+        sheet.cell(row=row, column=4, value=STRENGTH[code])
+        sheet.cell(row=row, column=5, value="=EU_data!%s4" % eu_letter)
+        sheet.cell(row=row, column=6, value="=UA_data!D%d" % (UA_FIRST_ROW + offset))
+        sheet.cell(row=row, column=7, value="=EU_data!%s%d" % (eu_letter, EU_LEADER_ROW))
+        sheet.cell(row=row, column=8, value="=EU_data!%s%d" % (eu_letter, EU_LEADER_VALUE_ROW))
+        for country_offset, country in enumerate(TABLE_ROWS):
+            source = "UA_data!E%d" % (UA_FIRST_ROW + offset) if country == "UA" else "EU_data!%s%d" % (eu_letter, member_rows[country])
+            sheet.cell(row=row, column=OBJECT_FIRST_COLUMN + country_offset, value='=IF(%s="","",%s/$H%d)' % (source, source, row))
+    for column, header in enumerate(INDEX_COLUMNS, start=1):
+        sheet.cell(row=INDEX_HEADER_ROW, column=column, value=header).font = BOLD
+    ranked_first, ranked_last = index_row(RANKED[0]), index_row(RANKED[-1])
+    for country_offset, country in enumerate(TABLE_ROWS):
+        row = index_row(country)
+        object_letter = column_letter(OBJECT_FIRST_COLUMN + country_offset)
+        scores = "%s$%d:%s$%d" % (object_letter, STATISTICS_FIRST_ROW, object_letter, STATISTICS_LAST_ROW)
+        sheet.cell(row=row, column=1, value=COUNTRY_NAMES[country])
+        for header in ["C", "L1", "L2", "L3", "L4", "DM_I", "DM_S"]:
+            layer = header[3:] if header.startswith("DM_") else header
+            sheet.cell(row=row, column=INDEX_COLUMNS.index(header) + 1,
+                       value='=AVERAGEIF($A$%d:$A$%d,"%s",%s)' % (STATISTICS_FIRST_ROW, STATISTICS_LAST_ROW, layer, scores))
+        layer_range = "B%d:F%d" % (row, row)
+        sheet.cell(row=row, column=7, value="=AVERAGE(%s)" % layer_range)
+        sheet.cell(row=row, column=8, value="=MIN(%s)" % layer_range)
+        sheet.cell(row=row, column=9, value="=1-alpha*MAX(0,delta-H%d)" % row)
+        sheet.cell(row=row, column=10, value="=G%d*I%d" % (row, row))
+        sheet.cell(row=row, column=11, value=level_formula("J%d" % row))
+        if country in RANKED:
+            sheet.cell(row=row, column=14, value='=1+COUNTIF($J$%d:$J$%d,">"&J%d)' % (ranked_first, ranked_last, row))
+            sheet.cell(row=row, column=15, value="=TOPSIS!%s%d" % (TOPSIS_COLUMNS["rank"], TOPSIS_FIRST_ROW + RANKED.index(country)))
+        else:
+            sheet.cell(row=row, column=14, value="-")
+            sheet.cell(row=row, column=15, value="-")
     notes = [
-        "L1 (human capital) has no common indicator in the two surveys, so the full ADMI cannot be computed in the statistics mode.",
-        "Years differ for three indicators (Section 3.6 of the paper): ICT security documents UA 2023 / EU 2024; IoT UA 2022 / EU 2021.",
-        "Leader = EU-27 country with the highest published value; BE, FI and LU publish no values for C10-C12.",
+        "Strength of correspondence to the questionnaire statement: direct, acceptable or proxy (Supplementary Table S1).",
+        "Years differ for some pairs (Supplementary Table S1). EU-27 and Germany do not enter the ranking.",
+        "The strict set without weak proxies and the leave-one-out check (Supplementary Table S3) are computed by scripts/statistics_mode_local.py.",
     ]
     for offset, note in enumerate(notes):
-        sheet.cell(row=note_row + offset, column=1, value=note)
-    set_widths(sheet, {"A": 7, "B": 32, "C": 10, "D": 11, "E": 12, "F": 10, "G": 9, "H": 8, "I": 10, "J": 12, "K": 10})
+        sheet.cell(row=INDEX_FIRST_ROW + len(TABLE_ROWS) + 1 + offset, column=1, value=note)
+    set_widths(sheet, {"A": 12, "B": 30, "C": 9, "D": 11, "E": 8, "F": 8, "G": 8, "H": 9})
+
+
+TOPSIS_FIRST_ROW = 5
+TOPSIS_LAYERS = list(LAYERS)
+TOPSIS_BLOCKS = {"score": 2, "share": 8, "entropy_term": 14, "weighted": 20}  # first column of each five-column block
+TOPSIS_COLUMNS = {"to_ideal": "Z", "to_anti_ideal": "AA", "closeness": "AB", "rank": "AC", "admi_rank": "AD", "squared_difference": "AE"}
+
+
+def build_topsis(workbook):
+    """TOPSIS with entropy weights on the five layers of Table 5 (Hwang and Yoon, 1981), every step a formula."""
+    sheet = workbook.create_sheet("TOPSIS")
+    sheet["A1"] = "TOPSIS ranking of the ten ranked objects of Table 5 on the same five layers, entropy weights"
+    sheet["A1"].font = TITLE
+    last_row = TOPSIS_FIRST_ROW + len(RANKED) - 1
+    count = len(RANKED)
+    titles = {"score": "Layer score", "share": "Share p = x / column sum", "entropy_term": "p * ln p", "weighted": "Weighted normalised v = w * x / sqrt(sum x^2)"}
+    for block, first_column in TOPSIS_BLOCKS.items():
+        sheet.cell(row=3, column=first_column, value=titles[block]).font = BOLD
+        for layer_offset, layer in enumerate(TOPSIS_LAYERS):
+            sheet.cell(row=4, column=first_column + layer_offset, value=layer).font = BOLD
+    sheet.cell(row=4, column=1, value="Object").font = BOLD
+    for header, letter in (("S+ (to ideal)", "Z"), ("S- (to anti-ideal)", "AA"), ("Closeness", "AB"), ("Rank TOPSIS", "AC"),
+                           ("Rank ADMI", "AD"), ("(rank difference)^2", "AE")):
+        sheet["%s4" % letter] = header
+        sheet["%s4" % letter].font = BOLD
+    summary_rows = {"entropy": last_row + 2, "divergence": last_row + 3, "weight": last_row + 4, "ideal": last_row + 5, "anti_ideal": last_row + 6}
+    for name, row in summary_rows.items():
+        sheet.cell(row=row, column=1, value={"entropy": "Entropy e", "divergence": "Divergence 1 - e", "weight": "Entropy weight w",
+                                             "ideal": "Ideal (max v)", "anti_ideal": "Anti-ideal (min v)"}[name]).font = BOLD
+    for offset, country in enumerate(RANKED):
+        row = TOPSIS_FIRST_ROW + offset
+        sheet.cell(row=row, column=1, value=COUNTRY_NAMES[country])
+        for layer_offset, layer in enumerate(TOPSIS_LAYERS):
+            score = column_letter(TOPSIS_BLOCKS["score"] + layer_offset)
+            share = column_letter(TOPSIS_BLOCKS["share"] + layer_offset)
+            weighted_column = TOPSIS_BLOCKS["weighted"] + layer_offset
+            sheet.cell(row=row, column=TOPSIS_BLOCKS["score"] + layer_offset, value="=Statistics_mode!%s" % index_cell(country, layer))
+            sheet.cell(row=row, column=TOPSIS_BLOCKS["share"] + layer_offset, value="=%s%d/SUM(%s$%d:%s$%d)" % (score, row, score, TOPSIS_FIRST_ROW, score, last_row))
+            sheet.cell(row=row, column=TOPSIS_BLOCKS["entropy_term"] + layer_offset, value="=IF(%s%d>0,%s%d*LN(%s%d),0)" % (share, row, share, row, share, row))
+            sheet.cell(row=row, column=weighted_column, value="=%s$%d*%s%d/SQRT(SUMPRODUCT(%s$%d:%s$%d,%s$%d:%s$%d))" % (
+                score, summary_rows["weight"], score, row, score, TOPSIS_FIRST_ROW, score, last_row, score, TOPSIS_FIRST_ROW, score, last_row))
+        weighted = [column_letter(TOPSIS_BLOCKS["weighted"] + layer_offset) for layer_offset in range(len(TOPSIS_LAYERS))]
+        sheet["Z%d" % row] = "=SQRT(%s)" % "+".join("(%s%d-%s$%d)^2" % (letter, row, letter, summary_rows["ideal"]) for letter in weighted)
+        sheet["AA%d" % row] = "=SQRT(%s)" % "+".join("(%s%d-%s$%d)^2" % (letter, row, letter, summary_rows["anti_ideal"]) for letter in weighted)
+        sheet["AB%d" % row] = "=AA%d/(Z%d+AA%d)" % (row, row, row)
+        sheet["AC%d" % row] = '=1+COUNTIF($AB$%d:$AB$%d,">"&AB%d)' % (TOPSIS_FIRST_ROW, last_row, row)
+        sheet["AD%d" % row] = "=Statistics_mode!%s" % index_cell(country, "Rank ADMI")
+        sheet["AE%d" % row] = "=(AC%d-AD%d)^2" % (row, row)
+    for layer_offset in range(len(TOPSIS_LAYERS)):
+        score = column_letter(TOPSIS_BLOCKS["score"] + layer_offset)
+        term = column_letter(TOPSIS_BLOCKS["entropy_term"] + layer_offset)
+        weighted = column_letter(TOPSIS_BLOCKS["weighted"] + layer_offset)
+        first_score, last_score = column_letter(TOPSIS_BLOCKS["score"]), column_letter(TOPSIS_BLOCKS["score"] + len(TOPSIS_LAYERS) - 1)
+        sheet["%s%d" % (score, summary_rows["entropy"])] = "=-SUM(%s%d:%s%d)/LN(%d)" % (term, TOPSIS_FIRST_ROW, term, last_row, count)
+        sheet["%s%d" % (score, summary_rows["divergence"])] = "=1-%s%d" % (score, summary_rows["entropy"])
+        sheet["%s%d" % (score, summary_rows["weight"])] = "=%s%d/SUM($%s$%d:$%s$%d)" % (
+            score, summary_rows["divergence"], first_score, summary_rows["divergence"], last_score, summary_rows["divergence"])
+        sheet["%s%d" % (weighted, summary_rows["ideal"])] = "=MAX(%s%d:%s%d)" % (weighted, TOPSIS_FIRST_ROW, weighted, last_row)
+        sheet["%s%d" % (weighted, summary_rows["anti_ideal"])] = "=MIN(%s%d:%s%d)" % (weighted, TOPSIS_FIRST_ROW, weighted, last_row)
+    spearman_row = last_row + 8
+    sheet.cell(row=spearman_row, column=1, value="Spearman rank correlation ADMI - TOPSIS").font = BOLD
+    sheet.cell(row=spearman_row, column=2, value="=1-6*SUM(AE%d:AE%d)/(%d*(%d^2-1))" % (TOPSIS_FIRST_ROW, last_row, count, count))
+    set_widths(sheet, {"A": 34})
 
 
 def build_diagnostic_situations(workbook):
     sheet = workbook.create_sheet("Diagnostic_situations")
-    sheet["A1"] = "Table 6. Diagnostic situations of ADMA (illustrative profiles)"
+    sheet["A1"] = "Table 4. Diagnostic situations of ADMA (illustrative profiles)"
     sheet["A1"].font = TITLE
     sheet.append([])
     sheet.append(["Situation", "DM_C", "DM_L1", "DM_L2", "DM_L3", "DM_L4", "DM_I", "DM_S", "ADMI_base", "DM_min", "Penalty", "ADMI",
@@ -414,7 +515,7 @@ def build_experiment_sample(workbook):
     def block_range(prefix, item_count, row):
         return "%s%d:%s%d" % (answer_columns["%s_1" % prefix], row, answer_columns["%s_%d" % (prefix, item_count)], row)
 
-    blocks = [(layer, count) for layer, count in ITEMS_PER_LAYER.items()] + [("I", 3), ("S", 2)]
+    blocks = [(layer, count) for layer, count in ITEMS_PER_LAYER.items()] + [("I", ITEMS_INTEGRATION), ("S", ITEMS_STRATEGY)]
     result_start = 2 + len(names)
     letters = {header: sheet.cell(row=1, column=column).column_letter for column, header in enumerate(headers, start=1)}
     for offset, values in enumerate(sample):
@@ -448,10 +549,10 @@ def build_experiment_sample(workbook):
 
     full_run = json.loads(SIMULATION_RESULTS.read_text(encoding="utf-8"))["scenarios"]["uniform"]
     summary = [
-        ("Share of profiles with a penalty", "=AVERAGE(%s)" % column_range("Penalised"), full_run["H1_calibrated"]["share_penalised"]),
-        ("Share of profiles whose level changed (H1)", "=AVERAGE(%s)" % column_range("Level changed"), full_run["H1_calibrated"]["share_level_changed"]),
-        ("Mean reduction of the index", "=AVERAGE(%s)-AVERAGE(%s)" % (column_range("ADMI_base"), column_range("ADMI")), full_run["H1_calibrated"]["mean_index_reduction"]),
-        ("Share 'illusion of maturity' (H2)", "=AVERAGE(%s)" % column_range("Illusion of maturity"), full_run["H2_integration_masking"]["share_illusion_of_maturity"]),
+        ("Share of profiles with a penalty", "=AVERAGE(%s)" % column_range("Penalised"), full_run["P1_calibrated"]["share_penalised"]),
+        ("Share of profiles whose level changed (P1)", "=AVERAGE(%s)" % column_range("Level changed"), full_run["P1_calibrated"]["share_level_changed"]),
+        ("Mean reduction of the index", "=AVERAGE(%s)-AVERAGE(%s)" % (column_range("ADMI_base"), column_range("ADMI")), full_run["P1_calibrated"]["mean_index_reduction"]),
+        ("Share 'illusion of maturity' (P2)", "=AVERAGE(%s)" % column_range("Illusion of maturity"), full_run["P2_integration_masking"]["share_illusion_of_maturity"]),
     ]
     sheet["A2"] = "Summary for this sample"
     sheet["A2"].font = BOLD
@@ -550,7 +651,7 @@ def build_figure_map(workbook):
     """Figure 3: diagnostic map in the plane (ADMI, DM_I)."""
     from openpyxl.chart import ScatterChart
     sheet = workbook.create_sheet("Figure_3_map")
-    sheet["A1"] = "Figure 3. Diagnostic map (ADMI, DM_I): sample profiles and the five situations of Table 6"
+    sheet["A1"] = "Figure 3. Diagnostic map (ADMI, DM_I): sample profiles and the situations of Table 4"
     sheet["A1"].font = TITLE
     sheet["A2"] = "Lower right zone (ADMI above the level-3 bound, DM_I at most 0.20) is the 'illusion of maturity': equipped layers without integration."
     sheet["A4"], sheet["B4"], sheet["C4"] = "Situation", "ADMI", "DM_I"
@@ -594,10 +695,12 @@ def main():
     workbook.active.title = "README"
     build_parameters(workbook)
     build_calculator(workbook, "Calculator", WORKED_EXAMPLE_ANSWERS, "ADMI calculator: enter answers 1-5 in the yellow cells")
-    build_calculator(workbook, "Worked_example", WORKED_EXAMPLE_ANSWERS, "Section 4.1: worked example (ADMI_base 0.433, level 3 -> ADMI 0.383, level 2)")
-    references = build_data_sheets(workbook)
-    build_statistics_mode(workbook, references)
+    build_calculator(workbook, "Worked_example", WORKED_EXAMPLE_ANSWERS, "Worked example of Section 4 (ADMI_base 0.433, level 3 -> ADMI 0.383, level 2)")
+    build_data_sheets(workbook)
+    build_statistics_mode(workbook)
+    build_topsis(workbook)
     workbook.move_sheet("Statistics_mode", offset=-2)
+    workbook.move_sheet("TOPSIS", offset=-2)
     build_diagnostic_situations(workbook)
     build_boundary_band(workbook)
     build_experiment_sample(workbook)

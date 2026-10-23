@@ -2,7 +2,7 @@
 
 The workbook formulas are evaluated with pycel (an independent Excel formula engine), and every
 result is compared with the Python implementation:
-  Calculator and Worked_example, Statistics_mode (Table 7), Diagnostic_situations (Table 6),
+  Calculator and Worked_example, Statistics_mode (Table 5), TOPSIS, Diagnostic_situations (Table 4),
   Boundary_band (equation 7) and all rows of Experiment_sample.
 
 Usage:  python scripts/verify_workbook.py     (requires openpyxl and pycel)
@@ -23,12 +23,14 @@ if not hasattr(DefinedNameDict, "definedName"):
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from adma_index import CALIBRATED_PARAMETERS, ITEMS_PER_LAYER, admi, maturity_level, penalty  # noqa: E402
-from build_workbook import OUTPUT_PATH, SAMPLE_SIZE, WORKED_EXAMPLE_ANSWERS  # noqa: E402
-from data_sources import RAW_DATA  # noqa: E402
+from adma_index import CALIBRATED_PARAMETERS, ITEMS_INTEGRATION, ITEMS_PER_LAYER, ITEMS_STRATEGY, admi, maturity_level, penalty  # noqa: E402
+from build_workbook import (  # noqa: E402
+    INDEX_COLUMNS, OUTPUT_PATH, SAMPLE_SIZE, STATISTICS_FIRST_ROW, STATISTICS_INDICATORS, TOPSIS_FIRST_ROW, WORKED_EXAMPLE_ANSWERS,
+    index_cell)
+from data_sources import read_matrix  # noqa: E402
 from generate_profiles import GENERATED_DATA, column_names  # noqa: E402
 from simulation_experiment import boundary_band, diagnostic_situations  # noqa: E402
-from statistics_mode_local import compute_statistics_mode  # noqa: E402
+from statistics_mode_local import RANKED, TABLE_ROWS, compute_statistics_mode  # noqa: E402
 
 TOLERANCE = 1e-9
 
@@ -61,7 +63,7 @@ def check_calculator(compiler, formulas, checker, sheet_name):
     normalised = (answers - 1) / 4
     starts = {}
     position = 0
-    for block, count in list(ITEMS_PER_LAYER.items()) + [("I", 3), ("S", 2)]:
+    for block, count in list(ITEMS_PER_LAYER.items()) + [("I", ITEMS_INTEGRATION), ("S", ITEMS_STRATEGY)]:
         starts[block] = (position, count)
         position += count
     layers = np.array([normalised[start:start + count].mean() for block, (start, count) in starts.items() if block in ITEMS_PER_LAYER])
@@ -73,8 +75,8 @@ def check_calculator(compiler, formulas, checker, sheet_name):
         "ADMI (eq. 5)": final_index[0],
         "Level by ADMI_base": int(maturity_level(base_index)[0]),
         "Level by ADMI": int(maturity_level(final_index)[0]),
-        "DM_I (integration, outside the index)": normalised[starts["I"][0]:starts["I"][0] + 3].mean(),
-        "DM_S (strategy, outside the index)": normalised[starts["S"][0]:starts["S"][0] + 2].mean(),
+        "DM_I (integration, outside the index)": normalised[starts["I"][0]:starts["I"][0] + ITEMS_INTEGRATION].mean(),
+        "DM_S (strategy, outside the index)": normalised[starts["S"][0]:starts["S"][0] + ITEMS_STRATEGY].mean(),
     }
     for layer, value in zip(ITEMS_PER_LAYER, layers):
         expected["DM_%s (eq. 2)" % layer] = value
@@ -84,30 +86,52 @@ def check_calculator(compiler, formulas, checker, sheet_name):
 
 
 def check_statistics_mode(compiler, checker):
-    result = compute_statistics_mode(RAW_DATA)
-    for offset, row in enumerate(result["rows"]):
-        excel_row = 4 + offset
-        checker.equal("Table7/%s/Ukraine" % row["name"], compiler.evaluate("Statistics_mode!D%d" % excel_row), row["ukraine_percent"])
-        checker.equal("Table7/%s/EU27" % row["name"], compiler.evaluate("Statistics_mode!F%d" % excel_row), row["eu27_percent"])
-        checker.equal("Table7/%s/leader" % row["name"], compiler.evaluate("Statistics_mode!H%d" % excel_row), row["leader_country"])
-        checker.equal("Table7/%s/leader value" % row["name"], compiler.evaluate("Statistics_mode!I%d" % excel_row), row["leader_percent"])
-        checker.equal("Table7/%s/DM Ukraine" % row["name"], round(compiler.evaluate("Statistics_mode!J%d" % excel_row), 3), row["ukraine_score"])
-        checker.equal("Table7/%s/DM EU27" % row["name"], round(compiler.evaluate("Statistics_mode!K%d" % excel_row), 3), row["eu27_score"])
-    profile_start = 4 + len(result["rows"]) + 3
-    for offset, (layer, scores) in enumerate(result["layer_profile"].items()):
-        excel_row = profile_start + offset
-        checker.equal("Table7/profile %s/Ukraine" % layer, round(compiler.evaluate("Statistics_mode!B%d" % excel_row), 3), scores["ukraine"])
-        checker.equal("Table7/profile %s/EU27" % layer, round(compiler.evaluate("Statistics_mode!C%d" % excel_row), 3), scores["eu27"])
+    """Table 5: leaders, indicator scores, layers, ADMI, levels and ranks; TOPSIS weights, closeness, ranks, Spearman."""
+    matrix = {row["pair_id"]: row for row in read_matrix()}
+    result = compute_statistics_mode(list(matrix.values()))
+    for offset, code in enumerate(STATISTICS_INDICATORS):
+        row = STATISTICS_FIRST_ROW + offset
+        checker.equal("Table5/%s/leader" % code, compiler.evaluate("Statistics_mode!G%d" % row), matrix[code]["leader_country"])
+        checker.equal("Table5/%s/leader value" % code, compiler.evaluate("Statistics_mode!H%d" % row), result["years_and_leaders"][code]["leader_value"])
+        for country_offset, country in enumerate(TABLE_ROWS):
+            expected = result["indicator_scores"][code][country]
+            excel_value = compiler.evaluate("Statistics_mode!%s%d" % (_letter(9 + country_offset), row))
+            if expected is None:
+                checker.equal("Table5/%s/%s" % (code, country), excel_value, "")
+            else:
+                checker.equal("Table5/%s/%s" % (code, country), excel_value, expected)
+    for country in TABLE_ROWS:
+        expected = result["countries"][country]
+        values = dict(expected["layers"], ADMI_base=expected["ADMI_base"], DM_min=expected["DM_min"], Penalty=expected["penalty"],
+                      ADMI=expected["ADMI"], Level=expected["level"], DM_I=expected["DM_I"], DM_S=expected["DM_S"])
+        if country in RANKED:
+            values["Rank ADMI"] = result["ranking"][country]["ADMI_rank"]
+            values["Rank TOPSIS"] = result["ranking"][country]["TOPSIS_rank"]
+        for header, value in values.items():
+            checker.equal("Table5/%s/%s" % (country, header), compiler.evaluate("Statistics_mode!%s" % index_cell(country, header)), value)
+    for offset, country in enumerate(RANKED):
+        row = TOPSIS_FIRST_ROW + offset
+        checker.equal("TOPSIS/%s/closeness" % country, compiler.evaluate("TOPSIS!AB%d" % row), result["ranking"][country]["TOPSIS_closeness"])
+    weight_row = TOPSIS_FIRST_ROW + len(RANKED) - 1 + 4
+    for layer_offset, (layer, weight) in enumerate(result["entropy_weights"].items()):
+        checker.equal("TOPSIS/weight %s" % layer, compiler.evaluate("TOPSIS!%s%d" % (_letter(2 + layer_offset), weight_row)), weight)
+    spearman_row = TOPSIS_FIRST_ROW + len(RANKED) - 1 + 8
+    checker.equal("TOPSIS/Spearman", compiler.evaluate("TOPSIS!B%d" % spearman_row), result["spearman_ADMI_TOPSIS"])
+
+
+def _letter(column):
+    from openpyxl.utils import get_column_letter
+    return get_column_letter(column)
 
 
 def check_diagnostic_situations(compiler, checker):
     for offset, (name, expected) in enumerate(diagnostic_situations().items()):
         row = 4 + offset
-        checker.equal("Table6/%s/base" % name, round(compiler.evaluate("Diagnostic_situations!I%d" % row), 4), expected["base_index"])
-        checker.equal("Table6/%s/ADMI" % name, round(compiler.evaluate("Diagnostic_situations!L%d" % row), 4), expected["final_index"])
-        checker.equal("Table6/%s/level" % name, compiler.evaluate("Diagnostic_situations!M%d" % row), expected["level"])
-        checker.equal("Table6/%s/scalar" % name, round(compiler.evaluate("Diagnostic_situations!N%d" % row), 4), expected["scalar_with_DM_I"])
-        checker.equal("Table6/%s/scalar level" % name, compiler.evaluate("Diagnostic_situations!O%d" % row), expected["scalar_level"])
+        checker.equal("Table4/%s/base" % name, round(compiler.evaluate("Diagnostic_situations!I%d" % row), 4), expected["base_index"])
+        checker.equal("Table4/%s/ADMI" % name, round(compiler.evaluate("Diagnostic_situations!L%d" % row), 4), expected["final_index"])
+        checker.equal("Table4/%s/level" % name, compiler.evaluate("Diagnostic_situations!M%d" % row), expected["level"])
+        checker.equal("Table4/%s/scalar" % name, round(compiler.evaluate("Diagnostic_situations!N%d" % row), 4), expected["scalar_with_DM_I"])
+        checker.equal("Table4/%s/scalar level" % name, compiler.evaluate("Diagnostic_situations!O%d" % row), expected["scalar_level"])
 
 
 def check_boundary_band(compiler, checker):
@@ -130,7 +154,7 @@ def check_experiment_sample(compiler, formulas, checker):
         return ((responses[:, start:start + count] - 1) / 4).mean(axis=1)
 
     layers = np.column_stack([block(layer, count) for layer, count in ITEMS_PER_LAYER.items()])
-    integration = block("I", 3)
+    integration = block("I", ITEMS_INTEGRATION)
     base_index, final_index = admi(layers, **CALIBRATED_PARAMETERS)
     base_level = maturity_level(base_index)
     final_level = maturity_level(final_index)

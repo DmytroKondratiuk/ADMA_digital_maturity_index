@@ -1,0 +1,476 @@
+{
+ "version": "2.0",
+ "class": "dataset",
+ "label": "Artificial intelligence by NACE Rev. 2 activity",
+ "source": "ESTAT",
+ "updated": "2026-06-15T11:00:00+0200",
+ "value": {
+  "169": 15.79,
+  "171": 15.19,
+  "157": 11.86,
+  "159": 13.1,
+  "173": 13.57,
+  "175": 13.33,
+  "72": 0.74,
+  "74": 0.76,
+  "88": 2.81,
+  "90": 2.98,
+  "76": 0.88,
+  "78": 1.32,
+  "82": 1.01,
+  "84": 2.58,
+  "86": 3.81,
+  "113": 1.58,
+  "114": 2.56,
+  "115": 3.94,
+  "97": 2.69,
+  "98": 3.37,
+  "99": 4.07,
+  "109": 2.52,
+  "110": 3.22,
+  "111": 4.14,
+  "121": 0.81,
+  "122": 1.1,
+  "123": 1.72,
+  "105": 2.48,
+  "106": 3.17,
+  "107": 4.29,
+  "101": 3.83,
+  "102": 5.07,
+  "103": 6.83,
+  "117": 1.89,
+  "118": 3.23,
+  "119": 4.38,
+  "125": 0.92,
+  "126": 1.27,
+  "127": 1.6,
+  "133": 3.77,
+  "135": 9.5,
+  "161": 1.41,
+  "163": 2.22,
+  "177": 0.64,
+  "179": 1.79,
+  "153": 2.72,
+  "155": 7.2,
+  "137": 41.9,
+  "139": 50.44,
+  "145": 35.48,
+  "147": 43.8,
+  "141": 34.64,
+  "143": 42.44,
+  "165": 0.66,
+  "167": 1.47,
+  "149": 46.87,
+  "151": 54.15,
+  "129": 4.1,
+  "131": 9.42,
+  "93": 4.93,
+  "94": 7.71,
+  "95": 9.9,
+  "193": 4.07,
+  "194": 5.5,
+  "195": 8.25,
+  "197": 2.08,
+  "198": 2.44,
+  "199": 4.28,
+  "201": 0.9,
+  "202": 1.25,
+  "203": 2.22,
+  "52": 0.85,
+  "181": 1.32,
+  "182": 1.66,
+  "183": 3.69,
+  "185": 1.24,
+  "186": 1.78,
+  "187": 2.39,
+  "68": 0.34,
+  "64": 0.97,
+  "65": 1.69,
+  "66": 1.83,
+  "67": 2.33,
+  "60": 0.79,
+  "61": 0.84,
+  "62": 0.72,
+  "63": 0.78,
+  "56": 0.89,
+  "44": 1.46,
+  "45": 0.99,
+  "46": 1.99,
+  "47": 4.12,
+  "48": 1.95,
+  "49": 2.04,
+  "50": 1.67,
+  "51": 2.22,
+  "189": 0.41,
+  "190": 0.76,
+  "191": 1.39,
+  "28": 5.04,
+  "29": 5.42,
+  "30": 6.79,
+  "31": 12.47,
+  "24": 1.09,
+  "25": 1.13,
+  "26": 0.85,
+  "27": 0.98,
+  "36": 1.94,
+  "37": 2.18,
+  "38": 3.09,
+  "39": 7.05,
+  "40": 0.81,
+  "41": 1.22,
+  "42": 1.58,
+  "43": 4.21,
+  "12": 1.3,
+  "13": 1.67,
+  "14": 1.68,
+  "15": 2.24,
+  "16": 1.21,
+  "17": 1.18,
+  "18": 1.83,
+  "19": 2.15,
+  "8": 0.52,
+  "9": 0.84,
+  "10": 2.1,
+  "11": 4.61,
+  "20": 2.12,
+  "21": 2.24,
+  "22": 2.16,
+  "23": 2.78,
+  "251": 6.01,
+  "4": 0.9,
+  "5": 0.97,
+  "6": 1.64,
+  "7": 3.77,
+  "0": 1.12,
+  "1": 1.36,
+  "2": 2.74,
+  "3": 6.29,
+  "32": 88.31,
+  "33": 91.99,
+  "34": 91.39,
+  "35": 86.43,
+  "213": 2.07,
+  "215": 5.51,
+  "209": 1.46,
+  "211": 1.97,
+  "217": 1.76,
+  "219": 4.64,
+  "205": 0.15,
+  "207": 0.43
+ },
+ "id": [
+  "freq",
+  "size_emp",
+  "nace_r2",
+  "indic_is",
+  "unit",
+  "geo",
+  "time"
+ ],
+ "size": [
+  1,
+  1,
+  1,
+  63,
+  1,
+  1,
+  4
+ ],
+ "dimension": {
+  "freq": {
+   "label": "Time frequency",
+   "category": {
+    "index": {
+     "A": 0
+    },
+    "label": {
+     "A": "Annual"
+    }
+   }
+  },
+  "size_emp": {
+   "label": "Size classes in number of persons employed",
+   "category": {
+    "index": {
+     "GE10": 0
+    },
+    "label": {
+     "GE10": "10 persons employed or more"
+    }
+   }
+  },
+  "nace_r2": {
+   "label": "Statistical classification of economic activities in the European Community (NACE Rev. 2)",
+   "category": {
+    "index": {
+     "C10-C12": 0
+    },
+    "label": {
+     "C10-C12": "Manufacture of food products; beverages and tobacco products"
+    }
+   }
+  },
+  "indic_is": {
+   "label": "Information society indicator",
+   "category": {
+    "index": {
+     "E_AI_TTM": 0,
+     "E_AI_TSR": 1,
+     "E_AI_TNLG": 2,
+     "E_AI_TIR": 3,
+     "E_AI_TML": 4,
+     "E_AI_TPA": 5,
+     "E_AI_TAR": 6,
+     "E_AI_TANY": 7,
+     "E_AI_TX": 8,
+     "E_AI_TGE2": 9,
+     "E_AI_TGE3": 10,
+     "E_AI_PMS": 11,
+     "E_AI_PPP": 12,
+     "E_AI_PBA": 13,
+     "E_AI_PME": 14,
+     "E_AI_PLOG": 15,
+     "E_AI_PITS": 16,
+     "E_AI_PHR": 17,
+     "E_AI_ADOWN": 18,
+     "E_AI_AMOWN": 19,
+     "E_AI_AOS": 20,
+     "E_AI_ARDY": 21,
+     "E_AI_AEXT": 22,
+     "E_AI_EC": 23,
+     "E_AI_BCST": 24,
+     "E_AI_BLE": 25,
+     "E_AI_BINC": 26,
+     "E_AI_BDDT": 27,
+     "E_AI_BCDP": 28,
+     "E_AI_BLEG": 29,
+     "E_AI_BEC": 30,
+     "E_AI_BNU": 31,
+     "E_AI_DA": 32,
+     "E_AI_CC": 33,
+     "E_AI_CC1SI_DASANY": 34,
+     "E_AI_CC1SI_DASGE3": 35,
+     "E_AI_CC1SI_DASANY2": 36,
+     "E_AI_CC1SI_DA_ANY": 37,
+     "E_AI_CC1SI_DA": 38,
+     "E_AIX_CC1SI_DA": 39,
+     "E_AI_CC1SIX_DA": 40,
+     "E_AI_CC1SI_DAX": 41,
+     "E_AIX_CC1SIX_DA": 42,
+     "E_AIX_CC1SI_DAX": 43,
+     "E_AI_CC1SIX_DAX": 44,
+     "E_AI_PBAM": 45,
+     "E_AI_PFIN": 46,
+     "E_AI_PRDI": 47,
+     "E_AI_P1ANY": 48,
+     "E_AI_P1GE2": 49,
+     "E_AI_P1GE3": 50,
+     "E_DI3_VLO_AI_TANY": 51,
+     "E_DI3_LO_AI_TANY": 52,
+     "E_DI3_HI_AI_TANY": 53,
+     "E_DI3_VHI_AI_TANY": 54,
+     "E_AI_PDI": 55,
+     "E_AI_BIAS": 56,
+     "E_AI_BIAS_ADOWN": 57,
+     "E_AI_BIAS_AMOWN": 58,
+     "E_AI_BIAS_AOS": 59,
+     "E_AI_BIAS_ARDY": 60,
+     "E_AI_BIAS_AEXT": 61,
+     "E_AI_TPVSG": 62
+    },
+    "label": {
+     "E_AI_TTM": "Enterprises using AI technologies performing analysis of written language (text mining)",
+     "E_AI_TSR": "Enterprises using AI technologies converting spoken language into machine-readable format (speech recognition)",
+     "E_AI_TNLG": "Enterprises using AI technologies generating written or spoken language or programming codes (natural language generation, speech synthesis)",
+     "E_AI_TIR": "Enterprises using AI technologies identifying objects or persons based on images (image recognition, image processing)",
+     "E_AI_TML": "Enterprises using machine learning (e.g. deep learning) for data analysis",
+     "E_AI_TPA": "Enterprises using AI technologies automating different workflows or assisting in decision making (AI based software robotic process automation)",
+     "E_AI_TAR": "Enterprises using AI technologies enabling physical movement of machines via autonomous decisions based on observation of surroundings (autonomous robots, self-driving vehicles, autonomous drones)",
+     "E_AI_TANY": "Enterprises using at least one of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+     "E_AI_TX": "Enterprises don't use any of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+     "E_AI_TGE2": "Enterprises using at least two of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+     "E_AI_TGE3": "Enterprises using at least three of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+     "E_AI_PMS": "Enterprises using AI technologies for marketing or sales",
+     "E_AI_PPP": "Enterprises using AI technologies for production processes",
+     "E_AI_PBA": "Enterprises using AI technologies for organisation of business administration processes",
+     "E_AI_PME": "Enterprises using AI technologies for management of enterprises",
+     "E_AI_PLOG": "Enterprises using AI technologies for logistics",
+     "E_AI_PITS": "Enterprises using AI technologies for ICT security",
+     "E_AI_PHR": "Enterprises using AI technologies for human resources management or recruiting",
+     "E_AI_ADOWN": "Enterprises' AI technologies were developed by own employees",
+     "E_AI_AMOWN": "Enterprises' AI technologies were commercial software or systems modified by own employees",
+     "E_AI_AOS": "Enterprises' AI technologies were open-source software or systems modified by own employees",
+     "E_AI_ARDY": "Enterprises' AI technologies were commercial software or systems ready to use",
+     "E_AI_AEXT": "Enterprises' AI technologies were  developed or modified by external providers",
+     "E_AI_EC": "Enterprises that ever considered to use one of the AI technologies: AI_TTM, AI_TSR, AI_TNLG, AI_TIR, AI_TML, AI_TPA, AI_TAR, E_AI_TPVSG",
+     "E_AI_BCST": "Enterprises do not use AI technologies, because the costs seem too high",
+     "E_AI_BLE": "Enterprises do not use AI technologies, because of a lack of relevant expertise",
+     "E_AI_BINC": "Enterprises do not use AI technologies, because of incompatibility with existing equipment, software or systems",
+     "E_AI_BDDT": "Enterprises do not use AI technologies, because of difficulties with availability or quality of the necessary data",
+     "E_AI_BCDP": "Enterprises do not use AI technologies, because of concerns regarding violation of data protection and privacy",
+     "E_AI_BLEG": "Enterprises do not use AI technologies, because of a lack of clarity about the legal consequences",
+     "E_AI_BEC": "Enterprises do not use AI technologies, because of ethical considerations",
+     "E_AI_BNU": "Enterprises do not use AI technologies, because artificial Intelligence technologies are not useful for Enterprise",
+     "E_AI_DA": "Enterprises use AI technologies and perform data analytics",
+     "E_AI_CC": "Enterprises use AI technologies and buy any cloud computing services used over the internet",
+     "E_AI_CC1SI_DASANY": "Enterprises use AI technologies or buy sophisticated or intermediate cloud computing services or perform data analytics on data from any source",
+     "E_AI_CC1SI_DASGE3": "Enterprises use AI technologies or buy sophisticated or intermediate cloud computing services or perform data analytics on data from at least three sources",
+     "E_AI_CC1SI_DASANY2": "Enterprises use AI technologies or buy sophisticated or intermediate cloud computing services or perform data analytics on data from any source among E_DASWEB, E_DASLOC, E_DASSDS, E_DASGOV and E_DASSAT",
+     "E_AI_CC1SI_DA_ANY": "Enterprises use AI technologies or buy sophisticated or intermediate cloud computing services or perform data analytics",
+     "E_AI_CC1SI_DA": "Enterprises use AI technologies and buy sophisticated or intermediate cloud computing services and perform data analytics",
+     "E_AIX_CC1SI_DA": "Enterprises buy sophisticated or intermediate cloud computing services and perform data analytics, but don't use AI technologies",
+     "E_AI_CC1SIX_DA": "Enterprises use AI technologies and perform data analytics, but don't buy sophisticated or intermediate cloud computing services",
+     "E_AI_CC1SI_DAX": "Enterprises use AI technologies and buy sophisticated or intermediate cloud computing services, but don't perform data analytics",
+     "E_AIX_CC1SIX_DA": "Enterprises perform data analytics, but don't use AI technologies and don't buy sophisticated or intermediate cloud computing services",
+     "E_AIX_CC1SI_DAX": "Enterprises buy sophisticated or intermediate cloud computing services, but don't use AI technologies and don't perform data analytics",
+     "E_AI_CC1SIX_DAX": "Enterprises use AI technologies, but don't buy sophisticated or intermediate cloud computing services and don't perform data analytics",
+     "E_AI_PBAM": "Enterprises using AI technologies for organisation of business administration processes or management",
+     "E_AI_PFIN": "Enterprises using AI technologies for accounting, controlling or finance management",
+     "E_AI_PRDI": "Enterprises using AI technologies for research and development (R&D) or innovation activity",
+     "E_AI_P1ANY": "Enterprises using AI technologies for at least one of the purposes: AI_PMS, AI_PPP, AI_PBAM, AI_PLOG, AI_PITS, AI_PFIN, AI_PRDI",
+     "E_AI_P1GE2": "Enterprises using AI technologies for at least two of the purposes: AI_PMS, AI_PPP, AI_PBAM, AI_PLOG, AI_PITS, AI_PFIN, AI_PRDI",
+     "E_AI_P1GE3": "Enterprises using AI technologies for at least three of the purposes: AI_PMS, AI_PPP, AI_PBAM, AI_PLOG, AI_PITS, AI_PFIN, AI_PRDI",
+     "E_DI3_VLO_AI_TANY": "Enterprises with very low digital intensity index, which use any artificial intelligence technology",
+     "E_DI3_LO_AI_TANY": "Enterprises with low digital intensity index, which use any artificial intelligence technology",
+     "E_DI3_HI_AI_TANY": "Enterprises with high digital intensity index, which use any artificial intelligence technology",
+     "E_DI3_VHI_AI_TANY": "Enterprises with very high digital intensity index, which use any artificial intelligence technology",
+     "E_AI_PDI": "Enterprises which process data on individuals using AI technologies",
+     "E_AI_BIAS": "Enterprises which have measures to check the results generated by AI technologies for possible biases towards individuals",
+     "E_AI_BIAS_ADOWN": "Enterprises which have measures to check the results generated by AI for possible biases towards individuals, and their AI technologies were developed by own employees",
+     "E_AI_BIAS_AMOWN": "Enterprises which have measures to check the results generated by AI for possible biases towards individuals, and their AI technologies were commercial software or systems modified by own employees",
+     "E_AI_BIAS_AOS": "Enterprises which have measures to check the results generated by AI for possible biases towards individuals, and their AI technologies were open-source software or systems modified by own employees",
+     "E_AI_BIAS_ARDY": "Enterprises which have measures to check the results generated by AI for possible biases towards individuals, and their AI technologies were purchased commercial software or systems ready to use",
+     "E_AI_BIAS_AEXT": "Enterprises which have measures to check the results generated by AI for possible biases towards individuals, and their AI technologies were developed or modified by external providers",
+     "E_AI_TPVSG": "Enterprises using AI technologies generating pictures, videos, sound/audio"
+    }
+   }
+  },
+  "unit": {
+   "label": "Unit of measure",
+   "category": {
+    "index": {
+     "PC_ENT": 0
+    },
+    "label": {
+     "PC_ENT": "Percentage of enterprises"
+    }
+   }
+  },
+  "geo": {
+   "label": "Geopolitical entity (reporting)",
+   "category": {
+    "index": {
+     "EU27_2020": 0
+    },
+    "label": {
+     "EU27_2020": "European Union - 27 countries (from 2020)"
+    }
+   }
+  },
+  "time": {
+   "label": "Time",
+   "category": {
+    "index": {
+     "2021": 0,
+     "2023": 1,
+     "2024": 2,
+     "2025": 3
+    },
+    "label": {
+     "2021": "2021",
+     "2023": "2023",
+     "2024": "2024",
+     "2025": "2025"
+    }
+   }
+  }
+ },
+ "extension": {
+  "lang": "EN",
+  "id": "ISOC_EB_AIN2",
+  "agencyId": "ESTAT",
+  "version": "1.0",
+  "datastructure": {
+   "id": "ISOC_EB_AIN2",
+   "agencyId": "ESTAT",
+   "version": "21.0"
+  },
+  "annotation": [
+   {
+    "type": "CREATED",
+    "date": "2022-12-08T09:14:15+0100"
+   },
+   {
+    "type": "DISSEMINATION_DOI_XML",
+    "title": "<adms:identifier xmlns:adms=\"http://www.w3.org/ns/adms#\" xmlns:skos=\"http://www.w3.org/2004/02/skos/core.html\" xmlns:dct=\"http://purl.org/dc/terms/\" xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"><adms:Identifier rdf:about=\"https://doi.org/10.2908/ISOC_EB_AIN2\"><skos:notation rdf:datatype=\"http://purl.org/spar/datacite/doi\">10.2908/ISOC_EB_AIN2</skos:notation><dct:creator rdf:resource=\"http://publications.europa.eu/resource/authority/corporate-body/ESTAT\"/><dct:issued rdf:datatype=\"http://www.w3.org/2001/XMLSchema#date\">2022-12-08</dct:issued></adms:Identifier></adms:identifier>"
+   },
+   {
+    "type": "DISSEMINATION_OBJECT_TYPE",
+    "title": "DATASET"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_GLOBAL",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "DISSEMINATION_TIMESTAMP_PLANNED",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "ESMS_HTML",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/cache/metadata/en/isoc_e_esms.htm"
+   },
+   {
+    "type": "ESMS_SDMX",
+    "title": "Explanatory texts (metadata)",
+    "href": "https://ec.europa.eu/eurostat/api/dissemination/files?file=metadata/isoc_e_esms.sdmx.zip"
+   },
+   {
+    "type": "OBS_COUNT",
+    "title": "580454"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_LATEST",
+    "title": "2025"
+   },
+   {
+    "type": "OBS_PERIOD_OVERALL_OLDEST",
+    "title": "2021"
+   },
+   {
+    "type": "SOURCE_INSTITUTIONS",
+    "text": "Eurostat"
+   },
+   {
+    "type": "UPDATE_DATA",
+    "date": "2026-06-15T11:00:00+0200"
+   },
+   {
+    "type": "UPDATE_STRUCTURE",
+    "date": "2025-12-11T11:00:00+0100"
+   }
+  ],
+  "positions-with-no-data": {
+   "freq": [],
+   "size_emp": [],
+   "nace_r2": [],
+   "indic_is": [
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+   ],
+   "unit": [],
+   "geo": [],
+   "time": []
+  }
+ }
+}

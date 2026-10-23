@@ -1,9 +1,9 @@
 """Generate the synthetic questionnaire responses used in the computational experiment.
 
 Writes one CSV per response scenario to data/generated/. Each row is one simulated enterprise
-with 19 Likert answers (1..5) in questionnaire order:
-  C_1..C_3, L1_1..L1_2, L2_1..L2_3, L3_1..L3_3, L4_1..L4_3 (operational layers),
-  I_1..I_3 (integration, DM_I), S_1..S_2 (strategy, DM_S).
+with 21 Likert answers (1..5) in questionnaire order:
+  C_1..C_3, L1_1..L1_3, L2_1..L2_3, L3_1..L3_3, L4_1..L4_3 (operational layers),
+  I_1..I_3 (integration, DM_I), S_1..S_3 (strategy, DM_S).
 
 The files are part of the repository, so this script only needs to be run to regenerate them.
 The generator is seeded; regenerating gives byte-identical files.
