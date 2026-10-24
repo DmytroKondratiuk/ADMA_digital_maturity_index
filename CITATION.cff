@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this replication package, please cite it as below."
+type: software
+title: "ADMA: weak-link penalisation in agri-food digital maturity assessment (replication package)"
+abstract: >-
+  Replication package for the paper "Benchmarking agri-food digital maturity without masking the weak link":
+  original Eurostat and Derzhstat data for food processing (NACE C10-C12), scripts that reproduce every number
+  of the paper, and an Excel workbook with hand-checkable calculations. Documentation, workbook and results
+  in English and Ukrainian.
+authors:
+  - family-names: Kondratiuk
+    given-names: Dmytro
+    orcid: "https://orcid.org/0009-0004-7220-3568"
+version: 1.0.0
+date-released: 2026-10-24
+doi: 10.5281/zenodo.23624274
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23624274
+    description: Zenodo concept DOI, all versions (resolves to the latest one)
+  - type: doi
+    value: 10.5281/zenodo.23624275
+    description: Zenodo DOI of version 1.0.0
+repository-code: "https://github.com/DmytroKondratiuk/ADMA_digital_maturity_index"
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - digital maturity
+  - agri-food
+  - food processing
+  - composite index
+  - weak-link penalty
+  - Eurostat
+  - Ukraine
+references:
+  - type: article
+    title: "Benchmarking agri-food digital maturity without masking the weak link"
+    authors:
+      - family-names: Kondratiuk
+        given-names: Dmytro
+        orcid: "https://orcid.org/0009-0004-7220-3568"
+    status: in-press
