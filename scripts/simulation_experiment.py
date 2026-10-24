@@ -12,7 +12,7 @@ The profiles are synthetic: they describe the behaviour of the instrument over t
 response space, not the state of real enterprises.
 
 Usage:  python scripts/simulation_experiment.py
-Output: results/simulation_experiment.json and a printed summary.
+Output: results/simulation_experiment.json (Ukrainian copy: simulation_experiment_ua.json) and a printed summary.
 Runtime: about one minute (2 x 100 000 profiles, 99 parameter combinations).
 """
 
@@ -30,6 +30,7 @@ from adma_index import (  # noqa: E402
     MODEL_ADJUSTED_BOUNDS, THEORETICAL_BOUNDS, admi, maturity_level, mazziotta_pareto, penalty)
 
 from generate_profiles import GENERATED_DATA, RESPONSE_SCENARIOS, SEED, column_names  # noqa: E402
+from translations_ua import write_ukrainian_results  # noqa: E402
 
 RESULTS_PATH = Path(__file__).resolve().parent.parent / "results" / "simulation_experiment.json"
 
@@ -290,6 +291,7 @@ def main():
         }
     RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
     RESULTS_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    ukrainian_path = write_ukrainian_results(RESULTS_PATH, report)
 
     example = report["worked_example"]
     print("Worked example: ADMI_base %.3f (level %d) -> penalty %.3f -> ADMI %.3f (level %d)" % (
@@ -304,6 +306,7 @@ def main():
                   100 * p2["share_illusion_of_maturity"], 100 * p2["share_of_illusions_kept_at_level_3plus_by_scalar"],
                   100 * p3["min_agreement"], 100 * p3["mean_agreement"]))
     print("Saved:", RESULTS_PATH)
+    print("Saved:", ukrainian_path)
 
 
 if __name__ == "__main__":

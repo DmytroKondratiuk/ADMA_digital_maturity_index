@@ -6,7 +6,7 @@ every value that differs from the stored data. Differences are expected over tim
 data and add survey years. The paper is based on the stored files (downloaded 9 October 2026).
 
 Usage:  python scripts/statistics_mode_api.py
-Output: data/api_snapshot/<date>/..., results/statistics_mode_api.json, printed comparison.
+Output: data/api_snapshot/<date>/..., results/statistics_mode_api.json (and statistics_mode_api_ua.json), printed comparison.
 """
 
 import json
@@ -22,6 +22,7 @@ from data_sources import (  # noqa: E402
     UKRSTAT_STRUCTURE_ACCEPT, UKRSTAT_STRUCTURE_URL, build_matrix, download, eurostat_datasets, read_matrix,
     ukrstat_indicators, write_matrix)
 from statistics_mode_local import TABLE_ROWS, compute_statistics_mode, print_table  # noqa: E402
+from translations_ua import write_ukrainian_results  # noqa: E402
 
 COMPARED_FIELDS = ["ADMI_base", "penalty", "ADMI", "level", "DM_I", "DM_S"]
 
@@ -79,6 +80,7 @@ def main():
     output_path = REPOSITORY_ROOT / "results" / "statistics_mode_api.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=1), encoding="utf-8")
+    ukrainian_path = write_ukrainian_results(output_path, output)
     print_table(fresh, "\nStatistics mode, live API data (%s)" % date.today().isoformat())
     if differences:
         print("\nDifferences from the stored data used in the paper:")
@@ -87,6 +89,7 @@ def main():
     else:
         print("\nNo differences: the live API data reproduce the stored data used in the paper.")
     print("Saved:", output_path)
+    print("Saved:", ukrainian_path)
 
 
 if __name__ == "__main__":

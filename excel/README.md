@@ -1,6 +1,7 @@
 # ADMA workbook: hand-checkable calculations of the paper
 
 Every number on the calculation sheets is an Excel formula. Yellow cells are inputs you may change; blue cells are values copied from official sources (each with its link). Changing the yellow cells on Parameters recalculates every sheet.
+A Ukrainian version with the same cells and formulas is excel/ADMA_workbook_ua.xlsx.
 
 ## Sheets and the paper
 

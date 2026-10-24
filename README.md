@@ -1,23 +1,28 @@
 # ADMA: weak-link penalisation in agri-food digital maturity assessment
 
+*Українська версія: [README_ua.md](README_ua.md)*
+
 Replication package for the paper
 
 > Kondratiuk, D. (forthcoming), "Benchmarking agri-food digital maturity without masking the weak link".
 
 The repository contains every statistical input of the paper in its original form, the scripts that compute all reported numbers, and the outputs they produce.
 
+The documentation, the workbook and the result files are available in English and Ukrainian; Ukrainian files carry the suffix `_ua` (`README_ua.md`, `excel/ADMA_workbook_ua.xlsx`, `results/*_ua.json`).
+
 ## Two ways to check the results
 
 - **No programming:** open `excel/ADMA_workbook.xlsx`. Every calculation that can be checked by hand is written there as live Excel formulas: an ADMI calculator for the 21-statement questionnaire, the worked example, Tables 5 and 6 with all source values and links, the TOPSIS ranking, Table 4, equation (7) and the first 1 000 profiles of the experiment row by row. See its README sheet.
 - **Full reproduction:** run the Python scripts below. They reproduce every number of the paper, including the full experiment on 2 x 100 000 profiles.
 
-`scripts/verify_workbook.py` evaluates the workbook formulas with an independent engine and checks 7 533 values against the Python results; they agree exactly.
+`scripts/verify_workbook.py` evaluates the workbook formulas with an independent engine and checks 7 533 values of each workbook (English and Ukrainian) against the Python results; they agree exactly.
 
 ## Contents
 
 ```
 excel/
   ADMA_workbook.xlsx       hand-checkable calculations as Excel formulas
+  ADMA_workbook_ua.xlsx    the same workbook in Ukrainian (same cells and formulas)
 data/
   raw/                     original files from Eurostat and the State Statistics Service of Ukraine
     eurostat/
@@ -38,9 +43,10 @@ scripts/
   data_sources.py          indicator pairs, statement mapping, API addresses, matrix builder
   statistics_mode_local.py statistics mode on the stored data, proposition P4 (Tables 5 and 6, Supplementary Table S3)
   statistics_mode_api.py   the same on data downloaded live from the official APIs
-  build_workbook.py        builds excel/ADMA_workbook.xlsx from data/ and results/
-  verify_workbook.py       checks that the Excel formulas give the same numbers as Python
-results/                   outputs of the scripts as used in the paper
+  build_workbook.py        builds excel/ADMA_workbook.xlsx and excel/ADMA_workbook_ua.xlsx from data/ and results/
+  verify_workbook.py       checks that the Excel formulas of both workbooks give the same numbers as Python
+  translations_ua.py       Ukrainian labels of the workbook and of the result files
+results/                   outputs of the scripts as used in the paper; *_ua.json are the Ukrainian copies
 ```
 
 ## Requirements
@@ -55,7 +61,7 @@ python -m pip install -r requirements.txt
 
 ## Reproducing the paper
 
-Run the scripts from the repository root.
+Run the scripts from the repository root. Next to every result file the scripts write a Ukrainian copy `<name>_ua.json`: the keys and codes are the same, text values (descriptions, strength of correspondence) are in Ukrainian.
 
 **1. Computational experiment (P1–P3).** Under a minute.
 
@@ -94,8 +100,8 @@ Downloads the same slices from the Eurostat API and the Derzhstat data bank into
 **4. Excel workbook (optional).**
 
 ```bash
-python scripts/build_workbook.py    # rebuild excel/ADMA_workbook.xlsx
-python scripts/verify_workbook.py   # compare its formulas with the Python results (about 30 s)
+python scripts/build_workbook.py    # rebuild excel/ADMA_workbook.xlsx and excel/ADMA_workbook_ua.xlsx
+python scripts/verify_workbook.py   # compare their formulas with the Python results (about 1 min)
 ```
 
 ## Level classification at exact ties

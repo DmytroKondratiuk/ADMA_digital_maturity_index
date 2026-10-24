@@ -1,5 +1,7 @@
 # Data
 
+*Українська версія: [README_ua.md](README_ua.md)*
+
 All files in `raw/` are stored exactly as delivered by the official sources; nothing was edited. `raw/MANIFEST.json` lists every file with its source URL, download date, size and SHA-256 checksum. `matrix.csv` and `indicators_metadata.json` are derived from `raw/eurostat/ict_c10_c12/` and `raw/ukrstat/ict_c10_c12/` by the scripts.
 
 All statistics-mode series are restricted to manufacture of food products, beverages and tobacco products (NACE Rev. 2 C10–C12 / KVED 10–12), enterprises with 10 or more persons employed, expressed as a percentage of enterprises. Countries: EU-27 aggregate, Germany (reference country), nine CEE countries (PL, HU, RO, CZ, SK, LT, LV, EE, BG) and Ukraine. The leader is the EU-27 member state with the highest published value for the year used; the EU-27 aggregate is not part of the leader pool.

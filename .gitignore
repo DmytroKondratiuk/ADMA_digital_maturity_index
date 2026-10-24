@@ -3,4 +3,5 @@ __pycache__/
 .DS_Store
 data/api_snapshot/
 results/statistics_mode_api.json
+results/statistics_mode_api_ua.json
 ~$*.xlsx

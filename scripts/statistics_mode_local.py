@@ -13,7 +13,7 @@ Reads data/raw/eurostat/ict_c10_c12/ and data/raw/ukrstat/ict_c10_c12/ (the stor
 identical to data/matrix.csv. Works offline.
 
 Usage:  python scripts/statistics_mode_local.py
-Output: results/statistics_mode_local.json and a printed version of Tables 5 and 6.
+Output: results/statistics_mode_local.json (Ukrainian copy: statistics_mode_local_ua.json) and a printed version of Tables 5 and 6.
 """
 
 import json
@@ -27,6 +27,7 @@ from adma_index import CALIBRATED_PARAMETERS, maturity_level, penalty  # noqa: E
 from data_sources import (  # noqa: E402
     CEE_COUNTRIES, EU_AGGREGATE, LAYERS, MATRIX_PATH, OUTSIDE_INDEX, RAW_DATA, REFERENCE_COUNTRY,
     REPOSITORY_ROOT, STATEMENT, STRENGTH, build_matrix, parse_value, read_matrix)
+from translations_ua import write_ukrainian_results  # noqa: E402
 
 TABLE_ROWS = [EU_AGGREGATE, REFERENCE_COUNTRY] + CEE_COUNTRIES + ["UA"]
 RANKED = CEE_COUNTRIES + ["UA"]
@@ -222,8 +223,10 @@ def main():
     result = compute_statistics_mode(stored)
     RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
     RESULTS_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
+    ukrainian_path = write_ukrainian_results(RESULTS_PATH, result)
     print_table(result, "Statistics mode, stored data (data/raw/{eurostat,ukrstat}/ict_c10_c12, downloaded 9 October 2026)")
     print("Saved:", RESULTS_PATH)
+    print("Saved:", ukrainian_path)
 
 
 if __name__ == "__main__":
