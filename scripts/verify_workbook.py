@@ -1,4 +1,5 @@
-"""Check that the Excel formulas of excel/ADMA_workbook.xlsx give the same numbers as the Python scripts.
+"""Check that the Excel formulas of excel/ADMA_workbook.xlsx and excel/ADMA_workbook_ua.xlsx give the same numbers
+as the Python scripts.
 
 The workbook formulas are evaluated with pycel (an independent Excel formula engine), and every
 result is compared with the Python implementation:
@@ -6,7 +7,7 @@ result is compared with the Python implementation:
   Boundary_band (equation 7) and all rows of Experiment_sample.
 
 Usage:  python scripts/verify_workbook.py     (requires openpyxl and pycel)
-Exit code 0 if every value agrees within 1e-9, 1 otherwise.
+Exit code 0 if every value of both workbooks agrees within 1e-9, 1 otherwise.
 """
 
 import sys
@@ -25,8 +26,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from adma_index import CALIBRATED_PARAMETERS, ITEMS_INTEGRATION, ITEMS_PER_LAYER, ITEMS_STRATEGY, admi, maturity_level, penalty  # noqa: E402
 from build_workbook import (  # noqa: E402
-    INDEX_COLUMNS, OUTPUT_PATH, SAMPLE_SIZE, STATISTICS_FIRST_ROW, STATISTICS_INDICATORS, TOPSIS_FIRST_ROW, WORKED_EXAMPLE_ANSWERS,
-    index_cell)
+    SAMPLE_SIZE, STATISTICS_FIRST_ROW, STATISTICS_INDICATORS, TOPSIS_FIRST_ROW, WORKBOOKS, WORKED_EXAMPLE_ANSWERS, index_cell, ref,
+    sample_label, set_language, sheet_name, tr)
 from data_sources import read_matrix  # noqa: E402
 from generate_profiles import GENERATED_DATA, column_names  # noqa: E402
 from simulation_experiment import boundary_band, diagnostic_situations  # noqa: E402
@@ -57,8 +58,8 @@ def find_row(sheet, column, label):
     raise KeyError(label)
 
 
-def check_calculator(compiler, formulas, checker, sheet_name):
-    sheet = formulas[sheet_name]
+def check_calculator(compiler, formulas, checker, name):
+    sheet = formulas[sheet_name(name)]
     answers = np.array(WORKED_EXAMPLE_ANSWERS)
     normalised = (answers - 1) / 4
     starts = {}
@@ -69,20 +70,20 @@ def check_calculator(compiler, formulas, checker, sheet_name):
     layers = np.array([normalised[start:start + count].mean() for block, (start, count) in starts.items() if block in ITEMS_PER_LAYER])
     base_index, final_index = admi(layers, **CALIBRATED_PARAMETERS)
     expected = {
-        "ADMI_base (eq. 3)": base_index[0],
+        tr("ADMI_base (eq. 3)"): base_index[0],
         "DM_min": layers.min(),
-        "Penalty P (eq. 4)": float(penalty(layers.min(), **CALIBRATED_PARAMETERS)),
-        "ADMI (eq. 5)": final_index[0],
-        "Level by ADMI_base": int(maturity_level(base_index)[0]),
-        "Level by ADMI": int(maturity_level(final_index)[0]),
-        "DM_I (integration, outside the index)": normalised[starts["I"][0]:starts["I"][0] + ITEMS_INTEGRATION].mean(),
-        "DM_S (strategy, outside the index)": normalised[starts["S"][0]:starts["S"][0] + ITEMS_STRATEGY].mean(),
+        tr("Penalty P (eq. 4)"): float(penalty(layers.min(), **CALIBRATED_PARAMETERS)),
+        tr("ADMI (eq. 5)"): final_index[0],
+        tr("Level by ADMI_base"): int(maturity_level(base_index)[0]),
+        tr("Level by ADMI"): int(maturity_level(final_index)[0]),
+        tr("DM_I (integration, outside the index)"): normalised[starts["I"][0]:starts["I"][0] + ITEMS_INTEGRATION].mean(),
+        tr("DM_S (strategy, outside the index)"): normalised[starts["S"][0]:starts["S"][0] + ITEMS_STRATEGY].mean(),
     }
     for layer, value in zip(ITEMS_PER_LAYER, layers):
-        expected["DM_%s (eq. 2)" % layer] = value
+        expected[tr("DM_%s (eq. 2)") % layer] = value
     for label, value in expected.items():
         row = find_row(sheet, 3, label)
-        checker.equal("%s/%s" % (sheet_name, label), compiler.evaluate("%s!D%d" % (sheet_name, row)), value)
+        checker.equal("%s/%s" % (name, label), compiler.evaluate("%sD%d" % (ref(name), row)), value)
 
 
 def check_statistics_mode(compiler, checker):
@@ -91,11 +92,11 @@ def check_statistics_mode(compiler, checker):
     result = compute_statistics_mode(list(matrix.values()))
     for offset, code in enumerate(STATISTICS_INDICATORS):
         row = STATISTICS_FIRST_ROW + offset
-        checker.equal("Table5/%s/leader" % code, compiler.evaluate("Statistics_mode!G%d" % row), matrix[code]["leader_country"])
-        checker.equal("Table5/%s/leader value" % code, compiler.evaluate("Statistics_mode!H%d" % row), result["years_and_leaders"][code]["leader_value"])
+        checker.equal("Table5/%s/leader" % code, compiler.evaluate(ref("Statistics_mode") + "G%d" % row), matrix[code]["leader_country"])
+        checker.equal("Table5/%s/leader value" % code, compiler.evaluate(ref("Statistics_mode") + "H%d" % row), result["years_and_leaders"][code]["leader_value"])
         for country_offset, country in enumerate(TABLE_ROWS):
             expected = result["indicator_scores"][code][country]
-            excel_value = compiler.evaluate("Statistics_mode!%s%d" % (_letter(9 + country_offset), row))
+            excel_value = compiler.evaluate("%s%s%d" % (ref("Statistics_mode"), _letter(9 + country_offset), row))
             if expected is None:
                 checker.equal("Table5/%s/%s" % (code, country), excel_value, "")
             else:
@@ -108,15 +109,15 @@ def check_statistics_mode(compiler, checker):
             values["Rank ADMI"] = result["ranking"][country]["ADMI_rank"]
             values["Rank TOPSIS"] = result["ranking"][country]["TOPSIS_rank"]
         for header, value in values.items():
-            checker.equal("Table5/%s/%s" % (country, header), compiler.evaluate("Statistics_mode!%s" % index_cell(country, header)), value)
+            checker.equal("Table5/%s/%s" % (country, header), compiler.evaluate(ref("Statistics_mode") + index_cell(country, header)), value)
     for offset, country in enumerate(RANKED):
         row = TOPSIS_FIRST_ROW + offset
-        checker.equal("TOPSIS/%s/closeness" % country, compiler.evaluate("TOPSIS!AB%d" % row), result["ranking"][country]["TOPSIS_closeness"])
+        checker.equal("TOPSIS/%s/closeness" % country, compiler.evaluate(ref("TOPSIS") + "AB%d" % row), result["ranking"][country]["TOPSIS_closeness"])
     weight_row = TOPSIS_FIRST_ROW + len(RANKED) - 1 + 4
     for layer_offset, (layer, weight) in enumerate(result["entropy_weights"].items()):
-        checker.equal("TOPSIS/weight %s" % layer, compiler.evaluate("TOPSIS!%s%d" % (_letter(2 + layer_offset), weight_row)), weight)
+        checker.equal("TOPSIS/weight %s" % layer, compiler.evaluate("%s%s%d" % (ref("TOPSIS"), _letter(2 + layer_offset), weight_row)), weight)
     spearman_row = TOPSIS_FIRST_ROW + len(RANKED) - 1 + 8
-    checker.equal("TOPSIS/Spearman", compiler.evaluate("TOPSIS!B%d" % spearman_row), result["spearman_ADMI_TOPSIS"])
+    checker.equal("TOPSIS/Spearman", compiler.evaluate(ref("TOPSIS") + "B%d" % spearman_row), result["spearman_ADMI_TOPSIS"])
 
 
 def _letter(column):
@@ -127,22 +128,22 @@ def _letter(column):
 def check_diagnostic_situations(compiler, checker):
     for offset, (name, expected) in enumerate(diagnostic_situations().items()):
         row = 4 + offset
-        checker.equal("Table4/%s/base" % name, round(compiler.evaluate("Diagnostic_situations!I%d" % row), 4), expected["base_index"])
-        checker.equal("Table4/%s/ADMI" % name, round(compiler.evaluate("Diagnostic_situations!L%d" % row), 4), expected["final_index"])
-        checker.equal("Table4/%s/level" % name, compiler.evaluate("Diagnostic_situations!M%d" % row), expected["level"])
-        checker.equal("Table4/%s/scalar" % name, round(compiler.evaluate("Diagnostic_situations!N%d" % row), 4), expected["scalar_with_DM_I"])
-        checker.equal("Table4/%s/scalar level" % name, compiler.evaluate("Diagnostic_situations!O%d" % row), expected["scalar_level"])
+        checker.equal("Table4/%s/base" % name, round(compiler.evaluate(ref("Diagnostic_situations") + "I%d" % row), 4), expected["base_index"])
+        checker.equal("Table4/%s/ADMI" % name, round(compiler.evaluate(ref("Diagnostic_situations") + "L%d" % row), 4), expected["final_index"])
+        checker.equal("Table4/%s/level" % name, compiler.evaluate(ref("Diagnostic_situations") + "M%d" % row), expected["level"])
+        checker.equal("Table4/%s/scalar" % name, round(compiler.evaluate(ref("Diagnostic_situations") + "N%d" % row), 4), expected["scalar_with_DM_I"])
+        checker.equal("Table4/%s/scalar level" % name, compiler.evaluate(ref("Diagnostic_situations") + "O%d" % row), expected["scalar_level"])
 
 
 def check_boundary_band(compiler, checker):
     for offset, expected in enumerate(boundary_band(**CALIBRATED_PARAMETERS)):
         row = 4 + offset
         checker.equal("Band/b=%s,DMmin=%s/width" % (expected["bound"], expected["layer_minimum"]),
-                      round(compiler.evaluate("Boundary_band!F%d" % row), 4), expected["band_width"])
+                      round(compiler.evaluate(ref("Boundary_band") + "F%d" % row), 4), expected["band_width"])
 
 
 def check_experiment_sample(compiler, formulas, checker):
-    sheet = formulas["Experiment_sample"]
+    sheet = formulas[sheet_name("Experiment_sample")]
     header_row = 8
     headers = {sheet.cell(row=header_row, column=column).value: sheet.cell(row=header_row, column=column).column_letter
                for column in range(1, sheet.max_column + 1)}
@@ -168,14 +169,17 @@ def check_experiment_sample(compiler, formulas, checker):
     for offset in range(SAMPLE_SIZE):
         row = header_row + 1 + offset
         for header, values in expected_columns.items():
-            checker.equal("Sample/row %d/%s" % (offset + 1, header), compiler.evaluate("Experiment_sample!%s%d" % (headers[header], row)), values[offset])
+            checker.equal("Sample/row %d/%s" % (offset + 1, header), compiler.evaluate("%s%s%d" % (ref("Experiment_sample"), headers[sample_label(header)], row)), values[offset])
 
 
-def main():
-    if not OUTPUT_PATH.exists():
-        sys.exit("Workbook not found; run scripts/build_workbook.py first.")
-    compiler = ExcelCompiler(filename=str(OUTPUT_PATH))
-    formulas = load_workbook(str(OUTPUT_PATH))
+def verify(code):
+    """Number of disagreements in the workbook of one language."""
+    set_language(code)
+    path = WORKBOOKS[code][0]
+    if not path.exists():
+        sys.exit("Workbook %s not found; run scripts/build_workbook.py first." % path.name)
+    compiler = ExcelCompiler(filename=str(path))
+    formulas = load_workbook(str(path))
     checker = Checker()
     check_calculator(compiler, formulas, checker, "Calculator")
     check_calculator(compiler, formulas, checker, "Worked_example")
@@ -183,11 +187,16 @@ def main():
     check_diagnostic_situations(compiler, checker)
     check_boundary_band(compiler, checker)
     check_experiment_sample(compiler, formulas, checker)
-    print("Checked %d values." % checker.checked)
+    print("%s: checked %d values." % (path.name, checker.checked))
     if checker.failures:
         print("%d disagreements:" % len(checker.failures))
         for failure in checker.failures[:50]:
             print("  " + failure)
+    return len(checker.failures)
+
+
+def main():
+    if sum(verify(code) for code in WORKBOOKS):
         sys.exit(1)
     print("All Excel formulas agree with the Python scripts.")
 
