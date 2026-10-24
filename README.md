@@ -1,5 +1,7 @@
 # ADMA: weak-link penalisation in agri-food digital maturity assessment
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23624274.svg)](https://doi.org/10.5281/zenodo.23624274)
+
 *Українська версія: [README_ua.md](README_ua.md)*
 
 Replication package for the paper
@@ -120,6 +122,12 @@ Indicator definitions in the two surveys are harmonised (Regulation (EU) 2019/21
 - The simulation profiles are synthetic. They describe the behaviour of the index over the whole response space, not the state of real enterprises.
 - The penalty parameters α = 0.40 and δ = 0.375 come from a separate calibration on a system dynamics model of enterprise digital transformation (Kondratiuk, 2026, doi: 10.70286/ISU-07.10.2026.013; model: doi: 10.5281/zenodo.19979159). The model works with layer scores, not with questionnaire items, so the calibration does not depend on the number of statements per block. That model is not part of this package.
 - The farm-level figures for NACE section A quoted in the paper (robotics and precision farming) are taken directly from the cited sources (Eurostat `ef_mp_digi`, Derzhstat `DF_AGR_MACHINERY_AVAILABILITY`) and are not part of this package.
+
+## Citation
+
+Archived on Zenodo: [doi:10.5281/zenodo.23624274](https://doi.org/10.5281/zenodo.23624274). Version 1.0.0: [doi:10.5281/zenodo.23624275](https://doi.org/10.5281/zenodo.23624275). Citation metadata are in `CITATION.cff` (GitHub shows them under "Cite this repository").
+
+> Kondratiuk, D. (2026). *ADMA: weak-link penalisation in agri-food digital maturity assessment (replication package)* (Version 1.0.0) [Software and data]. Zenodo. https://doi.org/10.5281/zenodo.23624274
 
 ## Licence
 
